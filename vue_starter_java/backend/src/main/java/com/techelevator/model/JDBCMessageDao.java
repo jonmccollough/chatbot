@@ -26,7 +26,10 @@ public class JDBCMessageDao implements MessageDao {
 		
 		Message response = new Message();
 		
+		results.next();
+		
 		if(results != null) {
+			
 			response.setResponse(results.getString("answer"));
 		}
 

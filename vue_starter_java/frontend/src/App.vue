@@ -1,23 +1,19 @@
 <template>
   <div id="app">
-
-    <chatbot>
-      </chatbot>
-  <!--  <div id="nav">
-      
-      <router-link to="/">Home</router-link>
-    </div>
-    <router-view/> -->
+    <home/>
+    <chatbot/>
   </div>
 </template>
 
 <script>
 import chatbot from '@/components/chatbot.vue';
+import home from '@/views/Home';
 
 export default {
 name: 'app',
 components: {
-  chatbot
+  chatbot,
+  home,
 },  
 data (){
 
