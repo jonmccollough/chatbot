@@ -15,8 +15,8 @@
        </section>
        
         <section class = "chat-bot" ref="chatbot">
-         <div class = "chat-box-list-container">
-            <ul class = "chat-bot-list">
+         <div class = "chat-box-list-container" >
+            <ul class = "chat-bot-list" >
         
                       <li class="message"
                         v-for="{message, index} in messages" 
@@ -93,8 +93,19 @@ export default {
 
 <style lang="scss" scoped>
 
+
+body {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(360deg, rgba(0, 176, 240,1) 0%, rgba(255,255, 255, 0) 100%);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
 .chat-bot,
-.chat-bot-list{
+.chat-bot-list-container{
     display: flex;
     flex-direction: column;
     list-style-type: none ;
@@ -126,8 +137,6 @@ export default {
  width: 50vw;
 
 }
-body {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(360deg, rgba(0, 176, 240,1) 0%, rgba(255,255, 255, 0) 100%);
-}
+
+
 </style>
