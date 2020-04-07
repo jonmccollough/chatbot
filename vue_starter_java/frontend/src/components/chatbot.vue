@@ -1,21 +1,20 @@
 <template>
 
     <section class ="chat-bot">
-         
-        <div class = "chat-bot-list">
-           
-            <ul class ="content">
-                <li class="message"
-                 v-for="{message, index} in messages" 
-                 :key="index">
+         <div class = "chat-box-list-container">
+            <ul class = "chat-bot-list">
+        
+                      <li class="message"
+                        v-for="{message, index} in messages" 
+                        :key="index">
                     <p>
                         <span>{{ message }}</span>
                     </p>
-                </li>
-            </ul>
-        </div>
-
-        <div class = "input is-info">
+                           </li>
+                     </ul>
+             </div>
+        
+        <div class = "chat-inputs">
             <input type="text"
             v-model="message"
             @keyup.enter="sendMessage" class = "input is-info" />
@@ -66,7 +65,7 @@ export default {
 .chat-bot-list{
     display: flex;
     flex-direction: column;
-    list-style-type:none ;
+    list-style-type: none ;
     overflow: scroll;
 }
 .chat-bot{
@@ -84,6 +83,14 @@ export default {
          input {
             line-height: 5;
             width: 100%;
+            border: 1px solid #999;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+        }
+        button {
+            width: 140px;
         }
     
 }
