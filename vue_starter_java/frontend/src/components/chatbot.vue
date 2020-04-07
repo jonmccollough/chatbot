@@ -50,5 +50,24 @@ export default {
 </script>
 
 <style>
+.chat-bot-list{
+    display: flex;
+    flex-direction: column;
+    list-style-type:none ;
+}
+.chat-bot{
+    border: 1px solid #999;
+    width: 50vw;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chat-inputs{
+    
+        line-height: 3;
+        width: 100%;
+    
+}
+
 
 </style>
