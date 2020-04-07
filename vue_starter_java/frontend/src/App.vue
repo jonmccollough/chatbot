@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+    <home/>
     <chatbot>
       </chatbot>
   <!--  <div id="nav">
@@ -13,11 +13,13 @@
 
 <script>
 import chatbot from '@/components/chatbot.vue';
+import home from '@/views/Home';
 
 export default {
 name: 'app',
 components: {
-  chatbot
+  chatbot,
+  home,
 },  
 data (){
 
