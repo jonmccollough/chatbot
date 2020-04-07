@@ -6,10 +6,11 @@ import './../node_modules/bulma/css/bulma.css';
 
 Vue.config.productionTip = false
 
+
 new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
 
-
-Vue.prototype.$axios = axios
+Vue.prototype.$http = axios;
+Vue.prototype.axios = axios;
