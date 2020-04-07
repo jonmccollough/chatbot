@@ -27,6 +27,7 @@
 
 
 <script>
+import axios from 'axios'
 
 export default {
     name: 'chatbot',
@@ -42,14 +43,16 @@ export default {
             this.messages.push({
                 message
             })
-             this.message = '';
+            this.message = '';
         
-            this.$axios.get('https://api.kanye.rest')
+            axios.get('https://catfact.ninja/fact')
             .then(res =>{
-                   
-                       console.log(res.data.json());
-                        
-                    
+
+
+                this.messages.push({
+                    message: res.data.fact
+                })
+                
             })
             this.$nextTick(() => {
                 this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
