@@ -1,13 +1,7 @@
 <template>
   <div id="app">
     <home/>
-    <chatbot>
-      </chatbot>
-  <!--  <div id="nav">
-      
-      <router-link to="/">Home</router-link>
-    </div>
-    <router-view/> -->
+    <chatbot/>
   </div>
 </template>
 
