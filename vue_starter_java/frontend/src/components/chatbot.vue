@@ -61,16 +61,27 @@ export default {
               
             })
             this.message = '';
-        
-            axios.get('https://catfact.ninja/fact')
-            .then(res =>{
 
+            axios.get('https://type.fit/api/quotes')
+            .then(res => {
+
+                let quote = Math.floor(Math.random() * 1642);
 
                 this.messages.push({
-                    message: res.data.fact
+                    message: '"' + res.data[quote].text + '" -' + res.data[quote].author
                 })
                 
             })
+            // CAT FACTS CONNECTION
+            // axios.get('https://catfact.ninja/fact')
+            // .then(res =>{
+
+
+            //     this.messages.push({
+            //         message: res.data.fact
+            //     })
+                
+            // })
             this.$nextTick(() => {
                 this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
             }) 
