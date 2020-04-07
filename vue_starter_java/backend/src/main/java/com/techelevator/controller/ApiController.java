@@ -5,6 +5,9 @@ import com.techelevator.authentication.UnauthorizedException;
 import com.techelevator.model.Message;
 import com.techelevator.model.MessageDao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +30,23 @@ public class ApiController {
     @Autowired
     private MessageDao messageDao;
     
-    @GetMapping("/{keyword}")
+    @GetMapping("/keyword/{keyword}")
 	public Message searchForResponse(@PathVariable String keyword) {
 		return messageDao.searchByKeyword(keyword);
 	}
+    
+    @GetMapping("/options")
+	public List<Message> viewOptions() {
+		List<String> keywordsRaw = messageDao.listAvailableKeywords();
+		List<Message> options = new ArrayList<Message>();
+		for(String word : keywordsRaw) {
+			Message newMessage = new Message();
+			newMessage.setResponse(word);
+			options.add(newMessage);
+		}
+		return options;
+	}
+    
+    
     
 }

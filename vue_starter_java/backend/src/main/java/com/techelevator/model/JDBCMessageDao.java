@@ -1,5 +1,8 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,22 @@ public class JDBCMessageDao implements MessageDao {
 		}
 
 		return response;
+	}
+
+	@Override
+	public List<String> listAvailableKeywords() {
+		
+		String sqlSelectAll = "SELECT words FROM keywords";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAll);
+		
+		List<String> allKeywords = new ArrayList<String>();
+		
+		while(results.next()) {
+			allKeywords.add(results.getString("words"));
+		}
+		
+		return allKeywords;
 	}
 
 }
