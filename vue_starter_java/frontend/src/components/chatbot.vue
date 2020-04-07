@@ -1,20 +1,25 @@
 <template>
+
     <section class ="chat-bot">
-        <div class = "chat-bot-box-container">
-            <ul class ="chat-bot-list">
-                <li class="message" v-for="{message, index} in messages" :key="index">
+         
+        <div class = "chat-bot-list">
+           
+            <ul class ="content">
+                <li class="message"
+                 v-for="{message, index} in messages" 
+                 :key="index">
                     <p>
-                        <span>${{message.text}}</span>
+                        <span>{{ message }}</span>
                     </p>
                 </li>
             </ul>
         </div>
 
-        <div class = "chat-inputs">
+        <div class = "input is-info">
             <input type="text"
             v-model="message"
-            @keyup.enter="sendMessage" />
-            <button @click="sendMessage">Send</button>
+            @keyup.enter="sendMessage" class = "input is-info" />
+            <button @click="sendMessage" class="button is-success">Send</button>
         </div>
     </section>
 </template>
@@ -22,50 +27,64 @@
 
 
 <script>
+
 export default {
-    name: 'ChatBot',
-    data: () => ({
+    name: 'chatbot',
+    data: () =>({
         message: '',
         messages: []
     }),
 
     methods: {
         sendMessage(){
-            this.messages.push({
-                text: this.currentMessage,
-                author: 'client'
-            }),
+                const message = this.message;
 
-            this.$axios.get('https://catfact.ninja/fact?max_length=140')
-            .then(res =>{
-                    this.messages.push({
-                        text: res.data.output,
-                        author: 'server'
-                    })
+            this.messages.push({
+                message
             })
+             this.message = '';
+        
+            this.$axios.get('https://api.kanye.rest')
+            .then(res =>{
+                   
+                       console.log(res.data.json());
+                        
+                    
+            })
+            this.$nextTick(() => {
+                this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
+            }) 
         }
     }
 
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+.chat-bot,
 .chat-bot-list{
     display: flex;
     flex-direction: column;
     list-style-type:none ;
+    overflow: scroll;
 }
 .chat-bot{
     border: 1px solid #999;
     width: 50vw;
+    height: 50vh;
     border-radius: 4px;
     margin-left: auto;
     margin-right: auto;
+    align-items: space-between;
 }
 .chat-inputs{
-    
-        line-height: 3;
-        width: 100%;
+        display: flex;
+        
+         input {
+            line-height: 5;
+            width: 100%;
+        }
     
 }
 
