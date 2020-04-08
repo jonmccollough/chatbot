@@ -56,24 +56,50 @@ export default {
     methods: {
         sendMessage(){
                 const message = this.message;
+                // const token = localStorage.data.id;
+
+
 
             this.messages.push({
                 text: message,
                 writer: 'client'
-            })
+            });
             this.message = '';
 
-            axios.get('https://type.fit/api/quotes')
-            .then(res => {
-
-                let quote = Math.floor(Math.random() * 1642);
+            axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
+            .then((res) => {
 
                 this.messages.push({
-                    text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
-                    writer: 'server'
-                })
-                
+                text: res.data[0].response,
+                writer: 'server',
+
+            })})
+            .catch(error => console.error(error));
+            
+
+                        this.$nextTick(() => {
+                this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
             })
+            
+        
+        
+        }
+    }
+    
+}
+
+
+            // axios.get('https://type.fit/api/quotes')
+            // .then(res => {
+
+            //     let quote = Math.floor(Math.random() * 1642);
+
+            //     this.messages.push({
+            //         text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
+            //         writer: 'server'
+            //     })
+                
+            // })
             // CAT FACTS CONNECTION
             // axios.get('https://catfact.ninja/fact')
             // .then(res =>{
@@ -84,13 +110,7 @@ export default {
             //     })
                 
             // })
-            this.$nextTick(() => {
-                this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
-            }) 
-        }
-    }
 
-}
 </script>
 
 <style lang="scss" scoped>
