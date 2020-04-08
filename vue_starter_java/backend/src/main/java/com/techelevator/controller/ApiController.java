@@ -1,6 +1,8 @@
 package com.techelevator.controller;
 
 import com.techelevator.authentication.AuthProvider;
+import com.techelevator.authentication.JwtAuthInterceptor;
+import com.techelevator.authentication.JwtTokenHandler;
 import com.techelevator.authentication.UnauthorizedException;
 import com.techelevator.model.Message;
 import com.techelevator.model.MessageDao;
