@@ -21,6 +21,7 @@ import JobSearch from '@/components/JobSearch.vue';
 import chatbot from '@/components/chatbot.vue'
 import Vue from 'vue';
 
+
 export default {
   name: 'home',
 
@@ -33,6 +34,7 @@ export default {
   },
 
   components: {
+    // eslint-disable-next-line vue/no-unused-components
     JobSearch,
     chatbot
   },
