@@ -16,16 +16,16 @@
         <section class = "chat-bot" ref="chatbot">
          <div class = "chat-box-list-container" >
             <ul class = "chat-bot-list" >
-        
-                      <li class="message"
-                        v-for="(message, index) in messages" 
-                        :key="index"
-                        :class="message.writer">
-                    <p>
-                        <span class="is-family-monospace">{{ message.text }}</span>
-                    </p>
-                           </li>
-                     </ul>
+                <li class = 'message server'><p>Hi there, nice to meet you! What's your name?</p><li>
+                <li class="message"
+                    v-for="(message, index) in messages" 
+                    :key="index"
+                    :class="message.writer">
+                        <p>
+                            <span class="is-family-monospace">{{ message.text }}</span>
+                        </p>
+                </li>
+            </ul>
              </div>
         </section> 
         <div class = "chat-inputs">
@@ -47,7 +47,8 @@ export default {
     name: 'chatbot',
     data: () =>({
         message: '',
-        messages: []
+        messages: [],
+        userName: ''
     }),
 
     methods: {
@@ -55,16 +56,19 @@ export default {
                 const message = this.message;
                 // const token = localStorage.data.id;
 
+            if(!this.userName){
+                this.userName = message;
 
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
 
-            this.messages.push({
-                text: message,
-                writer: 'client'
-            });
-            this.message = '';
-
-            axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
-            .then((res) => {
+                this.messages.push({
+                    text: `Thanks, ${this.userName}, what can I do for you?`,
+                    writer: 'server'
+                });
+            } else {
 
                 if(!res.data[0].matchingMultipleKeywords && res.data[0].containsKeyword){
                     this.messages.push({
@@ -96,7 +100,7 @@ export default {
                 this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
             })
             
-        
+            }
         
         }
     }
