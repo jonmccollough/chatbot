@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     
-    <chatbot/>
+    <router-view/>
+
   </div>
 
 </template>
