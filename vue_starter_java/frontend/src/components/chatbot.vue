@@ -53,8 +53,7 @@ export default {
 
     methods: {
         sendMessage(){
-                const message = this.message;
-                // const token = localStorage.data.id;
+            const message = this.message;
 
             if(!this.userName){
                 this.userName = message;
@@ -68,13 +67,37 @@ export default {
                     text: `Thanks, ${this.userName}, what can I do for you?`,
                     writer: 'server'
                 });
-            } else {
+            } else if (message.includes('quote')){
+                
+                this.messages.push({
+                    text:message,
+                    writer:'client'
+                });
 
+                axios.get('https://type.fit/api/quotes')
+                .then(res => {
+
+                    let quote = Math.floor(Math.random() * 1642);
+
+                     if (res.data[quote].author == null) {
+                         this.messages.push({
+                             text: '"' + res.data[quote].text + '" -Unknown',
+                             writer: 'server'
+                        });
+                    } else {
+                        this.messages.push({
+                            text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
+                            writer: 'server'
+                        });
+                    }
+                })
+                .catch(err => console.error(err));
+            } else {
+                
                 this.messages.push({
                     text: message,
                     writer: 'client'
                 });
-                this.message = '';
 
                 axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
                 .then((res) => {
@@ -92,27 +115,12 @@ export default {
                 })
             
             }
+            this.message = '';
         
         }
     }
     
 }
-            // axios.get('https://type.fit/api/quotes')
-            // .then(res => {
-
-            //     let quote = Math.floor(Math.random() * 1642);
-
-            //      if (res.data[quote].author == null) {
-            //          this.messages.push({
-            //              text: '"' + res.data[quote].text + '" -Unknown',
-            //              writer: 'server'
-            //           })
-            //      } else {
-            //          this.messages.push({
-            //              text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
-            //              writer: 'server'
-            //          })
-            //      }
             
             // CAT FACTS CONNECTION
             // axios.get('https://catfact.ninja/fact')
