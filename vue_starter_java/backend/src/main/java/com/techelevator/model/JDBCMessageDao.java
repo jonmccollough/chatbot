@@ -55,4 +55,44 @@ public class JDBCMessageDao implements MessageDao {
 		return allKeywords;
 	}
 
+	@Override
+	public boolean containsAKeyword(String userMessage) {
+
+		boolean keywordCheck = false;
+		
+		String noSpaces = userMessage.replaceAll("\\s","");
+		
+		String allDown = noSpaces.toLowerCase();
+		
+		List<String> keywords = listAvailableKeywords();
+		
+		for(String word : keywords) {
+			if (allDown.contains(word)) {
+				keywordCheck = true;
+			}
+		}
+
+		return keywordCheck;
+	}
+
+	@Override
+	public List<String> scanStringForKeywords(String userMessage) {
+		
+		List<String> matchingKeywords = new ArrayList<String>();
+		
+		String noSpaces = userMessage.replaceAll("\\s","");
+		
+		String allDown = noSpaces.toLowerCase();
+		
+		List<String> keywords = listAvailableKeywords();
+		
+		for(String word : keywords) {
+			if (allDown.contains(word)) {
+				matchingKeywords.add(word);
+			}
+		}
+		
+		return matchingKeywords;
+	}
+
 }

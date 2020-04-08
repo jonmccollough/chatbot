@@ -8,4 +8,8 @@ public interface MessageDao {
 	
 	public List<String> listAvailableKeywords();
 	
+	public boolean containsAKeyword(String userMessage);
+	
+	public List<String> scanStringForKeywords(String userMessage);
+	
 }

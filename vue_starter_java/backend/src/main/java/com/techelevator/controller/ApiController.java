@@ -31,7 +31,7 @@ public class ApiController {
     private MessageDao messageDao;
     
     @GetMapping("/keyword/{keyword}")
-	public Message searchForResponse(@PathVariable String keyword) {
+	public Message searchByParticularKeyword(@PathVariable String keyword) {
 		return messageDao.searchByKeyword(keyword);
 	}
     
@@ -45,6 +45,38 @@ public class ApiController {
 			options.add(newMessage);
 		}
 		return options;
+	}
+    
+    @GetMapping("/call/{input}")
+	public List<Message> searchByString(@PathVariable String input) {
+    	
+    	List<Message> responses = new ArrayList<Message>();
+    	
+    	if(messageDao.containsAKeyword(input)) {
+    		List<String> matches = messageDao.scanStringForKeywords(input);
+    		if (matches.size() > 1) {
+    			for(String word : matches ) {
+        			Message addition = new Message();
+        			addition.setContainsKeyword(true);
+        			addition.setMatchingMultipleKeywords(true);
+        			addition.setResponse(word);
+        			responses.add(addition);
+        		}
+    		} else if (matches.size() == 1) {
+    			Message dbAnswer = messageDao.searchByKeyword(matches.get(0));
+    			dbAnswer.setContainsKeyword(true);
+    			dbAnswer.setMatchingMultipleKeywords(false);
+    			responses.add(dbAnswer);
+    		}
+    	} else {
+    		Message noAnswer = new Message();
+    		noAnswer.setResponse(null);
+    		noAnswer.setContainsKeyword(false);
+    		noAnswer.setMatchingMultipleKeywords(false);
+    		responses.add(noAnswer);
+    	}
+    	
+		return responses;
 	}
     
     
