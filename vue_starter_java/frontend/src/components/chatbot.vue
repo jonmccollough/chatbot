@@ -66,15 +66,33 @@ export default {
             axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
             .then((res) => {
 
-                this.messages.push({
-                text: res.data[0].response,
-                writer: 'server',
+                if(!res.data[0].matchingMultipleKeywords && res.data[0].containsKeyword){
+                    this.messages.push({
+                    text: res.data[0].response,
+                    writer: 'server',
+                })}
 
-            })})
+                if(res.data[0].matchingMultipleKeywords){
+                    let concatted = 'Sorry, could you be a little more specific? Try typing one of these words: ';
+                    res.data.forEach(element => {
+                    concatted = concatted + " " + (element.response);
+                });
+                    this.messages.push({
+                    text: concatted,
+                    writer: 'server',
+                    })
+                }
+                
+                if(!res.data[0].containsKeyword){
+                    this.messages.push({
+                    text: "Sorry! I didn't quite get that. Could you try saying that again?",
+                    writer: 'server',
+                })}
+            })
             .catch(error => console.error(error));
             
 
-                        this.$nextTick(() => {
+                this.$nextTick(() => {
                 this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
             })
             
