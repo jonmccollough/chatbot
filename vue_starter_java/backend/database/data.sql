@@ -11,7 +11,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('intro', (SELECT id FROM respons
 INSERT INTO responses (answer, title) VALUES ('Alright, what do you need help with in pathway?', 'pathway');
 INSERT INTO keywords (words, keywordid) VALUES ('pathway', (SELECT id FROM responses WHERE title = 'pathway'));
 
-INSERT INTO responses (answer, title) VALUES ('I found this [presentation on job searching](https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/V3hUskCIbjGr07f/Job%20Search%20Expectations%20Presentation.pdf) ', 'jobsearch');
+INSERT INTO responses (answer, title) VALUES ('I found this <a href="https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/V3hUskCIbjGr07f/Job%20Search%20Expectations%20Presentation.pdf"> presentation on job searching </a>', 'jobsearch');
 INSERT INTO keywords (words, keywordid) VALUES ('jobsearch', (SELECT id FROM responses WHERE title = 'jobsearch'));
 
 INSERT INTO responses (answer, title) VALUES ('I found this presentation to help with your resume: https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/KvilSu4GIG0hFux/Crafting%20a%20Killer%20Resume%20Presentation.pdf', 'resume');
