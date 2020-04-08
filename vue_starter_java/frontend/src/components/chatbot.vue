@@ -12,8 +12,7 @@
                        </h2>
                </div>
            </div>
-       </section>
-       
+       </section> 
         <section class = "chat-bot" ref="chatbot">
          <div class = "chat-box-list-container" >
             <ul class = "chat-bot-list" >
@@ -35,9 +34,7 @@
                 @keyup.enter="sendMessage" />
                 <button @click="sendMessage" class="button is-success">Send</button>
             </div>
-       
          </section>
-     
     </body>
 </template>
 
@@ -99,11 +96,7 @@ export default {
 body {
     background: white;
     background: radial-gradient(circle,rgba(0,176, 240, 1) 20%, rgba(255, 255, 255,1)  90%);
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    
+
 }
 
 .chat-bot,
@@ -118,33 +111,42 @@ body {
 .chat-bot-list{
     padding-left: 10px;
     padding-right: 10px;
+    background: white;
 
     .server{
+        margin-right: 25px;
         span{
+            max-width: 40vw;
+            
+                    }
+    p{
             background: green;
             color: white;
             padding: 8px;
             border-radius: 4px;
             opacity: 0.8;
-                    }
-    p{
-        text-align: left;
-        display: block;
+            border-bottom: none;
+            border-top-right-radius: 4px;
+            text-align: left;
+            display: block;
+            
        
     }
     }
     .client{
-
+        margin-left: 25px;
         span{
+           max-width: 40vw;
+        }
+        p{
             background: hsl(204, 86%, 53%);
             color: white;
             padding: 8px;
             border-radius: 4px;
             opacity: 0.8;
-        }
-        p{
             text-align: right;
             display: block;
+            
             
         }
     }
@@ -170,6 +172,11 @@ body {
 }
 .container{
  width: 50vw;
+
+}
+.message{
+background-color: white;
+border-radius: 12px;
 
 }
 
