@@ -1,14 +1,14 @@
 <template>
     <body>
     <section class ="container">
-       <section class="hero is-success is-bold">
+       <section class="hero is-small is-family-sans-serif" style="background-color:#00b0f0">
            <div class="hero-body">
                <div class="container">
-                   <h1 class="title">
-                       Tech Elevator
+                   <h1 class="title" style="color: white">
+                       TECH ELEVATOR
                    </h1>
-                   <h2 class="subtitle">
-                       Student chatbot
+                   <h2 class="subtitle" style="color: white">
+                       $tUd3nT Ch4tB0T
                        </h2>
                </div>
            </div>
@@ -19,10 +19,11 @@
             <ul class = "chat-bot-list" >
         
                       <li class="message"
-                        v-for="{message, index} in messages" 
-                        :key="index">
+                        v-for="(message, index) in messages" 
+                        :key="index"
+                        :class="message.writer">
                     <p>
-                        <span>{{ message }}</span>
+                        <span class="is-family-monospace">{{ message.text }}</span>
                     </p>
                            </li>
                      </ul>
@@ -57,8 +58,8 @@ export default {
                 const message = this.message;
 
             this.messages.push({
-                message,
-              
+                text: message,
+                writer: 'client'
             })
             this.message = '';
 
@@ -68,7 +69,8 @@ export default {
                 let quote = Math.floor(Math.random() * 1642);
 
                 this.messages.push({
-                    message: '"' + res.data[quote].text + '" -' + res.data[quote].author
+                    text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
+                    writer: 'server'
                 })
                 
             })
@@ -95,8 +97,8 @@ export default {
 
 
 body {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(360deg, rgba(0, 176, 240,1) 0%, rgba(255,255, 255, 0) 100%);
+    background: white;
+    background: radial-gradient(circle,rgba(0,176, 240, 1) 20%, rgba(255, 255, 255,1)  90%);
     height: 100%;
     width: 100%;
     margin: 0;
@@ -113,7 +115,40 @@ body {
     background: white;
     height: 50vh;
 }
+.chat-bot-list{
+    padding-left: 10px;
+    padding-right: 10px;
 
+    .server{
+        span{
+            background: green;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            opacity: 0.8;
+                    }
+    p{
+        text-align: left;
+        display: block;
+       
+    }
+    }
+    .client{
+
+        span{
+            background: hsl(204, 86%, 53%);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            opacity: 0.8;
+        }
+        p{
+            text-align: right;
+            display: block;
+            
+        }
+    }
+}
 
 .chat-bot{
     border: 1px solid #999;
