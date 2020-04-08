@@ -84,8 +84,6 @@ export default {
     }
     
 }
-
-
             // axios.get('https://type.fit/api/quotes')
             // .then(res => {
 
