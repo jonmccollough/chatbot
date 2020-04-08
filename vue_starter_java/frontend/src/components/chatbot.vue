@@ -65,11 +65,17 @@ export default {
 
                 let quote = Math.floor(Math.random() * 1642);
 
-                this.messages.push({
-                    text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
-                    writer: 'server'
-                })
-                
+                if (res.data[quote].author == null) {
+                    this.messages.push({
+                        text: '"' + res.data[quote].text + '" -Unknown',
+                        writer: 'server'
+                    })
+                } else {
+                    this.messages.push({
+                        text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
+                        writer: 'server'
+                    })
+                }
             })
             // CAT FACTS CONNECTION
             // axios.get('https://catfact.ninja/fact')
