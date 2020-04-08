@@ -1,5 +1,8 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,62 @@ public class JDBCMessageDao implements MessageDao {
 		}
 
 		return response;
+	}
+
+	@Override
+	public List<String> listAvailableKeywords() {
+		
+		String sqlSelectAll = "SELECT words FROM keywords";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAll);
+		
+		List<String> allKeywords = new ArrayList<String>();
+		
+		while(results.next()) {
+			allKeywords.add(results.getString("words"));
+		}
+		
+		return allKeywords;
+	}
+
+	@Override
+	public boolean containsAKeyword(String userMessage) {
+
+		boolean keywordCheck = false;
+		
+		String noSpaces = userMessage.replaceAll("\\s","");
+		
+		String allDown = noSpaces.toLowerCase();
+		
+		List<String> keywords = listAvailableKeywords();
+		
+		for(String word : keywords) {
+			if (allDown.contains(word)) {
+				keywordCheck = true;
+			}
+		}
+
+		return keywordCheck;
+	}
+
+	@Override
+	public List<String> scanStringForKeywords(String userMessage) {
+		
+		List<String> matchingKeywords = new ArrayList<String>();
+		
+		String noSpaces = userMessage.replaceAll("\\s","");
+		
+		String allDown = noSpaces.toLowerCase();
+		
+		List<String> keywords = listAvailableKeywords();
+		
+		for(String word : keywords) {
+			if (allDown.contains(word)) {
+				matchingKeywords.add(word);
+			}
+		}
+		
+		return matchingKeywords;
 	}
 
 }
