@@ -116,3 +116,23 @@ INSERT INTO responses (answer, title) VALUES ('Which area in the homework can I 
 INSERT INTO keywords (words, keywordid) VALUES ('homework', (SELECT id FROM responses WHERE title = 'homework'));
 INSERT INTO keywords (words, keywordid) VALUES ('studentexercise', (SELECT id FROM responses WHERE title = 'homework'));
 INSERT INTO keywords (words, keywordid) VALUES ('assignment', (SELECT id FROM responses WHERE title = 'homework'));
+
+INSERT INTO responses (answer, title) VALUES ('Try asking me about common topics at Tech Elevator. I know a little bit about the basics of coding, plus the Pathway program. For instance, try typing "interviewing" or "MVC".', 'help');
+INSERT INTO keywords (words, keywordid) VALUES ('help', (SELECT id FROM responses WHERE title = 'help'));
+INSERT INTO keywords (words, keywordid) VALUES ('whatcaniaskyou', (SELECT id FROM responses WHERE title = 'help'));
+
+INSERT INTO responses (answer, title) VALUES ('The three fundamentals of Object Orientated Programming are: polymorphism, encapsulation and inheritance.', 'OOP');
+INSERT INTO keywords (words, keywordid) VALUES ('fundamentals', (SELECT id FROM responses WHERE title = 'OOP'));
+INSERT INTO keywords (words, keywordid) VALUES ('oop', (SELECT id FROM responses WHERE title = 'OOP'));
+
+INSERT INTO responses (answer, title) VALUES ('API stands for Application Programming Interface. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/45-web-services/04-apis.html">Here is some more information.</a', 'API');
+INSERT INTO keywords (words, keywordid) VALUES ('api', (SELECT id FROM responses WHERE title = 'API'));
+
+INSERT INTO responses (answer, title) VALUES ('In object-oriented programming, polymorphism is the idea that something can be assigned a different meaning or usage based on the context it is referred to as. This specifically allows variables and objects to take on more than one form.', 'polymorphism');
+INSERT INTO keywords (words, keywordid) VALUES ('polymorphism', (SELECT id FROM responses WHERE title = 'polymorphism'));
+
+INSERT INTO responses (answer, title) VALUES ('Encapsulation language construct that facilitates the bundling of data with the methods (or other functions) operating on that data.', 'encapsulation');
+INSERT INTO keywords (words, keywordid) VALUES ('encapsulation', (SELECT id FROM responses WHERE title = 'encapsulation'));
+
+INSERT INTO responses (answer, title) VALUES ('Inheritance is the act of having one class adopt the properties and methods of another class. This prevents code duplication and allows you to share code across classes while having the source code live in only one class file.', 'inheritance');
+INSERT INTO keywords (words, keywordid) VALUES ('inheritance', (SELECT id FROM responses WHERE title = 'inheritance'));
