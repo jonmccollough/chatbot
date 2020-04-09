@@ -52,39 +52,51 @@
         </div>
       </div>
     </div>
-  </nav>
-  <section class="container">
-    <section class="hero is-small is-family-sans-serif is-info">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title" style="color: white">TECH ELEVATOR</h1>
-          <h2 class="subtitle" style="color: white">Student Chatbot</h2>
-        </div>
-      </div>
-    </section>
-    <section class="chat-bot" ref="chatbot">
-      <div class="chat-box-list-container">
-        <ul class="chat-bot-list">
-          <li class="message server">
-            <p>Hi there, nice to meet you! What's your name?</p>
-          </li>
-          <li></li>
-          <li
-            class="message"
-            v-for="(message, index) in messages"
-            :key="index"
-            :class="message.writer"
-          >
-            <p>
-              <span class="is-family-monospace" v-html="message.text"></span>
-            </p>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <div class="chat-inputs">
-      <input type="text" v-model="message" @keyup.enter="sendMessage" />
-      <button @click="sendMessage" class="button is-light">Send</button>
+  </div>
+</nav>
+    <section class ="container">
+       <section class="hero is-small is-family-sans-serif is-info">
+           <div class="hero-body">
+               <div class="container">
+                   <h1 class="title" style="color: white">
+                       TECH ELEVATOR
+                   </h1>
+                   <h2 class="subtitle" style="color: white">
+                       Student Chatbot
+                       </h2>
+               </div>
+           </div>
+       </section> 
+        <section class = "chat-bot"  ref="chatbot">
+         <div class = "chat-box-list-container"  >
+            <ul class = "chat-bot-list" >
+                <li class = 'message server'>
+                    <p>
+                        <span class="is-family-monospace">Hi there, nice to meet you! What's your name?</span>
+                    </p>
+                </li>
+                <li class="message"
+                    v-for="(message, index) in messages" 
+                    :key="index"
+                    :class="message.writer">
+                        <p>
+                            <span class="is-family-monospace" v-html="message.text"></span>
+                        </p> 
+                </li>
+            </ul>
+             </div>
+        </section> 
+        <div class = "chat-inputs">
+                <input type="text"
+                v-model="message"
+                @keyup.enter="sendMessage" />
+                <button @click="sendMessage" class="button is-light">Send</button>
+            </div>
+         </section>
+         <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+        <p class="has-text-success">remove me</p>
     </div>
   </section>
   <footer class="footer">
@@ -144,91 +156,198 @@
 
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "chatbot",
-  data: () => ({
-    message: "",
-    messages: [],
-    userName: ""
-  }),
+    name: 'chatbot',
+    data: () =>({
+        message: '',
+        messages: [],
+        userName: '',
+        jobType:'',
+        location:'',
+        state: ''
+    }),
 
-  methods: {
-    sendMessage() {
-      const message = this.message;
+    methods: {
+        sendMessage(){
+            const message = this.message;
 
-      if (!this.userName) {
-        this.userName = message;
+            if(!this.userName){
+                this.userName = message;
 
-        this.messages.push({
-          text: message,
-          writer: "client"
-        });
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
 
-        this.messages.push({
-          text: `Thanks, ${this.userName}, what can I do for you?`,
-          writer: "server"
-        });
-      } else if (message.includes("quote")) {
-        this.messages.push({
-          text: message,
-          writer: "client"
-        });
+                this.messages.push({
+                    text: `Thanks, ${this.userName}, what can I do for you?`,
+                    writer: 'server'
+                });
+            } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")){
+                
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
 
-        axios
-          .get("https://type.fit/api/quotes")
-          .then(res => {
-            let quote = Math.floor(Math.random() * 1642);
+                this.jobType = message;
 
-            if (res.data[quote].author == null) {
-              this.messages.push({
-                text: '"' + res.data[quote].text + '" -Unknown',
-                writer: "server"
-              });
+                this.messages.push({
+                    text: `Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`,
+                    writer: 'server'
+                });
+
+            } else if(this.messages[this.messages.length - 1].text.match(`Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`)){
+
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
+
+                const cityState = message.split(", ");
+                this.location = cityState[0];
+
+                if( cityState[1] == null || cityState[1].length != 2){
+                    console.log('got here');
+                    this.messages.push({
+                        text: 'Please provide the location in "City, State" format (PA, OH, VA, etc.)',
+                        writer: 'server'
+                    });
+
+                    this.location = '';
+
+                } else {
+                    this.state = cityState[1];
+                    this.sendMessage();
+                }
+
+
+            }else if (this.messages[this.messages.length - 1].text.match('Please provide the location in "City, State" format (PA, OH, VA, etc.)')){
+                
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
+
+                const cityState = message.split(", ");
+                this.location = cityState[0];
+
+                if( cityState[1] == null || cityState[1].length != 2){
+
+                    this.messages.push({
+                        text: "Sorry, let's try something else",
+                        writer: 'server'
+                    });
+
+                    this.location = '';
+
+                } else {
+                    this.state = cityState[1];
+                    this.sendMessage();
+                }
+
+            }else if(message.includes('quote')){
+                
+                this.messages.push({
+                    text:message,
+                    writer:'client'
+                });
+
+                axios.get('https://type.fit/api/quotes')
+                .then(res => {
+
+                    let quote = Math.floor(Math.random() * 1642);
+                    let auth = res.data[quote].author;
+
+                    if (auth == null) {
+                        auth = 'Unknown';
+                    }
+                    
+                    this.messages.push({
+                        text: 'Quote #'+ quote + ': "' + res.data[quote].text + '" -' + auth,
+                        writer: 'server'
+                    });
+        
+                })
+                .catch(err => console.error(err));
+            } else if((message.includes('find') && message.includes('job')) || (message.includes('finding') && message.includes('job')) || (this.jobType || this.location) ){
+
+                if(this.jobType && this.location){
+                   this.messages.push({
+                       text: `Heres a link to ${this.jobType} jobs in ${this.location}, ${this.state}`,
+                       writer: 'server'
+                   });
+
+                   this.location='';
+                   this.state='';
+
+                } else {
+                    this.messages.push({
+                        text: message,
+                        writer: 'client'
+                    });
+
+                    this.messages.push({
+                        text: "What type of job are you looking for?",
+                        writer: 'server'
+                    });
+                }
+            } else if (message.includes('cat')) {
+
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
+
+                axios.get('https://catfact.ninja/fact')
+                .then(res =>{
+
+                    this.messages.push({
+                        text: 'Cat Fact: ' + res.data.fact,
+                        writer: 'server'
+                    })
+                
+                })
+                .catch(error => console.error(error));
             } else {
-              this.messages.push({
-                text:
-                  '"' + res.data[quote].text + '" -' + res.data[quote].author,
-                writer: "server"
-              });
-            }
-          })
-          .catch(err => console.error(err));
-      } else {
-        this.messages.push({
-          text: message,
-          writer: "client"
-        });
+                
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
 
-        axios
-          .get(`http://localhost:8080/capstone-backend/api/call/${message}`, {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("Authorization")
-            }
-          })
-          .then(res => {
-            if (
-              !res.data[0].matchingMultipleKeywords &&
-              res.data[0].containsKeyword
-            ) {
-              this.messages.push({
-                text: res.data[0].response,
-                writer: "server"
-              });
-            }
+                axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
+                .then((res) => {
 
-            if (res.data[0].matchingMultipleKeywords) {
-              let concatted =
-                "Sorry, could you be a little more specific? Try typing one of these words: ";
-              res.data.forEach(element => {
-                concatted = concatted + " " + element.response;
-              });
-              this.messages.push({
-                text: concatted,
-                writer: "server"
-              });
-            }
+                    if(!res.data[0].matchingMultipleKeywords && res.data[0].containsKeyword){
+                        this.messages.push({
+                        text: res.data[0].response,
+                        writer: 'server',
+                    })}
+
+                    if(res.data[0].matchingMultipleKeywords){
+                        let concatted = 'Sorry, could you be a little more specific? Try typing one of these words: ';
+                        res.data.forEach(element => {
+                            concatted = concatted + " " + (element.response);
+                        });
+
+                        this.messages.push({
+                            text: concatted,
+                            writer: 'server',
+                        })
+                    }
+                
+                    if(!res.data[0].containsKeyword){
+                        this.messages.push({
+                            text: "Sorry! I didn't quite get that. Could you try saying that again?",
+                            writer: 'server',
+                        })
+                    }
+                })
+                .catch(error => console.error(error));
+            
 
             if (!res.data[0].containsKeyword) {
               this.messages.push({
@@ -246,16 +365,8 @@ export default {
       }
       this.message = "";
     }
-  }
-};
-
-// CAT FACTS CONNECTION
-// axios.get('https://catfact.ninja/fact')
-// .then(res =>{
-
-//     this.messages.push({
-//         message: res.data.fact
-//     })
+    
+}
 
 // })
 </script>
@@ -271,6 +382,7 @@ body {
     rgba(0, 176, 240, 1) 62%
   );
 }
+
 .chat-bot,
 .chat-bot-list-container {
   display: flex;
@@ -280,32 +392,31 @@ body {
   background: white;
   height: 70vh;
 }
-.chat-bot-list {
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: white;
-
-  .server {
-    margin-right: 25px;
-    span {
-      max-width: 40vw;
+.chat-bot-list{
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    
+    .server{
+        margin-right: 25px;
+        span{
+            max-width: 40vw;
+            
+                    }
+    p{
+            background: green;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            opacity: 0.8;
+            border-bottom: none;
+            border-top-right-radius: 4px;
+            text-align: left;
+            display: block;
+           
+       
     }
-    p {
-      background: green;
-      color: white;
-      padding: 8px;
-      border-radius: 4px;
-      opacity: 0.8;
-      border-bottom: none;
-      border-top-right-radius: 4px;
-      text-align: left;
-      display: block;
-    }
-  }
-  .client {
-    margin-left: 25px;
-    span {
-      max-width: 40vw;
+    
     }
     p {
       background: hsl(204, 86%, 53%);
