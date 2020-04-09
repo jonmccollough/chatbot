@@ -1,54 +1,58 @@
 <template>
-    <body>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="//static1.squarespace.com/static/55ef2da9e4b03f6e1ef0cd28/t/5dceda76b702913cebc1d05e/1586375316161/?format=1500w" alt="Tech Elevator Coding Bootcamp " class="Header-branding-logo">
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <router-link :to="{ name: 'chatbot' }">
-      <a class="navbar-item is-family-sans-serif">
-        Chatbot
-      </a>
-      </router-link>
-
-      <a class="navbar-item is-family-sans-serif">
-        FAQS
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.techelevator.com">
+        <img
+          src="//static1.squarespace.com/static/55ef2da9e4b03f6e1ef0cd28/t/5dceda76b702913cebc1d05e/1586375316161/?format=1500w"
+          alt="Tech Elevator Coding Bootcamp "
+          class="Header-branding-logo"
+        />
       </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-item is-family-sans-serif" href = "http://www.techelevator.com">
-          TE Official
-        </a>
-      </div>
+      <a
+        role="button"
+        class="navbar-burger burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <router-link :to="{ name: 'register' }">
-          <a class="button is-info">
-            <strong>Sign up</strong>
-          </a>
-          </router-link>
-         <router-link :to="{ name: 'login' }">
-          <a class="button is-light">
-            Log in
-          </a>
-         </router-link>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item is-family-sans-serif">CHATBOT</a>
+
+        <a class="navbar-item is-family-sans-serif">FAQS</a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a
+            class="navbar-item is-family-sans-serif"
+            href="http://www.techelevator.com/events"
+          >CALENDAR</a>
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <router-link :to="{ name: 'register' }">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+            </router-link>
+            <router-link :to="{ name: 'login' }">
+              <a class="button is-light">Log in</a>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  
 </nav>
     <section class ="container">
        <section class="hero is-small is-family-sans-serif is-info">
@@ -88,15 +92,59 @@
                 @keyup.enter="sendMessage" />
                 <button @click="sendMessage" class="button is-light">Send</button>
             </div>
-         </section>
-         <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-        <p class="has-text-success">remove me</p>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-third">
+          <div class="is-pulled-left">
+            <p>
+              <a class="has-text-grey" href="http://www.techelevator.com">tech elevator</a>
+            </p>
+            <p>
+              <a class="has-text-grey" href="mailto:hello@techelevator.com">hello@techelevator.com</a>
+            </p>
+            <p>
+              <a class="has-text-grey" href="tel:8776063203">877.606.3203</a>
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="is-centered">
+            <p>
+              <a class="has-text-grey" href="http://www.techeelevator.com/events">events</a>
+            </p>
+            <p>
+              <a class="has-text-grey">faqs</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="is-pulled-right">
+            <figure class="image is-24x24">
+              <a href="https://facebook.com/techelevator">
+                <img src="@/img/fb.png" />
+              </a>
+              <a href="https://instagram.com/techelevator">
+                <img src="@/img/ig.png" />
+              </a>
+              <a href="https://linkedin.com/school/tech_elevator">
+                <img src="@/img/li.png" />
+              </a>
+              <a href="https://twitter.com/Tech_Elevator">
+                <img src="@/img/tw.png" />
+              </a>
+              <a href="https://youtube.com/techelevatorcodeschool">
+                <img src="@/img/yt.png" />
+              </a>
+            </figure>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
-    </body>
+  </footer>
+  </body>
 </template>
 
 
@@ -293,38 +341,39 @@ export default {
                     }
                 })
                 .catch(error => console.error(error));
-            
 
-                this.$nextTick(() => {
-                this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight
-            })
-            
-            }
-            this.message = '';
-        
-        }
+        this.$nextTick(() => {
+          this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight;
+        });
+      }
+      this.message = "";
     }
     
 }
 
+}
 </script>
 
 <style lang="scss" scoped>
-
-
 body {
- background: rgb(255,255,255);
-background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    142deg,
+    rgba(255, 255, 255, 1) 53%,
+    rgba(139, 196, 64, 1) 56%,
+    rgba(255, 255, 255, 1) 58%,
+    rgba(0, 176, 240, 1) 62%
+  );
 }
 
 .chat-bot,
-.chat-bot-list-container{
-    display: flex;
-    flex-direction: column;
-    list-style-type: none ;
-    overflow: scroll;
-    background: white;
-    height: 60vh;
+.chat-bot-list-container {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  overflow: scroll;
+  background: white;
+  height: 70vh;
 }
 .chat-bot-list{
     padding-left: 10px;
@@ -352,60 +401,47 @@ background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 
     }
     
     }
-    .client{
-        margin-left: 25px;
-        span{
-           max-width: 40vw;
-        }
-        p{
-            background: hsl(204, 86%, 53%);
-            color: white;
-            padding: 8px;
-            border-radius: 4px;
-            opacity: 0.8;
-            text-align: right;
-            display: block;
-            
-            
-        }
+    p {
+      background: hsl(204, 86%, 53%);
+      color: white;
+      padding: 8px;
+      border-radius: 4px;
+      opacity: 0.8;
+      text-align: right;
+      display: block;
     }
-}
+  }
 
-.chat-bot{
-    border: 1px solid #999;
-    width: 50vw;
-    border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: space-between;
+
+.chat-bot {
+  border: 1px solid #999;
+  width: 50vw;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: space-between;
 }
-.chat-inputs{
+.chat-inputs {
   display: flex;
-    justify-content: center;
-  input{
-      align-items: space-around;
-      width: 45vw;
-      padding-left: 15px
-
+  justify-content: center;
+  input {
+    align-items: space-around;
+    width: 45vw;
+    padding-left: 15px;
   }
 }
-.container{
- width: 50vw;
-
+.container {
+  width: 50vw;
 }
-.message{
-background-color: white;
-border-radius: 12px;
-
+.message {
+  background-color: white;
+  border-radius: 12px;
 }
 
-.footer{
-    background: rgb(255,255,255);
-    background: radial-gradient(circle,rgba(72,199, 116, 1) 28%, rgba(50, 152, 220,1)  85%);
-    margin-top: 0%;
-    
-    display: none;
-    
-
+.footer {
+  background: rgb(255, 255, 255);
+  height: 30vh;
+  color: white;
+  border-top: grey 8px;
 }
 </style>
