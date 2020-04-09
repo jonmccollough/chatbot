@@ -131,7 +131,7 @@ export default {
                     text: `Thanks, ${this.userName}, what can I do for you?`,
                     writer: 'server'
                 });
-            } else if (this.messages[this.messages.length - 1].text.includes("What type of job are you looking for?")){
+            } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")){
                 
                 this.messages.push({
                     text: message,
@@ -145,7 +145,7 @@ export default {
                     writer: 'server'
                 });
 
-            } else if(this.messages[this.messages.length - 1].text.includes(`Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`)){
+            } else if(this.messages[this.messages.length - 1].text.match(`Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`)){
 
                 this.messages.push({
                     text: message,
@@ -156,7 +156,7 @@ export default {
                 this.location = cityState[0];
 
                 if( cityState[1] == null || cityState[1].length != 2){
-
+                    console.log('got here');
                     this.messages.push({
                         text: 'Please provide the location in "City, State" format (PA, OH, VA, etc.)',
                         writer: 'server'
@@ -170,7 +170,7 @@ export default {
                 }
 
 
-            }else if (this.messages[this.messages.length - 1].text.includes('Please provide the location in City, State format (PA, OH, VA, etc.)')){
+            }else if (this.messages[this.messages.length - 1].text.match('Please provide the location in "City, State" format (PA, OH, VA, etc.)')){
                 
                 this.messages.push({
                     text: message,
@@ -224,7 +224,11 @@ export default {
                    this.messages.push({
                        text: `Heres a link to ${this.jobType} jobs in ${this.location}, ${this.state}`,
                        writer: 'server'
-                   })
+                   });
+
+                   this.location='';
+                   this.state='';
+
                 } else {
                     this.messages.push({
                         text: message,
