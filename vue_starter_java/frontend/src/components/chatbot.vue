@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-  </div>
+  
 </nav>
     <section class ="container">
        <section class="hero is-small is-family-sans-serif is-info">
@@ -92,13 +92,7 @@
                 @keyup.enter="sendMessage" />
                 <button @click="sendMessage" class="button is-light">Send</button>
             </div>
-         </section>
-         <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-        <p class="has-text-success">remove me</p>
-    </div>
-  </section>
+  
   <footer class="footer">
     <div class="container">
       <div class="columns">
@@ -150,7 +144,7 @@
       </div>
     </div>
   </footer>
-</body>
+  </body>
 </template>
 
 
@@ -347,17 +341,6 @@ export default {
                     }
                 })
                 .catch(error => console.error(error));
-            
-
-            if (!res.data[0].containsKeyword) {
-              this.messages.push({
-                text:
-                  "Sorry! I didn't quite get that. Could you try saying that again?",
-                writer: "server"
-              });
-            }
-          })
-          .catch(error => console.error(error));
 
         this.$nextTick(() => {
           this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight;
@@ -368,7 +351,7 @@ export default {
     
 }
 
-// })
+}
 </script>
 
 <style lang="scss" scoped>
@@ -428,7 +411,7 @@ body {
       display: block;
     }
   }
-}
+
 
 .chat-bot {
   border: 1px solid #999;
