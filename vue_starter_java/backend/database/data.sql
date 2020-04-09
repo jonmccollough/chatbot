@@ -96,3 +96,23 @@ INSERT INTO keywords (words, keywordid) VALUES ('loop', (SELECT id FROM response
 
 INSERT INTO responses (answer, title) VALUES ('<img src="https://drive.google.com/uc?id=1kcdYwB7qoNIr7Pk1CaXJz5Hjo1z8Y-WV">', 'joins');
 INSERT INTO keywords (words, keywordid) VALUES ('joins', (SELECT id FROM responses WHERE title = 'joins'));
+
+INSERT INTO responses (answer, title) VALUES ('<a href="https://www.techelevator.com/events">Check our calendar for all our upcoming events!</a>', 'techelevatorevents');
+INSERT INTO keywords (words, keywordid) VALUES ('techelevatorevents', (SELECT id FROM responses WHERE title = 'techelevatorevents'));
+INSERT INTO keywords (words, keywordid) VALUES ('events', (SELECT id FROM responses WHERE title = 'techelevatorevents'));
+
+INSERT INTO responses (answer, title) VALUES ('<iframe width="560" height="315" src="https://www.youtube.com/embed/246VAGzQokw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'tieatie');
+INSERT INTO keywords (words, keywordid) VALUES ('tieatie', (SELECT id FROM responses WHERE title = 'tieatie'));
+
+INSERT INTO responses (answer, title) VALUES ('You are most welcome! &#128522;', 'thanks');
+INSERT INTO keywords (words, keywordid) VALUES ('thanks', (SELECT id FROM responses WHERE title = 'thanks'));
+INSERT INTO keywords (words, keywordid) VALUES ('thankyou', (SELECT id FROM responses WHERE title = 'thanks'));
+INSERT INTO keywords (words, keywordid) VALUES ('thx', (SELECT id FROM responses WHERE title = 'thanks'));
+
+INSERT INTO responses (answer, title) VALUES ('What can I help you with? pathway, homework?', 'help');
+INSERT INTO keywords (words, keywordid) VALUES ('help', (SELECT id FROM responses WHERE title = 'help'));
+
+INSERT INTO responses (answer, title) VALUES ('Which area in the homework can I help you with? Arrays, loops, MVCs? ', 'help');
+INSERT INTO keywords (words, keywordid) VALUES ('homework', (SELECT id FROM responses WHERE title = 'homework'));
+INSERT INTO keywords (words, keywordid) VALUES ('studentexercise', (SELECT id FROM responses WHERE title = 'homework'));
+INSERT INTO keywords (words, keywordid) VALUES ('assignment', (SELECT id FROM responses WHERE title = 'homework'));
