@@ -119,7 +119,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('assignment', (SELECT id FROM re
 
 INSERT INTO responses (answer, title) VALUES ('Try asking me about common topics at Tech Elevator. I know a little bit about the basics of coding, plus the Pathway program. For instance, try typing "interviewing" or "MVC".', 'help');
 INSERT INTO keywords (words, keywordid) VALUES ('help', (SELECT id FROM responses WHERE title = 'help'));
-INSERT INTO keywords (words, keywordid) VALUES ('what can i ask you', (SELECT id FROM responses WHERE title = 'help'));
+INSERT INTO keywords (words, keywordid) VALUES ('whatcaniaskyou', (SELECT id FROM responses WHERE title = 'help'));
 
 INSERT INTO responses (answer, title) VALUES ('The three fundamentals of Object Orientated Programming are: polymorphism, encapsulation and inheritance.', 'OOP');
 INSERT INTO keywords (words, keywordid) VALUES ('fundamentals', (SELECT id FROM responses WHERE title = 'OOP'));
