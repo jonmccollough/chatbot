@@ -146,3 +146,18 @@ INSERT INTO keywords (words, keywordid) VALUES ('skynet', (SELECT id FROM respon
 INSERT INTO responses (answer, title) VALUES ('I think they are is great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
 INSERT INTO keywords (words, keywordid) VALUES ('alexa', (SELECT id FROM responses WHERE title = 'smartdevice'));
 INSERT INTO keywords (words, keywordid) VALUES ('google', (SELECT id FROM responses WHERE title = 'smartdevice'));
+
+INSERT INTO responses (answer, title) VALUES ('<iframe src="https://open.spotify.com/embed/track/2qOm7ukLyHUXWyR4ZWLwxA" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>', 'good day');
+INSERT INTO keywords (words, keywordid) VALUES ('goodday', (SELECT id FROM responses WHERE title = 'good day'));
+
+INSERT INTO responses (answer, title) VALUES ('Common git commands: git pull, git status, git add, git commit, git push, git clone. <img src="https://drive.google.com/uc?id=1tiZKJMi09Avx--ofVUwVxIJzBhm3DcL9">', 'git');
+INSERT INTO keywords (words, keywordid) VALUES ('git', (SELECT id FROM responses WHERE title = 'git'));
+
+INSERT INTO responses (answer, title) VALUES ('Here is a list of common primitive data types: boolean, byte, char, int, float, double, long, decimal.', 'primitives');
+INSERT INTO keywords (words, keywordid) VALUES ('primitive', (SELECT id FROM responses WHERE title = 'primitives'));
+
+INSERT INTO responses (answer, title) VALUES ('Email Us: Hello@Techelevator.Com', 'email');
+INSERT INTO keywords (words, keywordid) VALUES ('email', (SELECT id FROM responses WHERE title = 'email'));
+
+INSERT INTO responses (answer, title) VALUES ('Call Us: 877.606.3203', 'phone');
+INSERT INTO keywords (words, keywordid) VALUES ('phonenumber', (SELECT id FROM responses WHERE title = 'phone'));
