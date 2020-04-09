@@ -29,14 +29,12 @@ public class JDBCMessageDao implements MessageDao {
 		
 		Message response = new Message();
 		
-		results.next();
-		
-		if(results != null) {
-			
+		if (results.next()) {
 			response.setResponse(results.getString("answer"));
-		}
+		} else response.setResponse("Keyword not recognized.");
+		
+		return response;		
 
-		return response;
 	}
 
 	@Override
