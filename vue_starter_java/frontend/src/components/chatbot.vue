@@ -92,7 +92,7 @@
                 @keyup.enter="sendMessage" />
                 <button @click="sendMessage" class="button is-light">Send</button>
             </div>
-  
+    </section>
   <footer class="footer">
     <div class="container">
       <div class="columns">
