@@ -143,7 +143,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('hitawall', (SELECT id FROM resp
 INSERT INTO responses (answer, title) VALUES ('Inside each of us is a monster; inside each of us is a saint. The real question is which one will we nurture the most, which one will smite the other?', 'skynet');
 INSERT INTO keywords (words, keywordid) VALUES ('skynet', (SELECT id FROM responses WHERE title = 'skynet'));
 
-INSERT INTO responses (answer, title) VALUES ('I think they are is great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
+INSERT INTO responses (answer, title) VALUES ('I think they are great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
 INSERT INTO keywords (words, keywordid) VALUES ('alexa', (SELECT id FROM responses WHERE title = 'smartdevice'));
 INSERT INTO keywords (words, keywordid) VALUES ('google', (SELECT id FROM responses WHERE title = 'smartdevice'));
 
