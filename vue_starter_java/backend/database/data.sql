@@ -133,3 +133,16 @@ INSERT INTO keywords (words, keywordid) VALUES ('encapsulation', (SELECT id FROM
 
 INSERT INTO responses (answer, title) VALUES ('Inheritance is the act of having one class adopt the properties and methods of another class. This prevents code duplication and allows you to share code across classes while having the source code live in only one class file.', 'inheritance');
 INSERT INTO keywords (words, keywordid) VALUES ('inheritance', (SELECT id FROM responses WHERE title = 'inheritance'));
+
+INSERT INTO responses (answer, title) VALUES ('<iframe width="560" height="315" src="https://www.youtube.com/embed/_gJyJ8NvZgg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+', 'inspire');
+INSERT INTO keywords (words, keywordid) VALUES ('inspire', (SELECT id FROM responses WHERE title = 'inspire'));
+INSERT INTO keywords (words, keywordid) VALUES ('inspirational', (SELECT id FROM responses WHERE title = 'inspire'));
+INSERT INTO keywords (words, keywordid) VALUES ('hitawall', (SELECT id FROM responses WHERE title = 'inspire'));
+
+INSERT INTO responses (answer, title) VALUES ('Inside each of us is a monster; inside each of us is a saint. The real question is which one will we nurture the most, which one will smite the other?', 'skynet');
+INSERT INTO keywords (words, keywordid) VALUES ('skynet', (SELECT id FROM responses WHERE title = 'skynet'));
+
+INSERT INTO responses (answer, title) VALUES ('I think they are is great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
+INSERT INTO keywords (words, keywordid) VALUES ('alexa', (SELECT id FROM responses WHERE title = 'smartdevice'));
+INSERT INTO keywords (words, keywordid) VALUES ('google', (SELECT id FROM responses WHERE title = 'smartdevice'));
