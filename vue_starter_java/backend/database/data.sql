@@ -14,39 +14,39 @@ INSERT INTO keywords (words, keywordid) VALUES ('pathway', (SELECT id FROM respo
 INSERT INTO responses (answer, title) VALUES ('<a href="https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/V3hUskCIbjGr07f/Job%20Search%20Expectations%20Presentation.pdf"> I found this presentation on job searching </a>', 'jobsearch');
 INSERT INTO keywords (words, keywordid) VALUES ('jobsearch', (SELECT id FROM responses WHERE title = 'jobsearch'));
 
-INSERT INTO responses (answer, title) VALUES ('I found this presentation to help with your resume: https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/KvilSu4GIG0hFux/Crafting%20a%20Killer%20Resume%20Presentation.pdf', 'resume');
+INSERT INTO responses (answer, title) VALUES ('I found <a href="https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/KvilSu4GIG0hFux/Crafting%20a%20Killer%20Resume%20Presentation.pdf">this presentation to help with your resume</a>' , 'resume');
 INSERT INTO keywords (words, keywordid) VALUES ('resume', (SELECT id FROM responses WHERE title = 'resume')); 
 
 INSERT INTO responses (answer, title) VALUES ('Dress to impress MEN: Suit attire. WOMEN: Slacks/skirt and nice top or dress and blazer.', 'attire');
 INSERT INTO keywords (words, keywordid) VALUES ('attire', (SELECT id FROM responses WHERE title = 'attire'));
 
-INSERT INTO responses (answer, title) VALUES ('I found these 7 tipes for a cover letter: https://drive.google.com/drive/folders/0B0L4DaCt03tFTHNkOThzMi1IckU', 'coverletter');
+INSERT INTO responses (answer, title) VALUES ('I found these <a href="https://drive.google.com/drive/folders/0B0L4DaCt03tFTHNkOThzMi1IckU">7 tipes for a cover letter</a>', 'coverletter');
 INSERT INTO keywords (words, keywordid) VALUES ('coverletter', (SELECT id FROM responses WHERE title = 'coverletter'));
 
-INSERT INTO responses (answer, title) VALUES ('I think this presentation on interviews will help you: https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/vEYm7LHLM68hZ1X/Preparing%20for%20your%20Technical%20Interview.pdf', 'interview');
+INSERT INTO responses (answer, title) VALUES ('I think this <a href="https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/vEYm7LHLM68hZ1X/Preparing%20for%20your%20Technical%20Interview.pdf">presentation on interviews will help you</a>', 'interview');
 INSERT INTO keywords (words, keywordid) VALUES ('interview', (SELECT id FROM responses WHERE title = 'interview'));
 
 INSERT INTO responses (answer, title) VALUES ('DEVINS EMPLOYER API HERE?', 'employers');
 INSERT INTO keywords (words, keywordid) VALUES ('employers', (SELECT id FROM responses WHERE title = 'employers'));
 
-INSERT INTO responses (answer, title) VALUES ('Here is a list of example STAR questions to help you practice: https://docs.google.com/document/d/1FOI7cM88J01UfdgSghaNLYh2-DjIskUYoaYG_XbqDSo/edit', 'starquestions');
+INSERT INTO responses (answer, title) VALUES ('Here is <a href="https://docs.google.com/document/d/1FOI7cM88J01UfdgSghaNLYh2-DjIskUYoaYG_XbqDSo/edit">a list of example STAR questions to help you practice</a>', 'starquestions');
 INSERT INTO keywords (words, keywordid) VALUES ('starquestions', (SELECT id FROM responses WHERE title = 'starquestions'));
 
 INSERT INTO responses (answer, title) VALUES ('Alright, what are you trying to learn about?', 'curriculum');
 INSERT INTO keywords (words, keywordid) VALUES ('curriculum', (SELECT id FROM responses WHERE title = 'curriculum'));
 
-INSERT INTO responses (answer, title) VALUES ('The chapter in the book about arrays is helpful: http://book.techelevator.com/java/20-arrays-and-loops/arrays/01-arrays.html','arrays');
+INSERT INTO responses (answer, title) VALUES ('<a href="http://book.techelevator.com/java/20-arrays-and-loops/arrays/01-arrays.html">The chapter in the book about arrays is helpful</a>','arrays');
 INSERT INTO keywords (words, keywordid) VALUES ('arrays', (SELECT id FROM responses WHERE title = 'arrays'));
 
 INSERT INTO responses (answer, title) VALUES ('Do you want help with (Java MVC) or (NET MVC)?', 'mvc');
 INSERT INTO keywords (words, keywordid) VALUES ('mvc', (SELECT id FROM responses WHERE title = 'mvc'));
 
-INSERT INTO responses (answer, title) VALUES ('Here is a link to the Java MVC chapter: http://book.techelevator.com/java/75-java-mvc/01-intro-to-mvc/01-introduction-to-web-applications.html', 'javamvc');
+INSERT INTO responses (answer, title) VALUES ('Here is <a href="http://book.techelevator.com/java/75-java-mvc/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the Java MVC chapter</a>', 'javamvc');
 INSERT INTO keywords (words, keywordid) VALUES ('javamvc', (SELECT id FROM responses WHERE title = 'javamvc'));
 
-INSERT INTO responses (answer, title) VALUES ('Here is a link to the .NET MVC chapter: http://book.techelevator.com/java/70-asp-net-core/01-intro-to-mvc/01-introduction-to-web-applications.html', 'netmvc');
+INSERT INTO responses (answer, title) VALUES ('Here is <a href="http://book.techelevator.com/java/70-asp-net-core/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the .NET MVC chapter</a>', 'netmvc');
 INSERT INTO keywords (words, keywordid) VALUES ('netmvc', (SELECT id FROM responses WHERE title = 'netmvc'));
 
-INSERT INTO responses (answer, title) VALUES ('I suggest starting at the begining of the chapters on SQL: http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html', 'sql');
+INSERT INTO responses (answer, title) VALUES ('I suggest starting at <a href="http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html">the begining of the chapters on SQL</a>' , 'sql');
 INSERT INTO keywords (words, keywordid) VALUES ('sql', (SELECT id FROM responses WHERE title = 'sql'));
 
