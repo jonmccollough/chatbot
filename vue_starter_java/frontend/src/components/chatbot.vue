@@ -63,10 +63,14 @@
                </div>
            </div>
        </section> 
-        <section class = "chat-bot"     >
+        <section class = "chat-bot"  ref="chatbot">
          <div class = "chat-box-list-container"  >
             <ul class = "chat-bot-list" >
-                <li class = 'message server'><p class="is-family-monospace">Hi there, nice to meet you! What's your name?</p><li>
+                <li class = 'message server'>
+                    <p>
+                        <span class="is-family-monospace">Hi there, nice to meet you! What's your name?</span>
+                    </p>
+                </li>
                 <li class="message"
                     v-for="(message, index) in messages" 
                     :key="index"
@@ -201,18 +205,17 @@ export default {
                 .then(res => {
 
                     let quote = Math.floor(Math.random() * 1642);
+                    let auth = res.data[quote].author;
 
-                     if (res.data[quote].author == null) {
-                         this.messages.push({
-                             text: '"' + res.data[quote].text + '" -Unknown',
-                             writer: 'server'
-                        });
-                    } else {
-                        this.messages.push({
-                            text: '"' + res.data[quote].text + '" -' + res.data[quote].author,
-                            writer: 'server'
-                        });
+                    if (auth == null) {
+                        auth = 'Unknown';
                     }
+                    
+                    this.messages.push({
+                        text: 'Quote #'+ quote + ': "' + res.data[quote].text + '" -' + auth,
+                        writer: 'server'
+                    });
+        
                 })
                 .catch(err => console.error(err));
             } else if((message.includes('find') && message.includes('job')) || (message.includes('finding') && message.includes('job')) || (this.jobType || this.location) ){
@@ -233,8 +236,24 @@ export default {
                         writer: 'server'
                     });
                 }
+            } else if (message.includes('cat')) {
 
-            }else {
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
+
+                axios.get('https://catfact.ninja/fact')
+                .then(res =>{
+
+                    this.messages.push({
+                        text: 'Cat Fact: ' + res.data.fact,
+                        writer: 'server'
+                    })
+                
+                })
+                .catch(error => console.error(error));
+            } else {
                 
                 this.messages.push({
                     text: message,
@@ -244,30 +263,32 @@ export default {
                 axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
                 .then((res) => {
 
-                if(!res.data[0].matchingMultipleKeywords && res.data[0].containsKeyword){
-                    this.messages.push({
-                    text: res.data[0].response,
-                    writer: 'server',
-                })}
+                    if(!res.data[0].matchingMultipleKeywords && res.data[0].containsKeyword){
+                        this.messages.push({
+                        text: res.data[0].response,
+                        writer: 'server',
+                    })}
 
-                if(res.data[0].matchingMultipleKeywords){
-                    let concatted = 'Sorry, could you be a little more specific? Try typing one of these words: ';
-                    res.data.forEach(element => {
-                    concatted = concatted + " " + (element.response);
-                });
-                    this.messages.push({
-                    text: concatted,
-                    writer: 'server',
-                    })
-                }
+                    if(res.data[0].matchingMultipleKeywords){
+                        let concatted = 'Sorry, could you be a little more specific? Try typing one of these words: ';
+                        res.data.forEach(element => {
+                            concatted = concatted + " " + (element.response);
+                        });
+
+                        this.messages.push({
+                            text: concatted,
+                            writer: 'server',
+                        })
+                    }
                 
-                if(!res.data[0].containsKeyword){
-                    this.messages.push({
-                    text: "Sorry! I didn't quite get that. Could you try saying that again?",
-                    writer: 'server',
-                })}
-            })
-            .catch(error => console.error(error));
+                    if(!res.data[0].containsKeyword){
+                        this.messages.push({
+                            text: "Sorry! I didn't quite get that. Could you try saying that again?",
+                            writer: 'server',
+                        })
+                    }
+                })
+                .catch(error => console.error(error));
             
 
                 this.$nextTick(() => {
@@ -281,17 +302,6 @@ export default {
     }
     
 }
-            
-            // CAT FACTS CONNECTION
-            // axios.get('https://catfact.ninja/fact')
-            // .then(res =>{
-
-
-            //     this.messages.push({
-            //         message: res.data.fact
-            //     })
-                
-            // })
 
 </script>
 
@@ -302,6 +312,7 @@ body {
  background: rgb(255,255,255);
 background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
 }
+
 .chat-bot,
 .chat-bot-list-container{
     display: flex;
@@ -315,7 +326,7 @@ background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 
     padding-left: 10px;
     padding-right: 10px;
     background-color: white;
-
+    
     .server{
         margin-right: 25px;
         span{
@@ -332,9 +343,10 @@ background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 
             border-top-right-radius: 4px;
             text-align: left;
             display: block;
-            
+           
        
     }
+    
     }
     .client{
         margin-left: 25px;
