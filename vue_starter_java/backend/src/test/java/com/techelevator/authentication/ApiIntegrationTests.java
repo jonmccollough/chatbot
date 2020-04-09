@@ -78,4 +78,25 @@ public class ApiIntegrationTests {
 		Assert.assertFalse(messageDao.containsAKeyword(containsNothing));
 	}
 	
+	@Test
+	public void scanStringMethodPutsInputDownAndWithoutSpaces() {
+		String testString = "P  A  T   H W  A Y";
+		List<String> results = messageDao.scanStringForKeywords(testString);
+		Assert.assertEquals("pathway", results.get(0));
+	}
+	
+	@Test
+	public void scanStringGrabsMultipleStrings() {
+		String testString = "pathway AND AND AND WOW resume AND attire";
+		List<String> results = messageDao.scanStringForKeywords(testString);
+		Assert.assertEquals(3, results.size());
+	}
+	
+	@Test
+	public void scanStringReturnsBlankListIfNoneFound() {
+		String testString = "!!!pferfe!!!a??ergerg?t%%%hgrgrgrg###w@@@a*$&y";
+		List<String> results = messageDao.scanStringForKeywords(testString);
+		Assert.assertEquals(0, results.size());	
+	}
+	
 }
