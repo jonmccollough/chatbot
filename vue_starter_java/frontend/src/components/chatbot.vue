@@ -22,8 +22,8 @@
                     :key="index"
                     :class="message.writer">
                         <p>
-                            <span class="is-family-monospace">{{ message.text }}</span>
-                        </p>
+                            <span class="is-family-monospace" v-html="message.text"></span>
+                        </p> 
                 </li>
             </ul>
              </div>
