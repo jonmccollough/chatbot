@@ -112,7 +112,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('thx', (SELECT id FROM responses
 INSERT INTO responses (answer, title) VALUES ('What can I help you with? pathway, homework?', 'help');
 INSERT INTO keywords (words, keywordid) VALUES ('help', (SELECT id FROM responses WHERE title = 'help'));
 
-INSERT INTO responses (answer, title) VALUES ('Which area in the homework can I help you with? Arrays, loops, MVCs? ', 'help');
+INSERT INTO responses (answer, title) VALUES ('Which area in the homework can I help you with? Arrays, loops, MVCs? ', 'homework');
 INSERT INTO keywords (words, keywordid) VALUES ('homework', (SELECT id FROM responses WHERE title = 'homework'));
 INSERT INTO keywords (words, keywordid) VALUES ('studentexercise', (SELECT id FROM responses WHERE title = 'homework'));
 INSERT INTO keywords (words, keywordid) VALUES ('assignment', (SELECT id FROM responses WHERE title = 'homework'));
