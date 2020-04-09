@@ -66,7 +66,7 @@
         <section class = "chat-bot"     >
          <div class = "chat-box-list-container"  >
             <ul class = "chat-bot-list" >
-                <li class = 'message server'><p>Hi there, nice to meet you! What's your name?</p><li>
+                <li class = 'message server'><p class="is-family-monospace">Hi there, nice to meet you! What's your name?</p><li>
                 <li class="message"
                     v-for="(message, index) in messages" 
                     :key="index"
@@ -98,14 +98,17 @@
 
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
     name: 'chatbot',
     data: () =>({
         message: '',
         messages: [],
-        userName: ''
+        userName: '',
+        jobType:'',
+        location:'',
+        state: ''
     }),
 
     methods: {
@@ -124,7 +127,70 @@ export default {
                     text: `Thanks, ${this.userName}, what can I do for you?`,
                     writer: 'server'
                 });
-            } else if (message.includes('quote')){
+            } else if (this.messages[this.messages.length - 1].text.includes("What type of job are you looking for?")){
+                
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
+
+                this.jobType = message;
+
+                this.messages.push({
+                    text: `Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`,
+                    writer: 'server'
+                });
+
+            } else if(this.messages[this.messages.length - 1].text.includes(`Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`)){
+
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
+
+                const cityState = message.split(", ");
+                this.location = cityState[0];
+
+                if( cityState[1] == null || cityState[1].length != 2){
+
+                    this.messages.push({
+                        text: 'Please provide the location in "City, State" format (PA, OH, VA, etc.)',
+                        writer: 'server'
+                    });
+
+                    this.location = '';
+
+                } else {
+                    this.state = cityState[1];
+                    this.sendMessage();
+                }
+
+
+            }else if (this.messages[this.messages.length - 1].text.includes('Please provide the location in City, State format (PA, OH, VA, etc.)')){
+                
+                this.messages.push({
+                    text: message,
+                    writer: 'client'
+                });
+
+                const cityState = message.split(", ");
+                this.location = cityState[0];
+
+                if( cityState[1] == null || cityState[1].length != 2){
+
+                    this.messages.push({
+                        text: "Sorry, let's try something else",
+                        writer: 'server'
+                    });
+
+                    this.location = '';
+
+                } else {
+                    this.state = cityState[1];
+                    this.sendMessage();
+                }
+
+            }else if(message.includes('quote')){
                 
                 this.messages.push({
                     text:message,
@@ -149,7 +215,26 @@ export default {
                     }
                 })
                 .catch(err => console.error(err));
-            } else {
+            } else if((message.includes('find') && message.includes('job')) || (message.includes('finding') && message.includes('job')) || (this.jobType || this.location) ){
+
+                if(this.jobType && this.location){
+                   this.messages.push({
+                       text: `Heres a link to ${this.jobType} jobs in ${this.location}, ${this.state}`,
+                       writer: 'server'
+                   })
+                } else {
+                    this.messages.push({
+                        text: message,
+                        writer: 'client'
+                    });
+
+                    this.messages.push({
+                        text: "What type of job are you looking for?",
+                        writer: 'server'
+                    });
+                }
+
+            }else {
                 
                 this.messages.push({
                     text: message,
