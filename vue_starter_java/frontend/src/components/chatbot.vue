@@ -1,20 +1,70 @@
 <template>
     <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="//static1.squarespace.com/static/55ef2da9e4b03f6e1ef0cd28/t/5dceda76b702913cebc1d05e/1586375316161/?format=1500w" alt="Tech Elevator Coding Bootcamp " class="Header-branding-logo">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <router-link :to="{ name: 'chatbot' }">
+      <a class="navbar-item is-family-sans-serif">
+        Chatbot
+      </a>
+      </router-link>
+
+      <a class="navbar-item is-family-sans-serif">
+        FAQS
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-item is-family-sans-serif" href = "http://www.techelevator.com">
+          TE Official
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <router-link :to="{ name: 'register' }">
+          <a class="button is-info">
+            <strong>Sign up</strong>
+          </a>
+          </router-link>
+         <router-link :to="{ name: 'login' }">
+          <a class="button is-light">
+            Log in
+          </a>
+         </router-link>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
     <section class ="container">
-       <section class="hero is-small is-family-sans-serif" style="background-color:#00b0f0">
+       <section class="hero is-small is-family-sans-serif is-info">
            <div class="hero-body">
                <div class="container">
                    <h1 class="title" style="color: white">
                        TECH ELEVATOR
                    </h1>
                    <h2 class="subtitle" style="color: white">
-                       $tUd3nT Ch4tB0T
+                       Student Chatbot
                        </h2>
                </div>
            </div>
        </section> 
-        <section class = "chat-bot" ref="chatbot">
-         <div class = "chat-box-list-container" >
+        <section class = "chat-bot"     >
+         <div class = "chat-box-list-container"  >
             <ul class = "chat-bot-list" >
                 <li class = 'message server'><p>Hi there, nice to meet you! What's your name?</p><li>
                 <li class="message"
@@ -32,9 +82,16 @@
                 <input type="text"
                 v-model="message"
                 @keyup.enter="sendMessage" />
-                <button @click="sendMessage" class="button is-success">Send</button>
+                <button @click="sendMessage" class="button is-light">Send</button>
             </div>
          </section>
+         <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+        <p class="has-text-success">remove me</p>
+    </div>
+  </div>
+</footer>
     </body>
 </template>
 
@@ -157,11 +214,9 @@ export default {
 
 
 body {
-    background: white;
-    background: radial-gradient(circle,rgba(0,176, 240, 1) 20%, rgba(255, 255, 255,1)  90%);
-
+ background: rgb(255,255,255);
+background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
 }
-
 .chat-bot,
 .chat-bot-list-container{
     display: flex;
@@ -169,12 +224,12 @@ body {
     list-style-type: none ;
     overflow: scroll;
     background: white;
-    height: 50vh;
+    height: 60vh;
 }
 .chat-bot-list{
     padding-left: 10px;
     padding-right: 10px;
-    background: white;
+    background-color: white;
 
     .server{
         margin-right: 25px;
@@ -243,5 +298,13 @@ border-radius: 12px;
 
 }
 
+.footer{
+    background: rgb(255,255,255);
+    background: radial-gradient(circle,rgba(72,199, 116, 1) 28%, rgba(50, 152, 220,1)  85%);
+    margin-top: 0%;
+    
+    display: none;
+    
 
+}
 </style>
