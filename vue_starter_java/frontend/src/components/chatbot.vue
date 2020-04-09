@@ -63,7 +63,7 @@
                </div>
            </div>
        </section> 
-        <section class = "chat-bot"     >
+        <section class = "chat-bot"  ref="chatbot">
          <div class = "chat-box-list-container"  >
             <ul class = "chat-bot-list" >
                 <li class = 'message server'><p>Hi there, nice to meet you! What's your name?</p><li>
@@ -217,6 +217,7 @@ body {
  background: rgb(255,255,255);
 background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
 }
+
 .chat-bot,
 .chat-bot-list-container{
     display: flex;
@@ -230,7 +231,7 @@ background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 
     padding-left: 10px;
     padding-right: 10px;
     background-color: white;
-
+    
     .server{
         margin-right: 25px;
         span{
@@ -247,9 +248,10 @@ background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 
             border-top-right-radius: 4px;
             text-align: left;
             display: block;
-            
+           
        
     }
+    
     }
     .client{
         margin-left: 25px;
