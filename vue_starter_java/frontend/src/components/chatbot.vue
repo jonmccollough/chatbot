@@ -63,8 +63,8 @@
                </div>
            </div>
        </section> 
-        <section class = "chat-bot" ref="chatbot">
-         <div class = "chat-box-list-container" >
+        <section class = "chat-bot"     >
+         <div class = "chat-box-list-container"  >
             <ul class = "chat-bot-list" >
                 <li class = 'message server'><p>Hi there, nice to meet you! What's your name?</p><li>
                 <li class="message"
@@ -110,14 +110,7 @@ export default {
 
     methods: {
         sendMessage(){
-<<<<<<< HEAD
-                const message = this.message;
-                // const token = localStorage.data.id;
-            
-
-=======
             const message = this.message;
->>>>>>> df1e7c829903d621f570c8b8e51d48cd71e1d355
 
             if(!this.userName){
                 this.userName = message;
@@ -221,11 +214,9 @@ export default {
 
 
 body {
-    background: white;
-     background: radial-gradient(circle,rgba(72,199, 116, 1) 25%, rgba(50, 152, 220,1)  80%);
-
+ background: rgb(255,255,255);
+background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
 }
-
 .chat-bot,
 .chat-bot-list-container{
     display: flex;
@@ -312,7 +303,7 @@ border-radius: 12px;
     background: radial-gradient(circle,rgba(72,199, 116, 1) 28%, rgba(50, 152, 220,1)  85%);
     margin-top: 0%;
     
-    
+    display: none;
     
 
 }
