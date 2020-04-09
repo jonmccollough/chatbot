@@ -109,9 +109,6 @@ INSERT INTO keywords (words, keywordid) VALUES ('thanks', (SELECT id FROM respon
 INSERT INTO keywords (words, keywordid) VALUES ('thankyou', (SELECT id FROM responses WHERE title = 'thanks'));
 INSERT INTO keywords (words, keywordid) VALUES ('thx', (SELECT id FROM responses WHERE title = 'thanks'));
 
-INSERT INTO responses (answer, title) VALUES ('What can I help you with? pathway, homework?', 'help');
-INSERT INTO keywords (words, keywordid) VALUES ('help', (SELECT id FROM responses WHERE title = 'help'));
-
 INSERT INTO responses (answer, title) VALUES ('Which area in the homework can I help you with? Arrays, loops, MVCs? ', 'homework');
 INSERT INTO keywords (words, keywordid) VALUES ('homework', (SELECT id FROM responses WHERE title = 'homework'));
 INSERT INTO keywords (words, keywordid) VALUES ('studentexercise', (SELECT id FROM responses WHERE title = 'homework'));
