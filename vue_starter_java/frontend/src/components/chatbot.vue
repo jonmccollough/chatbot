@@ -40,7 +40,6 @@
                 <button @click="sendMessage" class="button is-success">Send</button>
             </div>
     </section>
-  
   </body>
 </template>
 
