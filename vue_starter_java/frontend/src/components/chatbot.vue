@@ -39,7 +39,6 @@
                 <button @click="sendMessage" class="button is-dark">Send</button>
             </div>
     </section>
-  
   </body>
 </template>
 
