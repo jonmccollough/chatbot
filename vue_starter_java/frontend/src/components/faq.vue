@@ -22,7 +22,7 @@
 
     <section class ="container">
 <aside class="menu">
-    <p></p>
+    
   <p class="menu-label">
     General
   </p>
@@ -55,10 +55,7 @@
         <li><a>Add a member</a></li>
       </ul>
     </li>
-    </ul>
-    <li><a>Invitations</a></li>
-    <li><a>Cloud Storage Environment Settings</a></li>
-    <li><a>Authentication</a></li>
+</ul>
 
 </aside>
     </section>
@@ -110,15 +107,23 @@ summary {
 p.menu-label{
     font-weight: bold;
     font-size: 15px;
+    color: green;
 }
 details[open] {
-    padding: .5em;
+    padding: .6em;
+    line-height: 20px;
 }
 
 details[open] summary {
     border-bottom: 1px solid #aaa;
     margin-bottom: .5em;
 }
+
+aside{
+    background:white;
+    padding-top: 10px;
+}
+
 
 .footer{
     background: rgb(255,255,255);
