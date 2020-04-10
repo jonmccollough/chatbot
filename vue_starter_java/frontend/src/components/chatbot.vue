@@ -2,7 +2,7 @@
 <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://www.techelevator.com">
+      <a class="navbar-item" href="https://www.techelevator.com" target="_blank">
         <img
           src="//static1.squarespace.com/static/55ef2da9e4b03f6e1ef0cd28/t/5dceda76b702913cebc1d05e/1586375316161/?format=1500w"
           alt="Tech Elevator Coding Bootcamp "
@@ -25,14 +25,14 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item is-family-sans-serif">CHATBOT</a>
+        <a class="navbar-item is-family-sans-serif" href="/">CHATBOT</a>
 
-        <a class="navbar-item is-family-sans-serif">FAQS</a>
+        <a class="navbar-item is-family-sans-serif" href="faq">FAQS</a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a
             class="navbar-item is-family-sans-serif"
-            href="http://www.techelevator.com/events"
+            href="http://www.techelevator.com/events" target="_blank"
           >CALENDAR</a>
         </div>
       </div>
@@ -167,6 +167,10 @@ export default {
         sendMessage(){
             const message = this.message;
 
+            if(this.messages.length >0){
+            console.log(this.messages[this.messages.length - 1].text);
+            }
+
             if(!this.userName){
                 this.userName = message;
 
@@ -179,6 +183,7 @@ export default {
                     text: `Thanks, ${this.userName}, what can I do for you?`,
                     writer: 'server'
                 });
+
             } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")){
                 
                 this.messages.push({
@@ -189,11 +194,11 @@ export default {
                 this.jobType = message;
 
                 this.messages.push({
-                    text: `Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`,
+                    text: "Great, where would you like to search for available positions? (City, State (eg. PA, OH, VA))",
                     writer: 'server'
                 });
 
-            } else if(this.messages[this.messages.length - 1].text.match(`Great, where would you like to search for available ${this.jobType} positions? (City, State (eg. PA, OH, VA))`)){
+            } else if (this.jobType && !this.location && !this.state){
 
                 this.messages.push({
                     text: message,
@@ -204,13 +209,10 @@ export default {
                 this.location = cityState[0];
 
                 if( cityState[1] == null || cityState[1].length != 2){
-                    console.log('got here');
                     this.messages.push({
                         text: 'Please provide the location in "City, State" format (PA, OH, VA, etc.)',
                         writer: 'server'
                     });
-
-                    this.location = '';
 
                 } else {
                     this.state = cityState[1];
@@ -218,7 +220,7 @@ export default {
                 }
 
 
-            }else if (this.messages[this.messages.length - 1].text.match('Please provide the location in "City, State" format (PA, OH, VA, etc.)')){
+            } else if (this.jobType && this.location && !this.state){
                 
                 this.messages.push({
                     text: message,
@@ -231,11 +233,12 @@ export default {
                 if( cityState[1] == null || cityState[1].length != 2){
 
                     this.messages.push({
-                        text: "Sorry, let's try something else",
+                        text: "Sorry, let's try something else. What can I help you with?",
                         writer: 'server'
                     });
 
                     this.location = '';
+                    this.jobType='';
 
                 } else {
                     this.state = cityState[1];
@@ -266,16 +269,23 @@ export default {
         
                 })
                 .catch(err => console.error(err));
-            } else if((message.includes('find') && message.includes('job')) || (message.includes('finding') && message.includes('job')) || (this.jobType || this.location) ){
+            } else if((message.includes('find') || message.includes('finding')) && (message.includes('job') || message.includes('jobs')) || (this.jobType && this.location)){
+                
+                const urlJobType = this.jobType.replace(/\s/g, '+');
+                const urlLocation = this.location.replace(/\s/g, '+') + "%2C+" + this.state; 
+                const jobSearchUrl = `https://www.indeed.com/jobs?q=${urlJobType}&l=${urlLocation}`;
 
                 if(this.jobType && this.location){
                    this.messages.push({
-                       text: `Heres a link to ${this.jobType} jobs in ${this.location}, ${this.state}`,
+                       text: `Here's a link to <a href=${jobSearchUrl} target = "_blank">${this.jobType} jobs in ${this.location}, ${this.state}</a>`,
                        writer: 'server'
                    });
 
+                   
+
                    this.location='';
                    this.state='';
+                   this.jobType='';
 
                 } else {
                     this.messages.push({

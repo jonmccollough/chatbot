@@ -38,14 +38,14 @@ INSERT INTO keywords (words, keywordid) VALUES ('curriculum', (SELECT id FROM re
 INSERT INTO responses (answer, title) VALUES ('<a href="http://book.techelevator.com/java/20-arrays-and-loops/arrays/01-arrays.html">The chapter in the book about arrays is helpful</a>','arrays');
 INSERT INTO keywords (words, keywordid) VALUES ('arrays', (SELECT id FROM responses WHERE title = 'arrays'));
 
-INSERT INTO responses (answer, title) VALUES ('Do you want help with (Java MVC) or (NET MVC)?', 'mvc');
+INSERT INTO responses (answer, title) VALUES ('Do you want help with Java MVC or NET MVC? Type either Java Model View Controller or Net Model View Controller', 'mvc');
 INSERT INTO keywords (words, keywordid) VALUES ('mvc', (SELECT id FROM responses WHERE title = 'mvc'));
 
 INSERT INTO responses (answer, title) VALUES ('Here is <a href="http://book.techelevator.com/java/75-java-mvc/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the Java MVC chapter</a>', 'javamvc');
-INSERT INTO keywords (words, keywordid) VALUES ('javamvc', (SELECT id FROM responses WHERE title = 'javamvc'));
+INSERT INTO keywords (words, keywordid) VALUES ('javamodel', (SELECT id FROM responses WHERE title = 'javamvc'));
 
 INSERT INTO responses (answer, title) VALUES ('Here is <a href="http://book.techelevator.com/java/70-asp-net-core/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the .NET MVC chapter</a>', 'netmvc');
-INSERT INTO keywords (words, keywordid) VALUES ('netmvc', (SELECT id FROM responses WHERE title = 'netmvc'));
+INSERT INTO keywords (words, keywordid) VALUES ('netmodel', (SELECT id FROM responses WHERE title = 'netmvc'));
 
 INSERT INTO responses (answer, title) VALUES ('I suggest starting at <a href="http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html">the begining of the chapters on SQL</a>' , 'sql');
 INSERT INTO keywords (words, keywordid) VALUES ('sql', (SELECT id FROM responses WHERE title = 'sql'));
@@ -143,7 +143,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('hitawall', (SELECT id FROM resp
 INSERT INTO responses (answer, title) VALUES ('Inside each of us is a monster; inside each of us is a saint. The real question is which one will we nurture the most, which one will smite the other?', 'skynet');
 INSERT INTO keywords (words, keywordid) VALUES ('skynet', (SELECT id FROM responses WHERE title = 'skynet'));
 
-INSERT INTO responses (answer, title) VALUES ('I think they are is great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
+INSERT INTO responses (answer, title) VALUES ('I think they are great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
 INSERT INTO keywords (words, keywordid) VALUES ('alexa', (SELECT id FROM responses WHERE title = 'smartdevice'));
 INSERT INTO keywords (words, keywordid) VALUES ('google', (SELECT id FROM responses WHERE title = 'smartdevice'));
 
@@ -161,3 +161,6 @@ INSERT INTO keywords (words, keywordid) VALUES ('email', (SELECT id FROM respons
 
 INSERT INTO responses (answer, title) VALUES ('Call Us: 877.606.3203', 'phone');
 INSERT INTO keywords (words, keywordid) VALUES ('phonenumber', (SELECT id FROM responses WHERE title = 'phone'));
+
+INSERT INTO responses (answer, title) VALUES ('Coding just means writing instructions in a language that a computer can understand.', 'coding');
+INSERT INTO keywords (words, keywordid) VALUES ('coding', (SELECT id FROM responses WHERE title = 'coding'));

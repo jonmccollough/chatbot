@@ -1,6 +1,7 @@
 <template>
-  <div id="login" class="text-center">
-    
+
+<body>
+    <div class="faq" ref = "faq"></div>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.techelevator.com" target="_blank">
@@ -26,9 +27,9 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item is-family-sans-serif">CHATBOT</a>
+        <a class="navbar-item is-family-sans-serif" href="/">CHATBOT</a>
 
-        <a class="navbar-item is-family-sans-serif">FAQS</a>
+        <a class="navbar-item is-family-sans-serif" href="faq">FAQS</a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a
@@ -55,68 +56,30 @@
     </div>
   
 </nav>
+    <section class ="container">
+       <section class="hero is-small is-family-sans-serif is-info">
+           <div class="hero-body">
+               <div class="container">
+                   <h1 class="title" style="color: white">
+                       TECH ELEVATOR
+                   </h1>
+                   <h2 class="subtitle" style="color: white">
+                       Student Chatbot: FAQs
+                       </h2>
+               </div>
+           </div>
+        </section> 
+    </section>
+<section>
+<div>
+    <h1>  FAQ 
+        WORDS N STUFF HERE
 
-    <form class="form-signin" @submit.prevent="login">
-      <section class="hero is-success is-small"> 
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Sign In To Your Account
-      </h1>
-      
-    </div>
-  </div>
+
+    </h1>
+</div>
 </section>
-      
-      <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="invalidCredentials"
-      >Invalid username and password!</div>
-     
-      <div
-        class="alert alert-success"
-        role="alert"
-        v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
-     
-      <div class="field column is-one-third is-centered">
-        <p class="control has-icons-right">
-          <label for="username" class="label">Username</label>
-          <input
-            type="text"
-            id="username"
-            class="input"
-            placeholder="Username"
-            v-model="user.username"
-            required
-            autofocus
-          />
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
-        </p>
-        <p class="control has-icons-right">
-          <label for="password" class="label">Password</label>
-          <input
-            type="password"
-            id="password"
-            class="input"
-            placeholder="Password"
-            v-model="user.password"
-            required
-          />
-          <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
-          </span>
-        </p>
-
-        <button type="submit" class="button is-primary">Sign in</button>
-        <br />
-         <!-- <router-link :to="{ name: 'register' }">Need an account? Click here to register.</router-link> -->
-      </div>
-    </form>
-   <footer class="footer">
+<footer class="footer">
     <div class="container">
       <div class="columns">
         <div class="column is-one-third">
@@ -167,56 +130,106 @@
       </div>
     </div>
   </footer>
-  </div>
-  
+
+</body>
 </template>
 
 <script>
-import auth from "../auth";
-
 export default {
-  name: "login",
-  components: {},
-  data() {
-    return {
-      user: {
-        username: "",
-        password: ""
-      },
-      invalidCredentials: false
-    };
-  },
-  methods: {
-    login() {
-      fetch(`${process.env.VUE_APP_REMOTE_API}/login`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(this.user)
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.text();
-          } else {
-            this.invalidCredentials = true;
-          }
-        })
-        .then(token => {
-          if (token != undefined) {
-            if (token.includes('"')) {
-              token = token.replace(/"/g, "");
-            }
-            auth.saveToken(token);
-            this.$router.push("/");
-          }
-        })
-        .catch(err => console.error(err));
-    }
+  name: 'faq',
+  components: {
   }
-};
+}
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+    body {
+        background: rgb(255,255,255);
+        background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
+    }
+
+    .chat-bot,
+    .chat-bot-list-container{
+        display: flex;
+        flex-direction: column;
+        list-style-type: none ;
+        overflow: scroll;
+        background: white;
+        height: 60vh;
+    }
+    .chat-bot-list{
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: white;
+    
+         .server{
+            margin-right: 25px;
+            span{
+                max-width: 40vw;
+            
+                }
+            p{
+                background: green;
+                color: white;
+                padding: 8px;
+                border-radius: 4px;
+                opacity: 0.8;
+                border-bottom: none;
+                border-top-right-radius: 4px;
+                text-align: left;
+                display: block;
+            }
+    
+        }
+        .client{
+            margin-left: 25px;
+            span{
+                max-width: 40vw;
+            }
+            p{
+                background: hsl(204, 86%, 53%);
+                color: white;
+                padding: 8px;
+                border-radius: 4px;
+                opacity: 0.8;
+                text-align: right;
+                display: block;
+            }
+        }
+    }
+
+.chat-bot{
+    border: 1px solid #999;
+    width: 50vw;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: space-between;
+}
+.chat-inputs{
+    display: flex;
+    justify-content: center;
+    input{
+        align-items: space-around;
+        width: 45vw;
+        padding-left: 15px
+    }
+}
+
+.container{
+ width: 50vw;
+}
+
+.message{
+    background-color: white;
+    border-radius: 12px;
+}
+
+.footer{
+    background: rgb(255,255,255);
+    background: radial-gradient(circle,rgba(72,199, 116, 1) 28%, rgba(50, 152, 220,1)  85%);
+    margin-top: 0%;
+    display: none;
+}
 </style>
