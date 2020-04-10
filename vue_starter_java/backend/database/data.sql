@@ -38,14 +38,14 @@ INSERT INTO keywords (words, keywordid) VALUES ('curriculum', (SELECT id FROM re
 INSERT INTO responses (answer, title) VALUES ('<a href="http://book.techelevator.com/java/20-arrays-and-loops/arrays/01-arrays.html">The chapter in the book about arrays is helpful</a>','arrays');
 INSERT INTO keywords (words, keywordid) VALUES ('arrays', (SELECT id FROM responses WHERE title = 'arrays'));
 
-INSERT INTO responses (answer, title) VALUES ('Do you want help with Java MVC or NET MVC? Type either Java Model View Controller or Net Model View Controller', 'mvc');
+INSERT INTO responses (answer, title) VALUES ('Do you want help with Java MVC or NET MVC? Type either JModel for Java or NModel for .NET', 'mvc');
 INSERT INTO keywords (words, keywordid) VALUES ('mvc', (SELECT id FROM responses WHERE title = 'mvc'));
 
 INSERT INTO responses (answer, title) VALUES ('Here is <a href="http://book.techelevator.com/java/75-java-mvc/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the Java MVC chapter</a>', 'javamvc');
-INSERT INTO keywords (words, keywordid) VALUES ('javamodel', (SELECT id FROM responses WHERE title = 'javamvc'));
+INSERT INTO keywords (words, keywordid) VALUES ('jmodel', (SELECT id FROM responses WHERE title = 'javamvc'));
 
 INSERT INTO responses (answer, title) VALUES ('Here is <a href="http://book.techelevator.com/java/70-asp-net-core/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the .NET MVC chapter</a>', 'netmvc');
-INSERT INTO keywords (words, keywordid) VALUES ('netmodel', (SELECT id FROM responses WHERE title = 'netmvc'));
+INSERT INTO keywords (words, keywordid) VALUES ('nmodel', (SELECT id FROM responses WHERE title = 'netmvc'));
 
 INSERT INTO responses (answer, title) VALUES ('I suggest starting at <a href="http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html">the begining of the chapters on SQL</a>' , 'sql');
 INSERT INTO keywords (words, keywordid) VALUES ('sql', (SELECT id FROM responses WHERE title = 'sql'));
@@ -161,3 +161,14 @@ INSERT INTO keywords (words, keywordid) VALUES ('phonenumber', (SELECT id FROM r
 
 INSERT INTO responses (answer, title) VALUES ('Coding just means writing instructions in a language that a computer can understand.', 'coding');
 INSERT INTO keywords (words, keywordid) VALUES ('coding', (SELECT id FROM responses WHERE title = 'coding'));
+
+INSERT INTO responses (answer, title) VALUES ('An elevator pitch is a 30 to 40 second introduction where you attempt to sell yourself as an asset to a potential employer. The name comes from an imagined scenario: imagine being in the an elevator with your dream employer: What would you say? Try typing pitch example to see an example pitch.', 'elevatorpitch');
+INSERT INTO keywords (words, keywordid) VALUES ('elevatorpitch', (SELECT id FROM responses WHERE title = 'elevatorpitch'));
+
+INSERT INTO responses (answer, title) VALUES ('Here is an example elevator pitch from our Pathway Director, Ellen: Hi, my name is Ellen. Since I was a little girl stopping my neighbors to chat, I have loved connecting to people and learning about their lives and goals. My past careers reflect that: I spent many years in television casting, interviewing people from all walks of life and getting them on television shows, and managing teams. More recently, I was a Technology Recruiter, placing people in IT jobs. Helping people find their unique strengths and matching them with a career they love is my motivation. I am looking for a position where I can guide people to achieve their goals, and lead with listening and, I hope, with humor and kindness.', 'pitch example');
+INSERT INTO keywords (words, keywordid) VALUES ('pitch example', (SELECT id FROM responses WHERE title = 'pitch example'));
+
+INSERT INTO responses (answer, title) VALUES ('Tech Elevator maintains a list of mental health resources. <a target="_blank" href="https://docs.google.com/document/d/1SiVQCeRAbXJZ5d-5Ba0sAkNzd8WjtIG21Gm7jMuN-3k/edit?usp=sharing">Check it out here.</a> We are all here for you.', 'mentalhealth');
+INSERT INTO keywords (words, keywordid) VALUES ('mental', (SELECT id FROM responses WHERE title = 'mentalhealth'));
+INSERT INTO keywords (words, keywordid) VALUES ('killmyself', (SELECT id FROM responses WHERE title = 'mentalhealth'));
+INSERT INTO keywords (words, keywordid) VALUES ('freakingout', (SELECT id FROM responses WHERE title = 'mentalhealth'));
