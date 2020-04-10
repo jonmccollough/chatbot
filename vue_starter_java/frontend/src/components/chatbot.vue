@@ -90,7 +90,7 @@
                 <input type="text"
                 v-model="message"
                 @keyup.enter="sendMessage" />
-                <button @click="sendMessage" class="button is-light">Send</button>
+                <button @click="sendMessage" class="button is-dark">Send</button>
             </div>
     </section>
   <footer class="footer">
