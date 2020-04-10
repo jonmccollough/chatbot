@@ -167,11 +167,11 @@ export default {
         sendMessage(){
             const message = this.message;
 
-            if(this.messages.length >0){
+            if (this.messages.length >0) {
             console.log(this.messages[this.messages.length - 1].text);
             }
 
-            if(!this.userName){
+            if (!this.userName) {
                 this.userName = message;
 
                 this.messages.push({
@@ -184,7 +184,7 @@ export default {
                     writer: 'server'
                 });
 
-            } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")){
+            } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")) {
                 
                 this.messages.push({
                     text: message,
@@ -198,7 +198,7 @@ export default {
                     writer: 'server'
                 });
 
-            } else if (this.jobType && !this.location && !this.state){
+            } else if (this.jobType && !this.location && !this.state) {
 
                 this.messages.push({
                     text: message,
@@ -220,7 +220,7 @@ export default {
                 }
 
 
-            } else if (this.jobType && this.location && !this.state){
+            } else if (this.jobType && this.location && !this.state) {
                 
                 this.messages.push({
                     text: message,
@@ -245,31 +245,11 @@ export default {
                     this.sendMessage();
                 }
 
-            }else if(message.includes('quote')){
-                
-                this.messages.push({
-                    text:message,
-                    writer:'client'
-                });
+            } else if (message.includes('quote')) {
 
-                axios.get('https://type.fit/api/quotes')
-                .then(res => {
+                this.getQuote();
 
-                    let quote = Math.floor(Math.random() * 1642);
-                    let auth = res.data[quote].author;
-
-                    if (auth == null) {
-                        auth = 'Unknown';
-                    }
-                    
-                    this.messages.push({
-                        text: 'Quote #'+ quote + ': "' + res.data[quote].text + '" -' + auth,
-                        writer: 'server'
-                    });
-        
-                })
-                .catch(err => console.error(err));
-            } else if((message.includes('find') || message.includes('finding')) && (message.includes('job') || message.includes('jobs')) || (this.jobType && this.location)){
+            } else if ((message.includes('find') || message.includes('finding')) && (message.includes('job') || message.includes('jobs')) || (this.jobType && this.location)) {
                 
                 const urlJobType = this.jobType.replace(/\s/g, '+');
                 const urlLocation = this.location.replace(/\s/g, '+') + "%2C+" + this.state; 
@@ -300,68 +280,111 @@ export default {
                 }
             } else if (message.includes('cat')) {
 
-                this.messages.push({
-                    text: message,
-                    writer: 'client'
-                });
+                this.getCatFact();
 
-                axios.get('https://catfact.ninja/fact')
-                .then(res =>{
-
-                    this.messages.push({
-                        text: 'Cat Fact: ' + res.data.fact,
-                        writer: 'server'
-                    })
-                
-                })
-                .catch(error => console.error(error));
             } else {
-                
-                this.messages.push({
-                    text: message,
-                    writer: 'client'
-                });
 
-                axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
-                .then((res) => {
+                this.getKeyword();
 
-                    if(!res.data[0].matchingMultipleKeywords && res.data[0].containsKeyword){
-                        this.messages.push({
-                        text: res.data[0].response,
-                        writer: 'server',
-                    })}
-
-                    if(res.data[0].matchingMultipleKeywords){
-                        let concatted = 'Sorry, could you be a little more specific? Try typing one of these words: ';
-                        res.data.forEach(element => {
-                            concatted = concatted + " " + (element.response);
-                        });
-
-                        this.messages.push({
-                            text: concatted,
-                            writer: 'server',
-                        })
-                    }
-                
-                    if(!res.data[0].containsKeyword){
-                        this.messages.push({
-                            text: "Sorry! I didn't quite get that. Could you try saying that again?",
-                            writer: 'server',
-                        })
-                    }
-                })
-                .catch(error => console.error(error));
+            }
 
         this.$nextTick(() => {
           this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight;
         });
-      }
+      
       this.message = "";
-    }
+    },
+
+    getQuote() {
+      const message = this.message;
+
+      this.messages.push({
+        text: message,
+        writer:'client'
+      });
+
+      axios.get('https://type.fit/api/quotes')
+        .then(res => {
+
+            let quote = Math.floor(Math.random() * 1642);
+            let auth = res.data[quote].author;
+
+            if (auth == null) {
+                auth = 'Unknown';
+            }
+                    
+            this.messages.push({
+                text: 'Quote #'+ quote + ': "' + res.data[quote].text + '" -' + auth,
+                writer: 'server'
+            });
+        
+        })
+        .catch(err => console.error(err));
+    },
     
+    getCatFact() {
+      const message = this.message;
+
+      this.messages.push({
+        text: message,
+        writer: 'client'
+      });
+
+      axios.get('https://catfact.ninja/fact')
+        .then(res =>{
+
+            this.messages.push({
+                text: 'Cat Fact: ' + res.data.fact,
+                writer: 'server'
+            })
+                
+        })
+        .catch(error => console.error(error));
+    },
+
+    getKeyword() {
+      const message = this.message;
+
+      this.messages.push({
+        text: message,
+        writer: 'client'
+      });
+
+      axios.get(`http://localhost:8080/capstone-backend/api/call/${message}`, {headers:{"Authorization" :  'Bearer ' + localStorage.getItem('Authorization')}})
+        .then((res) => {
+
+            if(!res.data[0].matchingMultipleKeywords && res.data[0].containsKeyword){
+                this.messages.push({
+                    text: res.data[0].response,
+                    writer: 'server',
+                })}
+
+            if(res.data[0].matchingMultipleKeywords){
+                let concatted = 'Sorry, could you be a little more specific? Try typing one of these words: ';
+                res.data.forEach(element => {
+                    concatted = concatted + " " + (element.response);
+                });
+
+                this.messages.push({
+                    text: concatted,
+                    writer: 'server',
+                })
+            }
+                
+            if(!res.data[0].containsKeyword){
+                this.messages.push({
+                    text: "Sorry! I didn't quite get that. Could you try saying that again?",
+                    writer: 'server',
+                })
+            }
+        })
+        .catch(error => console.error(error));
+    },
 }
 
+
 }
+
 </script>
 
 <style lang="scss" scoped>
