@@ -101,8 +101,9 @@ export default {
 <style lang="scss" scoped>
 
 body {
- background: rgb(0,176,240);
-background: linear-gradient(0deg, rgba(0,176,240,1) 0%, rgba(255,255,255,1) 67%, rgba(139,196,64,0.6561517295597484) 100%);    }
+    background: rgb(0,176,240);
+    background: linear-gradient(0deg, rgba(0,176,240,1) 0%, rgba(255,255,255,1) 80%, rgba(139,196,64,0.6561517295597484) 100%);
+}
 
 .li{
     margin: 5em;
@@ -125,8 +126,10 @@ summary {
 }
 p.menu-label{
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     color: green;
+    padding-left: 10px;
+
 }
 details[open] {
     padding: .6em;
