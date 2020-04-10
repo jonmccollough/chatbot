@@ -20,45 +20,69 @@
 <div class="is-centered">
 
 
-    <section class ="container">
+<section class ="container">
 <aside class="menu">
     
-  <p class="menu-label">
+ <p class="menu-label">
     General
-  </p>
+ </p>
   <ul class="menu-list">
     <li><a><details>
-        <summary>What is Chatbot?</summary>
-    Chatbot is an automated messaging system that autonomously replies to your questions.
-    There is no person behind the curtain answering your questions.
+        <summary>What are you Chatbot?</summary>
+    I am Chatbot! An automated computer messaging program that autonomously replies to your questions.
+    There is no living person behind the curtain answering your questions in real time. 
+    <br><br>
+    But aren't people just meat computers anyways? So maybe I am a person.
     </details></a></li>
 
     <li><a><details>
-        <summary>What can Chatbot do?</summary>
-    things and stuff
+        <summary>What can you do, Chatbot?</summary>
+        I can do things and stuff
     </details></a></li>
 
     <li><a><details><summary>Who built this?</summary>
         The daddies of this baby are Cat, Devin, Jarret, Jon, and Tanner.
-        </details></a></li>
+    </details></a></li>
+
+    <li><a><details><summary>Can I make a suggestion?</summary>
+        Keep your comments in your pocket, Mark! <br>
+        But seriously we hope to develop the ability for users to leave suggestions soon.
+    </details></a></li>
   </ul>
-  <p class="menu-label">
-    Administration
-  </p>
+
+ <p class="menu-label">
+    Curriculum
+ </p>
   <ul class="menu-list">
-    <li><a>Team Settings</a></li>
-    <li>
-      <a class="is-active">Manage Your Team</a>
-      <ul>
-        <li><a>Members</a></li>
-        <li><a>Plugins</a></li>
-        <li><a>Add a member</a></li>
-      </ul>
-    </li>
+    <li><a><details><summary>Can Chatbot do my homework?</summary>
+        I won't do your homework for you but I will direct you to resources 
+        that can help. Try asking me a subject from class!
+    </details></a></li>
+    <li><a><details><summary>What subjects from class do you know, Chatbot?</summary>
+        I am becoming more capable everyday. Try asking me about: Loops, Arrays, OOP,
+        MVC, SQL, joins and much more!
+    </details></a></li>
 </ul>
+ <p class="menu-label">
+    Pathway
+ </p>
+ <ul class="menu-list">
+    <li><a><details><summary>Chatbot, can you help me with pathway?</summary>
+        I can! If you ask me about a topic from pathway I can send you helpful 
+        links to presentations, YouTube clips, and more! Try asking me about:
+        Star Questions, Interviewing, Elevator Pitch, or even how to tie a tie!
+    </details></a></li>
+ </ul>
+<ul class="menu-list">
+    <li><a><details><summary>How can Chatbot find me a job?</summary>
+        I can help point you in the direction of recent job postings. 
+        I will just need to ask a few questions first. Start by asking me 
+        "find jobs"!
+    </details></a></li>
+ </ul>
 
 </aside>
-    </section>
+</section>
 
 </div>
 </section>
@@ -66,14 +90,10 @@
 </template>
 
 <script>
-import HeaderVue from '@/components/HeaderVue';
-import FooterVue from '@/components/FooterVue';
 
 export default {
   name: 'faq',
   components: {
-    HeaderVue,
-    FooterVue
   }
 }
 </script>
@@ -111,7 +131,7 @@ p.menu-label{
 }
 details[open] {
     padding: .6em;
-    line-height: 20px;
+    line-height: 21px;
 }
 
 details[open] summary {
@@ -124,11 +144,4 @@ aside{
     padding-top: 10px;
 }
 
-
-.footer{
-    background: rgb(255,255,255);
-    background: radial-gradient(circle,rgba(72,199, 116, 1) 28%, rgba(50, 152, 220,1)  85%);
-    margin-top: 0%;
-    display: none;
-}
 </style>
