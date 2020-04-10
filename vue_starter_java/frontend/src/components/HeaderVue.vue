@@ -57,6 +57,6 @@
 
 <script>
 export default {
-  name: 'header'
+  name: 'header-vue'
 }
 </script>
