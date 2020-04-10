@@ -361,14 +361,8 @@ export default {
 <style lang="scss" scoped>
 body {
   
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    142deg,
-    rgba(255, 255, 255, 1) 53%,
-    rgba(139, 196, 64, 1) 56%,
-    rgba(255, 255, 255, 1) 58%,
-    rgba(0, 176, 240, 1) 62%
-  );
+ background: rgb(0,176,240);
+background: linear-gradient(0deg, rgba(0,176,240,1) 0%, rgba(255,255,255,1) 80%, rgba(139,196,64,0.6561517295597484) 100%);
 }
 
 .chat-bot,
@@ -441,6 +435,7 @@ body {
   align-items: space-between;
   margin-right: auto;
   margin-left: auto;
+  
 }
 .chat-inputs {
   display: flex;
