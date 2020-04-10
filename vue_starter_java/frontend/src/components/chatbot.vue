@@ -389,6 +389,7 @@ export default {
 
 <style lang="scss" scoped>
 body {
+  
   background: rgb(255, 255, 255);
   background: linear-gradient(
     142deg,
@@ -401,29 +402,28 @@ body {
 
 .chat-bot,
 .chat-bot-list{
-  display: flex;
+  list-style-type:none;
   flex-direction: column;
-  list-style-type: none;
   overflow: scroll;
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .chat-bot-list-container{
-  margin-bottom: 1px;
   display: flex;
-  flex-direction: column;
-  list-style-type: none;
+  background-color: white;
   overflow: scroll;
-  align-items: space-around;
 }
 
 .chat-bot-list{
-    padding-left: 10px;
-    padding-right: 10px;
+    
     background-color: white;
+    align-content: center;
 
     .span{
            padding: 8px;
-           
-           border-radius: 4px;
+           color: white;
+          
            
     }
     
@@ -436,7 +436,9 @@ body {
     p{
            float: left;
            border-radius: 4px; 
-           background: green; 
+           background: green;
+           opacity: 0.8;
+           
     }
     
     }
@@ -449,6 +451,8 @@ body {
       float: right;
       background: blue;
       border-radius: 4px;
+      opacity: 0.8;
+      
     }
   }
 }
@@ -459,13 +463,13 @@ body {
   width: 50vw;
   height: 50vh;
   align-items: space-between;
-  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
 }
 .chat-inputs {
   display: flex;
   justify-content: center;
   border: 1px solid #999;
-  border-top: none;
   input {
     align-items: space-around;
     width: 45vw;
@@ -475,10 +479,12 @@ body {
 }
 .container {
   width: 50vw;
+  display: flex;
+  flex-direction: column;
 }
 .message {
   background-color: white;
-  
+  border-radius: 12px;
 }
 
 .footer {
