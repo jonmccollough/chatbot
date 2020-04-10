@@ -15,6 +15,8 @@
         aria-label="menu"
         aria-expanded="false"
         data-target="navbarBasicExample"
+        @click="isOpen = !isOpen"
+        v-bind:class="{'is-active': isOpen}"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -22,7 +24,7 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div id="navbarBasicExample" class="navbar-menu" v-bind:class="{'is-active': isOpen}">
       <div class="navbar-start">
         <a class="navbar-item is-family-sans-serif" href="/">CHATBOT</a>
 
@@ -72,7 +74,11 @@ export default {
   props: {
     isLoggedIn: Boolean
   },
-
+data: function(){
+  return {
+    isOpen: false
+  }
+},
   methods: {
 
     logOut(){
