@@ -169,3 +169,18 @@ INSERT INTO responses (answer, title) VALUES ('Tech Elevator maintains a list of
 INSERT INTO keywords (words, keywordid) VALUES ('mental', (SELECT id FROM responses WHERE title = 'mentalhealth'));
 INSERT INTO keywords (words, keywordid) VALUES ('killmyself', (SELECT id FROM responses WHERE title = 'mentalhealth'));
 INSERT INTO keywords (words, keywordid) VALUES ('freakingout', (SELECT id FROM responses WHERE title = 'mentalhealth'));
+
+INSERT INTO responses (answer, title) VALUES ('My name is Justin Driscoll.', 'who you');
+INSERT INTO keywords (words, keywordid) VALUES ('whoareyou', (SELECT id FROM responses WHERE title = 'who you'));
+
+INSERT INTO responses (answer, title) VALUES ('&#128521;', 'what you');
+INSERT INTO keywords (words, keywordid) VALUES ('whatareyou', (SELECT id FROM responses WHERE title = 'what you'));
+
+INSERT INTO responses (answer, title) VALUES ('Pittsburgh, hands down.', 'bestcampus');
+INSERT INTO keywords (words, keywordid) VALUES ('besttechelevatorcampus', (SELECT id FROM responses WHERE title = 'bestcampus'));
+
+INSERT INTO responses (answer, title) VALUES ('<iframe width="560" height="315" src="https://www.youtube.com/embed/m2s0nB2VPvs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'covid');
+INSERT INTO keywords (words, keywordid) VALUES ('covid', (SELECT id FROM responses WHERE title = 'covid'));
+
+INSERT INTO responses (answer, title) VALUES ('<iframe width="560" height="315" src="https://www.youtube.com/embed/BU4d9FCJ-pI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'coronavirus');
+INSERT INTO keywords (words, keywordid) VALUES ('coronavirus', (SELECT id FROM responses WHERE title = 'coronavirus'));
