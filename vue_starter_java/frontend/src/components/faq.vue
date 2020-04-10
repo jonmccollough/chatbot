@@ -71,12 +71,52 @@
         </section> 
     </section>
 <section>
-<div>
-    <h1>  FAQ 
-        WORDS N STUFF HERE
+<div class="is-centered">
 
 
-    </h1>
+    <section class ="container">
+<aside class="menu">
+    <p></p>
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list">
+    <li><a><details>
+        <summary>What is Chatbot?</summary>
+    Chatbot is an automated messaging system that autonomously replies to your questions.
+    There is no person behind the curtain answering your questions.
+    </details></a></li>
+
+    <li><a><details>
+        <summary>What can Chatbot do?</summary>
+    things and stuff
+    </details></a></li>
+
+    <li><a><details><summary>Who built this?</summary>
+        The daddies of this baby are Cat, Devin, Jarret, Jon, and Tanner.
+        </details></a></li>
+  </ul>
+  <p class="menu-label">
+    Administration
+  </p>
+  <ul class="menu-list">
+    <li><a>Team Settings</a></li>
+    <li>
+      <a class="is-active">Manage Your Team</a>
+      <ul>
+        <li><a>Members</a></li>
+        <li><a>Plugins</a></li>
+        <li><a>Add a member</a></li>
+      </ul>
+    </li>
+    </ul>
+    <li><a>Invitations</a></li>
+    <li><a>Cloud Storage Environment Settings</a></li>
+    <li><a>Authentication</a></li>
+
+</aside>
+    </section>
+
 </div>
 </section>
 <footer class="footer">
@@ -144,86 +184,41 @@ export default {
 
 <style lang="scss" scoped>
 
-    body {
-        background: rgb(255,255,255);
-        background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
+body {
+    background: rgb(255,255,255);
+    background: linear-gradient(142deg, rgba(255,255,255,1) 53%, rgba(139,196,64,1) 56%, rgba(255,255,255,1) 58%, rgba(0,176,240,1) 62%);
     }
 
-    .chat-bot,
-    .chat-bot-list-container{
-        display: flex;
-        flex-direction: column;
-        list-style-type: none ;
-        overflow: scroll;
-        background: white;
-        height: 60vh;
-    }
-    .chat-bot-list{
-        padding-left: 10px;
-        padding-right: 10px;
-        background-color: white;
-    
-         .server{
-            margin-right: 25px;
-            span{
-                max-width: 40vw;
-            
-                }
-            p{
-                background: green;
-                color: white;
-                padding: 8px;
-                border-radius: 4px;
-                opacity: 0.8;
-                border-bottom: none;
-                border-top-right-radius: 4px;
-                text-align: left;
-                display: block;
-            }
-    
-        }
-        .client{
-            margin-left: 25px;
-            span{
-                max-width: 40vw;
-            }
-            p{
-                background: hsl(204, 86%, 53%);
-                color: white;
-                padding: 8px;
-                border-radius: 4px;
-                opacity: 0.8;
-                text-align: right;
-                display: block;
-            }
-        }
-    }
-
-.chat-bot{
-    border: 1px solid #999;
-    width: 50vw;
-    border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: space-between;
+.li{
+    margin: 5em;
 }
-.chat-inputs{
-    display: flex;
-    justify-content: center;
-    input{
-        align-items: space-around;
-        width: 45vw;
-        padding-left: 15px
-    }
-}
-
 .container{
- width: 50vw;
+ width: 65vw;
 }
 
-.message{
-    background-color: white;
-    border-radius: 12px;
+details {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: .6em .6em 0;
+    font-size: 15px;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+p.menu-label{
+    font-weight: bold;
+    font-size: 15px;
+}
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
 }
 
 .footer{
