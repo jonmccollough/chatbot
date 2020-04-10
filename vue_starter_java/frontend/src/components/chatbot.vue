@@ -379,7 +379,7 @@ body {
 }
 
 .chat-bot {
-  overflow: scroll;
+  overflow-y: scroll;
   border: 1px solid #999;
   width: 50vw;
   height: 50vh;
