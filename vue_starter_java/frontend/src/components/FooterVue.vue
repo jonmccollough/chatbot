@@ -26,33 +26,24 @@
           </div>
         </div>
         <div class="column">
-          <figure class ="image is-128x128">
-          <img src = "https://techelevator-pgh-teams.azurewebsites.net/img/Mark.57c5a859.png">
-          </figure>
+           <div class = "columns">
+             <div class = "column">
+            <a href="http://www.facebook.com/techelevator" class="fa fa-facebook"></a>      
+            <a href="http://www.instagram.com/techelevator" class="fa fa-instagram"></a>
+            <a href="http://www.linkedin.com/school/tech-elevator" class="fa fa-linkedin"></a>
+            <a href="http://www.twitter.com/Tech_Elevator" class="fa fa-twitter"></a>
+            <a href="https://www.youtube.com/c/Techelevatorcodeschool" class="fa fa-youtube"></a>
+            </div>
+             </div>
         </div>
 
         <div class="column">
-          <div class="is-pulled-right">
+           
+         <figure class ="image is-128x128">
+          <img src = "https://techelevator-pgh-teams.azurewebsites.net/img/Mark.57c5a859.png">
+          </figure>
             
-            <figure class="image is-24x24">
-              <a href="https://facebook.com/techelevator">
-                <img src="@/img/fb.png" />
-              </a>
-              <a href="https://instagram.com/techelevator">
-                <img src="@/img/ig.png" />
-              </a>
-              <a href="https://linkedin.com/school/tech_elevator">
-                <img src="@/img/li.png" />
-              </a>
-              <a href="https://twitter.com/Tech_Elevator">
-                <img src="@/img/tw.png" />
-              </a>
-              <a href="https://youtube.com/techelevatorcodeschool">
-                <img src="@/img/yt.png" />
-              </a>
-            </figure>
-            
-          </div>
+          
         </div>
       </div>
     </div>
@@ -66,5 +57,12 @@ export default {
 </script>
 
 <style>
-
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+.fa {
+  padding: 5px;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+}
 </style>
