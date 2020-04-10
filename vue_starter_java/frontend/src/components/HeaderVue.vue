@@ -36,7 +36,7 @@
         </div>
       </div>
 
-        <div v-if="signedIn" class="navbar-end">
+        <div v-if="isLoggedIn" class="navbar-end">
           <div class = "buttons">
             <router-link :to="{ name: 'login'}">
             <a class="button is-primary" @click='logOut'>
@@ -69,35 +69,17 @@ import auth from '../auth.js';
 
 export default {
   name: 'header-vue',
-
-  data(){
-    return{
-      signedIn: this.signedInCheck()
-    }
+  props: {
+    isLoggedIn: Boolean
   },
 
-  computed: {
-    
-  },
-  
   methods: {
-    checkLogin(){
-      this.signedIn = this.signedInCheck();
-    },
-
-    signedInCheck: function(){
-      if(auth.getToken()){
-        return true;
-      } else {
-        return false;
-      }
-    },
 
     logOut(){
-      console.log(this.signedIn);
       auth.logout();
-      this.checkLogin();
+      this.$emit("logOutEvent");
     }
+    
   }
 }
 
