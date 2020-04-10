@@ -189,6 +189,10 @@ export default {
 
                 this.getQuote();
 
+            } else if ( (message.includes('beer')) ||  (message.includes('brewery')) || (message.includes('alcohol')) ) {
+
+                this.getBrews()
+
             } else if (message.includes('cat')) {
 
                 this.getCatFact();
@@ -250,6 +254,38 @@ export default {
             })
                 
         })
+        .catch(error => console.error(error));
+    },
+
+
+    getBrews() {
+      const message = this.message;
+
+      this.messages.push({
+        text: message,
+        writer: 'client'
+      });
+
+      let stringified = "Checking the Open Brewery Database for Pittsburgh breweries... <br><br>";
+
+      axios.get('https://api.openbrewerydb.org/breweries?by_state=pennsylvania&by_city=pittsburgh&sort=+name')
+          .then(res =>{
+
+            const beerResponses = res.data;
+
+            beerResponses.forEach( (brewery) => {
+                if(brewery.street != ""){
+                stringified = stringified + brewery.name + " is at " + brewery.street + "." + "<br>";
+                } else {
+                  stringified = stringified + brewery.name + "<br>";
+                }
+            });
+
+              this.messages.push({
+                  text: stringified,
+                  writer: 'server'
+              })
+          })
         .catch(error => console.error(error));
     },
 
