@@ -90,7 +90,7 @@
                 <input type="text"
                 v-model="message"
                 @keyup.enter="sendMessage" />
-                <button @click="sendMessage" class="button is-light">Send</button>
+                <button @click="sendMessage" class="button is-dark">Send</button>
             </div>
     </section>
   <footer class="footer">
@@ -400,67 +400,74 @@ body {
 }
 
 .chat-bot,
-.chat-bot-list-container {
+.chat-bot-list{
   display: flex;
   flex-direction: column;
   list-style-type: none;
   overflow: scroll;
-  background: white;
-  height: 70vh;
 }
+.chat-bot-list-container{
+  margin-bottom: 1px;
+}
+
 .chat-bot-list{
     padding-left: 10px;
     padding-right: 10px;
     background-color: white;
+
+    .span{
+           padding: 8px;
+           color: white;
+           border-radius: 4px;
+    }
     
     .server{
-        margin-right: 25px;
+        
         span{
-            max-width: 40vw;
-            
+         
+         border-radius: 4px;   
                     }
     p{
-            background: green;
-            color: white;
-            padding: 8px;
-            border-radius: 4px;
-            opacity: 0.8;
-            border-bottom: none;
-            border-top-right-radius: 4px;
-            text-align: left;
-            display: block;
-           
-       
+           float: left;
+           border-radius: 4px; 
+           background: green; 
     }
     
     }
+    .client{
+      span{
+        
+        border-radius: 4px;
+      }
     p {
-      background: hsl(204, 86%, 53%);
-      color: white;
-      padding: 8px;
+      float: right;
+      background: blue;
       border-radius: 4px;
-      opacity: 0.8;
-      text-align: right;
-      display: block;
     }
   }
-
+}
 
 .chat-bot {
+  
   border: 1px solid #999;
   width: 50vw;
-  border-radius: 4px;
+  height: 50vh;
+ 
   margin-left: auto;
   margin-right: auto;
   align-items: space-between;
+  justify-content: space-between;
 }
 .chat-inputs {
   display: flex;
   justify-content: center;
+  border: 1px solid #999;
+  border-top: none;
   input {
     align-items: space-around;
     width: 45vw;
     padding-left: 15px;
+    line-height: 3;;
   }
 }
 .container {
@@ -468,7 +475,7 @@ body {
 }
 .message {
   background-color: white;
-  border-radius: 12px;
+  
 }
 
 .footer {
