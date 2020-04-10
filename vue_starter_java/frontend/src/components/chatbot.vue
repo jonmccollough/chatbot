@@ -40,7 +40,6 @@
                 <button @click="sendMessage" class="button is-dark">Send</button>
             </div>
     </section>
-  
   </body>
 </template>
 
@@ -86,6 +85,10 @@ export default {
 
                 this.getQuote();
 
+            } else if ( (message.includes('beer')) ||  (message.includes('brewery')) || (message.includes('alcohol')) ) {
+
+                this.getBrews()
+
             } else if (message.includes('cat')) {
 
                 this.getCatFact();
@@ -95,12 +98,14 @@ export default {
                 this.getKeyword();
 
             }
-
-        this.$nextTick(() => {
-          this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight;
-        });
       
       this.message = "";
+    },
+
+    autoScroll() {
+      this.$nextTick(() => {
+          this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight;
+      });
     },
 
     getQuote() {
@@ -125,6 +130,8 @@ export default {
                 text: 'Quote #'+ quote + ': "' + res.data[quote].text + '" -' + auth,
                 writer: 'server'
             });
+
+            this.autoScroll();
         
         })
         .catch(err => console.error(err));
@@ -144,9 +151,43 @@ export default {
             this.messages.push({
                 text: 'Cat Fact: ' + res.data.fact,
                 writer: 'server'
-            })
+            });
+
+            this.autoScroll();
                 
         })
+        .catch(error => console.error(error));
+    },
+
+
+    getBrews() {
+      const message = this.message;
+
+      this.messages.push({
+        text: message,
+        writer: 'client'
+      });
+
+      let stringified = "Checking the Open Brewery Database for Pittsburgh breweries... <br><br>";
+
+      axios.get('https://api.openbrewerydb.org/breweries?by_state=pennsylvania&by_city=pittsburgh&sort=+name')
+          .then(res =>{
+
+            const beerResponses = res.data;
+
+            beerResponses.forEach( (brewery) => {
+                if(brewery.street != ""){
+                stringified = stringified + brewery.name + " is at " + brewery.street + "." + "<br>";
+                } else {
+                  stringified = stringified + brewery.name + "<br>";
+                }
+            });
+
+              this.messages.push({
+                  text: stringified,
+                  writer: 'server'
+              })
+          })
         .catch(error => console.error(error));
     },
 
@@ -185,6 +226,8 @@ export default {
                     writer: 'server',
                 })
             }
+
+            this.autoScroll();
         })
         .catch(error => console.error(error));
     },
@@ -233,6 +276,8 @@ export default {
               writer: 'server'
           });
       }
+
+      this.autoScroll();
     },
 
     getJobType() {
@@ -249,6 +294,8 @@ export default {
           text: "Great, where would you like to search for available positions? (City, State (eg. PA, OH, VA))",
           writer: 'server'
       });
+
+      this.autoScroll();
     },
 
     getLocation() {
@@ -272,6 +319,8 @@ export default {
           this.state = cityState[1];
           this.sendMessage();
       }
+
+      this.autoScroll();
     },
 
     inputValidation() {
@@ -299,6 +348,8 @@ export default {
           this.state = cityState[1];
           this.sendMessage();
       }
+
+      this.autoScroll();
     },
 }
 
