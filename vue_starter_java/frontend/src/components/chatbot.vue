@@ -167,22 +167,9 @@ export default {
         sendMessage(){
             const message = this.message;
 
-            if (this.messages.length >0) {
-            console.log(this.messages[this.messages.length - 1].text);
-            }
-
             if (!this.userName) {
-                this.userName = message;
 
-                this.messages.push({
-                    text: message,
-                    writer: 'client'
-                });
-
-                this.messages.push({
-                    text: `Thanks, ${this.userName}, what can I do for you?`,
-                    writer: 'server'
-                });
+                this.getUsername();
 
             } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")) {
                 
@@ -380,6 +367,23 @@ export default {
         })
         .catch(error => console.error(error));
     },
+
+    getUsername() {
+      const message = this.message;
+
+      this.userName = message;
+
+      this.messages.push({
+          text: message,
+          writer: 'client'
+      });
+
+      this.messages.push({
+          text: `Thanks, ${this.userName}, what can I do for you?`,
+          writer: 'server'
+      });
+    },
+    
 }
 
 
