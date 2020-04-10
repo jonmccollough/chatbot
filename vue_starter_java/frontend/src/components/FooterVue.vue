@@ -25,9 +25,15 @@
             </p>
           </div>
         </div>
+        <div class="column">
+          <figure class ="image is-128x128">
+          <img src = "https://techelevator-pgh-teams.azurewebsites.net/img/Mark.57c5a859.png">
+          </figure>
+        </div>
 
         <div class="column">
           <div class="is-pulled-right">
+            
             <figure class="image is-24x24">
               <a href="https://facebook.com/techelevator">
                 <img src="@/img/fb.png" />
@@ -45,6 +51,7 @@
                 <img src="@/img/yt.png" />
               </a>
             </figure>
+            
           </div>
         </div>
       </div>
