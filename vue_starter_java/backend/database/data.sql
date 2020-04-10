@@ -53,9 +53,6 @@ INSERT INTO keywords (words, keywordid) VALUES ('sql', (SELECT id FROM responses
 INSERT INTO responses (answer, title) VALUES ('Do not fear, for you are among friends. You are in a chatbot message window. Calm yourself, and ask me questions about coding.', 'lost');
 INSERT INTO keywords (words, keywordid) VALUES ('whereami', (SELECT id FROM responses WHERE title = 'lost'));
 
-INSERT INTO responses (answer, title) VALUES ('Try typing: "find a job" to search for jobs.', 'job');
-INSERT INTO keywords (words, keywordid) VALUES ('job', (SELECT id FROM responses WHERE title = 'job'));
-
 INSERT INTO responses (answer, title) VALUES ('Hatred never helped anyone. Try love instead.', 'hate');
 INSERT INTO keywords (words, keywordid) VALUES ('hate', (SELECT id FROM responses WHERE title = 'hate'));
 
