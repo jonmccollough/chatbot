@@ -36,27 +36,70 @@
         </div>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <router-link :to="{ name: 'register' }">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-            </router-link>
-            <router-link :to="{ name: 'login' }">
-              <a class="button is-light">Log in</a>
+        <div v-if="signedIn" class="navbar-end">
+          <div class = "buttons">
+            <router-link :to="{ name: 'login'}">
+            <a class="button is-primary" @click='logOut'>
+              <strong>Log Out</strong>
+            </a>
             </router-link>
           </div>
         </div>
-      </div>
+        <div v-else class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <router-link :to="{ name: 'register' }">
+                <a class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+              </router-link>
+              <router-link :to="{ name: 'login' }">
+                <a class="button is-light">Log in</a>
+              </router-link>
+            </div>
+          </div>
+        </div>
     </div>
   
 </nav>
 </template>
 
 <script>
+import auth from '../auth.js';
+
 export default {
-  name: 'header-vue'
+  name: 'header-vue',
+
+  data(){
+    return{
+      signedIn: this.signedInCheck()
+    }
+  },
+
+  computed: {
+    
+  },
+  
+  methods: {
+    checkLogin(){
+      this.signedIn = this.signedInCheck();
+    },
+
+    signedInCheck: function(){
+      if(auth.getToken()){
+        return true;
+      } else {
+        return false;
+      }
+    },
+
+    logOut(){
+      console.log(this.signedIn);
+      auth.logout();
+      this.checkLogin();
+    }
+  }
 }
+
+
 </script>

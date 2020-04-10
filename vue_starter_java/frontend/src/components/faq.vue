@@ -69,14 +69,10 @@
 </template>
 
 <script>
-import HeaderVue from '@/components/HeaderVue';
-import FooterVue from '@/components/FooterVue';
 
 export default {
   name: 'faq',
   components: {
-    HeaderVue,
-    FooterVue
   }
 }
 </script>
