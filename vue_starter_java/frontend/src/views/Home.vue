@@ -5,8 +5,7 @@
 </template>
 
 <script>
-import chatbot from '@/components/chatbot.vue'
-
+import chatbot from '@/components/chatbot.vue';
 
 export default {
   name: 'home',
