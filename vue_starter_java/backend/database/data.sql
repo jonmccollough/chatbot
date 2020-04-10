@@ -184,3 +184,10 @@ INSERT INTO keywords (words, keywordid) VALUES ('covid', (SELECT id FROM respons
 
 INSERT INTO responses (answer, title) VALUES ('<iframe width="560" height="315" src="https://www.youtube.com/embed/BU4d9FCJ-pI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'coronavirus');
 INSERT INTO keywords (words, keywordid) VALUES ('coronavirus', (SELECT id FROM responses WHERE title = 'coronavirus'));
+
+INSERT INTO responses (answer, title) VALUES ('<img src="https://drive.google.com/uc?id=1UBKkMtL2HYGt-gMAgRO_cDT4-YC32IFc">', 'crops');
+INSERT INTO keywords (words, keywordid) VALUES ('plancrop', (SELECT id FROM responses WHERE title = 'crops'));
+INSERT INTO keywords (words, keywordid) VALUES ('cropsplan', (SELECT id FROM responses WHERE title = 'crops'));
+INSERT INTO keywords (words, keywordid) VALUES ('planmycrops', (SELECT id FROM responses WHERE title = 'crops'));
+
+
