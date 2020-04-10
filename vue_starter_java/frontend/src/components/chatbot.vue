@@ -37,7 +37,7 @@
                 <input type="text"
                 v-model="message"
                 @keyup.enter="sendMessage" />
-                <button @click="sendMessage" class="button is-dark">Send</button>
+                <button @click="sendMessage" class="button is-success">Send</button>
             </div>
     </section>
   </body>
@@ -56,7 +56,6 @@ export default {
         location:'',
         state: ''
     }),
-
     methods: {
         sendMessage(){
             const message = this.message;
@@ -157,6 +156,7 @@ export default {
                 
         })
         .catch(error => console.error(error));
+       
     },
 
 
@@ -446,6 +446,7 @@ body {
   display: flex;
   justify-content: center;
   border: 1px solid #999;
+  border-top: hidden;
   input {
     align-items: space-around;
     width: 45vw;
