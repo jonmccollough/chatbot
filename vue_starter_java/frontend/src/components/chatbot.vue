@@ -410,6 +410,8 @@ body {
            border-radius: 4px; 
            background: green;
            opacity: 0.8;
+           padding-right: 6px;
+           padding-left: 6px;
            
     }
     
@@ -424,6 +426,8 @@ body {
       background: blue;
       border-radius: 4px;
       opacity: 0.8;
+      padding-right: 6px;
+      padding-left: 6px;
       
     }
   }
