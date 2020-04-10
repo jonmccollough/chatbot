@@ -198,12 +198,14 @@ export default {
                 this.getKeyword();
 
             }
-
-        this.$nextTick(() => {
-          this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight;
-        });
       
       this.message = "";
+    },
+
+    autoScroll() {
+      this.$nextTick(() => {
+          this.$refs.chatbot.scrollTop = this.$refs.chatbot.scrollHeight;
+      });
     },
 
     getQuote() {
@@ -228,6 +230,8 @@ export default {
                 text: 'Quote #'+ quote + ': "' + res.data[quote].text + '" -' + auth,
                 writer: 'server'
             });
+
+            this.autoScroll();
         
         })
         .catch(err => console.error(err));
@@ -247,7 +251,9 @@ export default {
             this.messages.push({
                 text: 'Cat Fact: ' + res.data.fact,
                 writer: 'server'
-            })
+            });
+
+            this.autoScroll();
                 
         })
         .catch(error => console.error(error));
@@ -288,6 +294,8 @@ export default {
                     writer: 'server',
                 })
             }
+
+            this.autoScroll();
         })
         .catch(error => console.error(error));
     },
@@ -336,6 +344,8 @@ export default {
               writer: 'server'
           });
       }
+
+      this.autoScroll();
     },
 
     getJobType() {
@@ -352,6 +362,8 @@ export default {
           text: "Great, where would you like to search for available positions? (City, State (eg. PA, OH, VA))",
           writer: 'server'
       });
+
+      this.autoScroll();
     },
 
     getLocation() {
@@ -375,6 +387,8 @@ export default {
           this.state = cityState[1];
           this.sendMessage();
       }
+
+      this.autoScroll();
     },
 
     inputValidation() {
@@ -402,6 +416,8 @@ export default {
           this.state = cityState[1];
           this.sendMessage();
       }
+
+      this.autoScroll();
     },
 }
 
