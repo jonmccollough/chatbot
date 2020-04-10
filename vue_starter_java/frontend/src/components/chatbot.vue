@@ -56,7 +56,6 @@ export default {
         location:'',
         state: ''
     }),
-    
     methods: {
         sendMessage(){
             const message = this.message;
