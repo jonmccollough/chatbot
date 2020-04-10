@@ -206,7 +206,6 @@ export default {
                     this.sendMessage();
                 }
 
-
             } else if (this.jobType && this.location && !this.state) {
                 
                 this.messages.push({
@@ -231,10 +230,6 @@ export default {
                     this.state = cityState[1];
                     this.sendMessage();
                 }
-
-            } else if (message.includes('quote')) {
-
-                this.getQuote();
 
             } else if ((message.includes('find') || message.includes('finding')) && (message.includes('job') || message.includes('jobs')) || (this.jobType && this.location)) {
                 
@@ -265,6 +260,11 @@ export default {
                         writer: 'server'
                     });
                 }
+
+            } else if (message.includes('quote')) {
+
+                this.getQuote();
+
             } else if (message.includes('cat')) {
 
                 this.getCatFact();
