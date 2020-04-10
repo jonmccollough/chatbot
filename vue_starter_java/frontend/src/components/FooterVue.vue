@@ -2,26 +2,26 @@
     <footer class="footer">
     <div class="container">
       <div class="columns">
-        <div class="column is-one-third">
+        <div class="column">
           <div class="is-pulled-left">
             <p>
-              <a class="has-text-grey" href="http://www.techelevator.com">tech elevator</a>
+              <a class="tLink" href="http://www.techelevator.com">tech elevator</a>
             </p>
             <p>
-              <a class="has-text-grey" href="mailto:hello@techelevator.com">hello@techelevator.com</a>
+              <a class = "tLink" href="mailto:hello@techelevator.com">hello@techelevator.com</a>
             </p>
             <p>
-              <a class="has-text-grey" href="tel:8776063203">877.606.3203</a>
+              <a class = "tLink" href="tel:8776063203">877.606.3203</a>
             </p>
           </div>
         </div>
         <div class="column">
           <div class="is-centered">
             <p>
-              <a class="has-text-grey" href="http://www.techeelevator.com/events">events</a>
+              <a class = "tLink" href="http://www.techeelevator.com/events">calendar</a>
             </p>
             <p>
-              <a class="has-text-grey">faqs</a>
+              <a class = "tLink" href="faq">faqs</a>
             </p>
           </div>
         </div>
@@ -65,4 +65,19 @@ export default {
   text-align: center;
   text-decoration: none;
 }
+
+.tLink{
+  font-weight: bold;
+}
+
+a:link{
+  color: #00b0f0
+}
+a:visited{
+  color: #00b0f0
+}
+a:hover{
+  color: #8bc440;
+}
+
 </style>
