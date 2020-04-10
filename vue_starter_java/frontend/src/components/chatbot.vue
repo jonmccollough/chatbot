@@ -1,5 +1,6 @@
 <template>
 <body>
+
     <section class ="container">
        <section class="hero is-small is-family-sans-serif is-info">
            <div class="hero-body">
@@ -321,25 +322,24 @@ body {
 
 .chat-bot,
 .chat-bot-list{
+  display: flex;
   list-style-type:none;
   flex-direction: column;
-  overflow: scroll;
   background-color: white;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 .chat-bot-list-container{
   display: flex;
   background-color: white;
   overflow: scroll;
+  
 }
 
 .chat-bot-list{
-    
     background-color: white;
     align-content: center;
+    
 
     .span{
            padding: 8px;
@@ -379,7 +379,7 @@ body {
 }
 
 .chat-bot {
-  
+  overflow-y: scroll;
   border: 1px solid #999;
   width: 50vw;
   height: 50vh;
