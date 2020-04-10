@@ -126,8 +126,10 @@ summary {
 }
 p.menu-label{
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     color: green;
+    padding-left: 10px;
+
 }
 details[open] {
     padding: .6em;
