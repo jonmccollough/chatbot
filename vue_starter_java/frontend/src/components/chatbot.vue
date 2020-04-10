@@ -408,6 +408,11 @@ body {
 }
 .chat-bot-list-container{
   margin-bottom: 1px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  overflow: scroll;
+  align-items: space-around;
 }
 
 .chat-bot-list{
@@ -417,14 +422,15 @@ body {
 
     .span{
            padding: 8px;
-           color: white;
+           
            border-radius: 4px;
+           
     }
     
     .server{
         
         span{
-         
+         color: white;
          border-radius: 4px;   
                     }
     p{
@@ -436,7 +442,7 @@ body {
     }
     .client{
       span{
-        
+        color: white;
         border-radius: 4px;
       }
     p {
@@ -452,9 +458,6 @@ body {
   border: 1px solid #999;
   width: 50vw;
   height: 50vh;
- 
-  margin-left: auto;
-  margin-right: auto;
   align-items: space-between;
   justify-content: space-between;
 }
@@ -467,7 +470,7 @@ body {
     align-items: space-around;
     width: 45vw;
     padding-left: 15px;
-    line-height: 3;;
+    line-height: 3;
   }
 }
 .container {
