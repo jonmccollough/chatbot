@@ -147,8 +147,6 @@
   </body>
 </template>
 
-
-
 <script>
 import axios from 'axios';
 
@@ -173,93 +171,19 @@ export default {
 
             } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")) {
                 
-                this.messages.push({
-                    text: message,
-                    writer: 'client'
-                });
-
-                this.jobType = message;
-
-                this.messages.push({
-                    text: "Great, where would you like to search for available positions? (City, State (eg. PA, OH, VA))",
-                    writer: 'server'
-                });
+                this.getJobType();
 
             } else if (this.jobType && !this.location && !this.state) {
 
-                this.messages.push({
-                    text: message,
-                    writer: 'client'
-                });
-
-                const cityState = message.split(", ");
-                this.location = cityState[0];
-
-                if( cityState[1] == null || cityState[1].length != 2){
-                    this.messages.push({
-                        text: 'Please provide the location in "City, State" format (PA, OH, VA, etc.)',
-                        writer: 'server'
-                    });
-
-                } else {
-                    this.state = cityState[1];
-                    this.sendMessage();
-                }
+                this.getLocation();
 
             } else if (this.jobType && this.location && !this.state) {
                 
-                this.messages.push({
-                    text: message,
-                    writer: 'client'
-                });
-
-                const cityState = message.split(", ");
-                this.location = cityState[0];
-
-                if( cityState[1] == null || cityState[1].length != 2){
-
-                    this.messages.push({
-                        text: "Sorry, let's try something else. What can I help you with?",
-                        writer: 'server'
-                    });
-
-                    this.location = '';
-                    this.jobType='';
-
-                } else {
-                    this.state = cityState[1];
-                    this.sendMessage();
-                }
+                this.inputValidation();
 
             } else if ((message.includes('find') || message.includes('finding')) && (message.includes('job') || message.includes('jobs')) || (this.jobType && this.location)) {
                 
-                const urlJobType = this.jobType.replace(/\s/g, '+');
-                const urlLocation = this.location.replace(/\s/g, '+') + "%2C+" + this.state; 
-                const jobSearchUrl = `https://www.indeed.com/jobs?q=${urlJobType}&l=${urlLocation}`;
-
-                if(this.jobType && this.location){
-                   this.messages.push({
-                       text: `Here's a link to <a href=${jobSearchUrl} target = "_blank">${this.jobType} jobs in ${this.location}, ${this.state}</a>`,
-                       writer: 'server'
-                   });
-
-                   
-
-                   this.location='';
-                   this.state='';
-                   this.jobType='';
-
-                } else {
-                    this.messages.push({
-                        text: message,
-                        writer: 'client'
-                    });
-
-                    this.messages.push({
-                        text: "What type of job are you looking for?",
-                        writer: 'server'
-                    });
-                }
+                this.findJob();
 
             } else if (message.includes('quote')) {
 
@@ -384,6 +308,101 @@ export default {
       });
     },
     
+    findJob() {
+      const message = this.message;
+
+      const urlJobType = this.jobType.replace(/\s/g, '+');
+      const urlLocation = this.location.replace(/\s/g, '+') + "%2C+" + this.state; 
+      const jobSearchUrl = `https://www.indeed.com/jobs?q=${urlJobType}&l=${urlLocation}`;
+
+      if(this.jobType && this.location){
+          this.messages.push({
+              text: `Here's a link to <a href=${jobSearchUrl} target = "_blank">${this.jobType} jobs in ${this.location}, ${this.state}</a>`,
+              writer: 'server'
+          });
+
+          this.location='';
+          this.state='';
+          this.jobType='';
+
+      } else {
+          this.messages.push({
+              text: message,
+              writer: 'client'
+          });
+
+          this.messages.push({
+              text: "What type of job are you looking for?",
+              writer: 'server'
+          });
+      }
+    },
+
+    getJobType() {
+      const message = this.message;
+
+      this.messages.push({
+          text: message,
+          writer: 'client'
+      });
+
+      this.jobType = message;
+
+      this.messages.push({
+          text: "Great, where would you like to search for available positions? (City, State (eg. PA, OH, VA))",
+          writer: 'server'
+      });
+    },
+
+    getLocation() {
+      const message = this.message;
+
+      this.messages.push({
+          text: message,
+          writer: 'client'
+      });
+
+      const cityState = message.split(", ");
+      this.location = cityState[0];
+
+      if( cityState[1] == null || cityState[1].length != 2){
+          this.messages.push({
+              text: 'Please provide the location in "City, State" format (PA, OH, VA, etc.)',
+              writer: 'server'
+          });
+
+      } else {
+          this.state = cityState[1];
+          this.sendMessage();
+      }
+    },
+
+    inputValidation() {
+      const message = this.message;
+
+      this.messages.push({
+          text: message,
+          writer: 'client'
+      });
+
+      const cityState = message.split(", ");
+      this.location = cityState[0];
+
+      if( cityState[1] == null || cityState[1].length != 2){
+
+          this.messages.push({
+              text: "Sorry, let's try something else. What can I help you with?",
+              writer: 'server'
+          });
+
+          this.location = '';
+          this.jobType='';
+
+      } else {
+          this.state = cityState[1];
+          this.sendMessage();
+      }
+    },
 }
 
 
