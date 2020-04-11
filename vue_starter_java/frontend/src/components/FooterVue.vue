@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
     <div class="container">
-      <div class="columns">
+      <div class="columns is-inline-block-mobile">
         <div class="column">
           <div class="is-pulled-left">
             <p>
