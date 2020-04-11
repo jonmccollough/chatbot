@@ -33,7 +33,7 @@
             </ul>
              </div>
         </section> 
-        <div class = "chat-inputs">
+        <div class = "chat-inputs is">
                 <input type="text"
                 v-model="message"
                 @keyup.enter="sendMessage" />
@@ -360,9 +360,10 @@ export default {
 
 <style lang="scss" scoped>
 body {
-  
- background: rgb(0,176,240);
-background: linear-gradient(0deg, rgba(0,176,240,1) 0%, rgba(255,255,255,1) 67%, rgba(139,196,64,0.6561517295597484) 100%);
+    background: -webkit-linear-gradient(70deg, #00b0f0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(40deg, white 60%, #8bc440 60%);
+    background: -o-linear-gradient(70deg, #00b0f0 30%, rgba(0,0,0,0) 30%), -o-linear-gradient(40deg, white 60%, #8bc440 60%);
+    background: -moz-linear-gradient(70deg, #00b0f0 30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(40deg, white 60%, #8bc440 60%);
+    background: linear-gradient(70deg, #00b0f0  30%, rgba(0,0,0,0) 30%), linear-gradient(40deg, white 60%, #8bc440 60%);
 }
 
 .chat-bot,
