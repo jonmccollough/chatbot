@@ -33,7 +33,7 @@
             </ul>
              </div>
         </section> 
-        <div class = "chat-inputs is">
+        <div class = "chat-inputs is-flex-mobile">
                 <input type="text"
                 v-model="message"
                 @keyup.enter="sendMessage" />
@@ -441,13 +441,14 @@ body {
 .chat-inputs {
   display: flex;
   justify-content: center;
-  border: 1px solid #999;
+  
   border-top: hidden;
   input {
     align-items: space-around;
     width: 45vw;
     padding-left: 15px;
     line-height: 3;
+    border: 1px solid #999;
   }
 }
 .container {
@@ -460,10 +461,5 @@ body {
   border-radius: 12px;
 }
 
-.footer {
-  background: rgb(255, 255, 255);
-  height: 30vh;
-  color: white;
-  border-top: grey 8px;
-}
+
 </style>

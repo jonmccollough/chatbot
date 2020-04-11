@@ -32,7 +32,7 @@
             <a href="http://www.instagram.com/techelevator" class="fa fa-instagram"></a>
             <a href="http://www.linkedin.com/school/tech-elevator" class="fa fa-linkedin"></a>
             <a href="http://www.twitter.com/Tech_Elevator" class="fa fa-twitter"></a>
-            <a href="https://www.youtube.com/c/Techelevatorcodeschool" class="fa fa-youtube"></a>
+            <a href="https://www.youtube.com/channel/UCXsLbwLZfw9h7-s77sgp65A" class="fa fa-youtube"></a>
             </div>
              </div>
         </div>
