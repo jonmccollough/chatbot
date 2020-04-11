@@ -26,13 +26,13 @@
 
     <div id="navbarBasicExample" class="navbar-menu" v-bind:class="{'is-active': isOpen}">
       <div class="navbar-start">
-        <a class="navbar-item is-family-sans-serif" href="/">CHATBOT</a>
+        <a class="navbar-item is-family-sans-serif has-text-dark" href="/">CHATBOT</a>
 
-        <a class="navbar-item is-family-sans-serif" href="faq">FAQS</a>
+        <a class="navbar-item is-family-sans-serif has-text-dark" href="faq">FAQS</a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a
-            class="navbar-item is-family-sans-serif"
+            class="navbar-item is-family-sans-serif has-text-dark" 
             href="http://www.techelevator.com/events" target="_blank"
           >CALENDAR</a>
         </div>
@@ -51,7 +51,7 @@
           <div class="navbar-item">
             <div class="buttons">
               <router-link :to="{ name: 'register' }">
-                <a class="button is-primary">
+                <a class="button is-success">
                   <strong>Sign up</strong>
                 </a>
               </router-link>
