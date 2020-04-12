@@ -80,6 +80,99 @@
         "find jobs"!
     </details></a></li>
  </ul>
+  <p class="menu-label">
+    All Keywords
+ </p>
+ <ul class="menu-list">
+    <li><a><details><summary>A list of words that Chatbot knows.</summary>
+
+        quote  <br>
+        office <br>
+        location <br>
+        address <br>
+        techelevatorevents <br>
+        email <br>
+        phonenumber <br>
+        help <br>
+        whatcaniaskyou <br>
+        pathway <br>
+        findjob <br>
+        findjobs <br>
+        findingjob <br>
+        findingjobs <br>
+        jobsearch <br>
+        resume <br>
+        attire <br>
+        coverletter <br>
+        interview <br>
+        starquestions <br>
+        events <br>
+        tieatie <br>
+        elevatorpitch <br>
+        pitch example <br>
+
+        math <br>
+        wolfram <br>
+        curriculum <br>
+        arrays <br>
+        mvc <br>
+        jmodel <br>
+        nmodel <br>
+        sql <br>
+        list <br>
+        boolean <br>
+        loop <br>
+        joins <br>
+        homework <br>
+        studentexercise <br>
+        assignment <br>
+        fundamentals <br>
+        oop <br>
+        api <br>
+        polymorphism <br>
+        encapsulation <br>
+        inheritance <br>
+        git <br>
+        primitive <br>
+        coding <br>
+        
+        besttechelevatorcampus <br>
+        thanks <br>
+        thankyou <br>
+        thx <br>
+        goodday <br>
+        inspire <br>
+        inspirational <br>
+        hitawall <br>
+        cat <br>
+        gizmo <br>
+        theodore <br>
+        delta <br>
+        bulldog <br>
+        rascal <br>
+        bubba <br>
+        pets <br>
+        skynet <br>
+        alexa <br>
+        google <br>
+        whereami <br>
+        hate <br>
+        mental <br>
+        freakingout <br>
+        whoareyou <br>
+        whatareyou <br>
+        covid <br>
+        coronavirus <br>
+        plancrop <br>
+        cropsplan <br>
+        planmycrops <br>
+        pittsburghtour <br>
+        alcohol <br>
+        beer <br>
+        brewery <br>
+
+    </details></a></li>
+ </ul>
 
 </aside>
 </section>
