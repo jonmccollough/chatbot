@@ -193,4 +193,5 @@ INSERT INTO keywords (words, keywordid) VALUES ('plancrop', (SELECT id FROM resp
 INSERT INTO keywords (words, keywordid) VALUES ('cropsplan', (SELECT id FROM responses WHERE title = 'crops'));
 INSERT INTO keywords (words, keywordid) VALUES ('planmycrops', (SELECT id FROM responses WHERE title = 'crops'));
 
-
+INSERT INTO responses (answer, title) VALUES ('To run basic Wolfram Alpha searches, type wolfram//( YourExpressionHere ) For example, try wolfram//pi or wolfram//ten times ten', 'math');
+INSERT INTO keywords (words, keywordid) VALUES ('math', (SELECT id FROM responses WHERE title = 'math'));
