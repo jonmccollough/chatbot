@@ -97,7 +97,11 @@ export default {
                 
                 this.findJob();
 
-            } else if (message.includes('quote')) {
+            } else if (message.includes('wolfram')) {
+
+                this.searchWolfram();
+
+            }  else if (message.includes('quote')) {
 
                 this.getQuote();
 
@@ -217,6 +221,26 @@ export default {
     },
 
 
+    searchWolfram() {
+        const message = this.message;
+
+        this.messages.push({
+            text: message,
+            writer: 'client'
+        });
+    
+        const splitUp = message.split('//');
+        const plussed = splitUp[1].split(' ').join('+');
+
+
+        this.messages.push({
+            text:'<img src="http://api.wolframalpha.com/v1/simple?appid=PE9ATK-53H98RPU4H&i=' + plussed + '"' + '/>',
+            writer: 'server'
+        });
+              this.autoScroll();
+                
+    },
+
     getBrews() {
       const message = this.message;
 
@@ -244,6 +268,10 @@ export default {
                   text: stringified,
                   writer: 'server'
               })
+
+            this.autoScroll();
+
+
           })
         .catch(error => console.error(error));
     },
