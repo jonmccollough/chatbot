@@ -34,11 +34,27 @@
              </div>
         </section> 
         <div class = "chat-inputs is-flex-mobile">
-                <input type="text"
-                v-model="message"
-                @keyup.enter="sendMessage" />
-                <button @click="sendMessage" class="button is-success">Send</button>
+            <input type="text"
+              v-model="message"
+              @keyup.enter="sendMessage" />
+            <button @click="sendMessage" @dblclick="sendSMS" class="button is-success">Send</button>
+        </div>
+
+        <div class="modal" id="modal">
+          <div class="modal-background"></div>
+           <div class="modal-content has-background-white">
+              <div class="field">
+                <label class="label">Send SMS to:</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Text input">
+                </div>
+                <p class="help">Please enter a 10 digit phone number</p>
+              </div>
             </div>
+            <button class="modal-close is-success" aria-label="submit"></button>
+            <button class="modal-close" aria-label="close"></button>
+          </div>
+
     </section>
   </body>
 </template>
@@ -99,6 +115,37 @@ export default {
             }
       
       this.message = "";
+    },
+
+    sendSMS() {
+      let modal = document.getElementById('modal');
+      modal.style.display = 'block';
+
+      const accountSid = 'ACb17eece6228a5633f62b48f6052eddc5';
+      const authToken = 'f63a8c1470779bd80dd0be8ef7310b04';
+      const client = require('twilio')(accountSid, authToken);
+
+      let phone = '';
+      let smsInput = prompt('Please enter a 10 digit phone number:', '');
+      if (smsInput != null || smsInput.length >= 10) {
+        phone = '+1' + smsInput;
+      }
+
+      if (phone != null) {
+        if(confirm('Send SMS to ' + phone + '?')) {
+          client.messages
+            .create({
+              body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+              from: '+14124078187',
+              to: '+14848329628'
+            })
+            .then(message => console.log(message.sid));
+        }
+        
+      } else {
+        alert('SMS canceled!');
+      }
+
     },
 
     autoScroll() {
