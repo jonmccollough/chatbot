@@ -41,7 +41,7 @@
         <div v-if="isLoggedIn" class="navbar-end">
           <div class = "buttons">
             <router-link :to="{ name: 'login'}">
-            <a class="button is-primary" @click='logOut'>
+            <a class="button is-success" @click='logOut'>
               <strong>Log Out</strong>
             </a>
             </router-link>

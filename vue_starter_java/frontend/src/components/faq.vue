@@ -37,10 +37,11 @@
 
     <li><a><details>
         <summary>What can you do, Chatbot?</summary>
-        I can do things and stuff
+        If you ask me a question related to Tech Elevator's curriculum or Pathway Program, I probably have a response for that. There might also be some additional features to discover! 
+
     </details></a></li>
 
-    <li><a><details><summary>Who built made you, Chatbot?</summary>
+    <li><a><details><summary>Who built you, Chatbot?</summary>
         The daddies of this baby are Cat, Devin, Jarret, Jon, and Tanner.
     </details></a></li>
 
