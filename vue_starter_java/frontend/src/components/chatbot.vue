@@ -37,23 +37,25 @@
             <input type="text"
               v-model="message"
               @keyup.enter="sendMessage" />
-            <button @click="sendMessage" @dblclick="sendSMS" class="button is-success">Send</button>
+            <button @click="sendMessage" @dblclick="phoneInput" class="button is-success">Send</button>
         </div>
 
         <div class="modal" id="modal">
-          <div class="modal-background" id="bgClose"></div>
+          <div class="modal-background" id="bgClose" @click="closeModal"></div>
            <div class="modal-content">
               <div class="field">
                 <label class="label">Send SMS to:</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Text input">
+                  <input class="input" id="phone" type="text" v-model="phone" placeholder="Phone number">
                 </div>
                 <p class="help">Please enter a 10 digit phone number</p>
-                <button class="modal-submit">Submit</button>
-                <button class="modal-cancel" id="cancel">Cancel</button>
+                <div class="control is-pulled-right">
+                  <button class="button is-success is-small" id="submit" @click="sendSMS(phone)">Submit</button>
+                  <button class="button is-danger is-small" id="cancel" @click="closeModal">Cancel</button>
+                </div>
               </div>
             </div>
-            <button class="modal-close" id="close" aria-label="close"></button>
+            <button class="modal-close" id="close" @click="closeModal" aria-label="close"></button>
           </div>
 
     </section>
@@ -71,7 +73,8 @@ export default {
         userName: '',
         jobType:'',
         location:'',
-        state: ''
+        state: '',
+        phone: ''
     }),
     methods: {
         sendMessage(){
@@ -129,28 +132,24 @@ export default {
       }
     },
 
-    sendSMS() {
+    closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    },
+
+    phoneInput() {
       let modal = document.getElementById('modal');
-      let close = document.getElementById('close');
-      let cancel = document.getElementById('cancel');
-      let bgClose = document.getElementById('bgClose');
-      let closeModal = () => {modal.style.display = 'none';}
 
       modal.style.display = 'block';
 
-      close.onclick = closeModal;
-      cancel.onclick = closeModal;
-      bgClose.onclick = closeModal;
+    },
 
-      const accountSid = 'ACb17eece6228a5633f62b48f6052eddc5';
-      const authToken = 'f63a8c1470779bd80dd0be8ef7310b04';
-      const client = require('twilio')(accountSid, authToken);
-
-      // let phone = '';
-      // let smsInput = prompt('Please enter a 10 digit phone number:', '');
-      // if (smsInput != null || smsInput.length >= 10) {
-      //   phone = '+1' + smsInput;
-      // }
+    sendSMS(phone) {
+      this.closeModal();
+      phone = '+1' + phone;
+      console.log(phone);
+      // const accountSid = 'ACb17eece6228a5633f62b48f6052eddc5';
+      // const authToken = 'f63a8c1470779bd80dd0be8ef7310b04';
+      // const client = require('twilio')(accountSid, authToken);
 
       // if (phone != null) {
       //   if(confirm('Send SMS to ' + phone + '?')) {
@@ -166,7 +165,6 @@ export default {
       // } else {
       //   alert('SMS canceled!');
       // }
-
     },
 
     autoScroll() {
