@@ -42,7 +42,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('jmodel', (SELECT id FROM respon
 INSERT INTO responses (answer, title) VALUES ('Here is <a target="_blank" href="http://book.techelevator.com/java/70-asp-net-core/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the .NET MVC chapter</a>', 'netmvc');
 INSERT INTO keywords (words, keywordid) VALUES ('nmodel', (SELECT id FROM responses WHERE title = 'netmvc'));
 
-INSERT INTO responses (answer, title) VALUES ('I suggest starting at <a target="_blank" href="http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html">the begining of the chapters on SQL</a>' , 'sql');
+INSERT INTO responses (answer, title) VALUES ('I suggest starting at <a target="_blank" href="http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html">the beginning of the chapters on SQL</a>' , 'sql');
 INSERT INTO keywords (words, keywordid) VALUES ('sql', (SELECT id FROM responses WHERE title = 'sql'));
 
 INSERT INTO responses (answer, title) VALUES ('Do not fear, for you are among friends. You are in a chatbot message window. Calm yourself, and ask me questions about coding.', 'lost');
