@@ -1,6 +1,6 @@
 <template>
 <body>
-
+<div class = "container is-flex-mobile">
     <section class ="container">
        <section class="hero is-small is-family-sans-serif is-info">
            <div class="hero-body">
@@ -34,8 +34,9 @@
             </ul>
              </div>
         </section> 
-        <div class = "chat-inputs is-flex-mobile">
+        <div class = "chat-inputs">
             <input type="text"
+            class="input"
               v-model="message"
               @keyup.enter="sendMessage" />
             <button @click="sendMessage" @dblclick="phoneInput" class="button is-success">Send</button>
@@ -60,6 +61,7 @@
           </div>
 
     </section>
+</div>
   </body>
 </template>
 
@@ -469,6 +471,7 @@ body {
     background: -o-linear-gradient(70deg, #00b0f0 30%, rgba(0,0,0,0) 30%), -o-linear-gradient(40deg, white 60%, #8bc440 60%);
     background: -moz-linear-gradient(70deg, #00b0f0 30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(40deg, white 60%, #8bc440 60%);
     background: linear-gradient(70deg, #00b0f0  30%, rgba(0,0,0,0) 30%), linear-gradient(40deg, white 60%, #8bc440 60%);
+
 }
 
 .chat-bot,
@@ -536,7 +539,6 @@ body {
 .chat-bot {
   overflow-y: scroll;
   border: 1px solid #999;
-  width: 50vw;
   height: 50vh;
   align-items: space-between;
   margin-right: auto;
@@ -550,14 +552,13 @@ body {
   border-top: hidden;
   input {
     align-items: space-around;
-    width: 45vw;
     padding-left: 15px;
     line-height: 3;
     border: 1px solid #999;
   }
 }
 .container {
-  width: 50vw;
+  
   display: flex;
   flex-direction: column;
 }
