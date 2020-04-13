@@ -155,7 +155,7 @@ export default {
         if(confirm('Send SMS to ' + phone + '?')) {
           client.messages
             .create({
-              body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+              body: this.messages[this.messages.length - 1].text,
               from: '+14124078187',
               to: phone
             })
