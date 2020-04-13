@@ -16,9 +16,11 @@ INSERT INTO keywords (words, keywordid) VALUES ('resume', (SELECT id FROM respon
 
 INSERT INTO responses (answer, title) VALUES ('Dress to impress MEN: Suit attire. WOMEN: Slacks/skirt and nice top or dress and blazer.', 'attire');
 INSERT INTO keywords (words, keywordid) VALUES ('attire', (SELECT id FROM responses WHERE title = 'attire'));
-INSERT INTO keywords (words, keywordid) VALUES ('howtodress', (SELECT id FROM responses WHERE title = 'attire'));
+INSERT INTO keywords (words, keywordid) VALUES ('todress', (SELECT id FROM responses WHERE title = 'attire'));
+INSERT INTO keywords (words, keywordid) VALUES ('shouldidress', (SELECT id FROM responses WHERE title = 'attire'));
+INSERT INTO keywords (words, keywordid) VALUES ('towear', (SELECT id FROM responses WHERE title = 'attire'));
 
-INSERT INTO responses (answer, title) VALUES ('I found these <a target="_blank" href="https://drive.google.com/drive/folders/0B0L4DaCt03tFTHNkOThzMi1IckU">7 tipes for a cover letter</a>', 'coverletter');
+INSERT INTO responses (answer, title) VALUES ('I found these <a target="_blank" href="https://drive.google.com/drive/folders/0B0L4DaCt03tFTHNkOThzMi1IckU">7 tips for a cover letter</a>', 'coverletter');
 INSERT INTO keywords (words, keywordid) VALUES ('coverletter', (SELECT id FROM responses WHERE title = 'coverletter'));
 
 INSERT INTO responses (answer, title) VALUES ('I think this <a target="_blank" href="https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/vEYm7LHLM68hZ1X/Preparing%20for%20your%20Technical%20Interview.pdf">presentation on interviews will help you</a>', 'interview');
@@ -80,7 +82,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('office', (SELECT id FROM respon
 INSERT INTO keywords (words, keywordid) VALUES ('location', (SELECT id FROM responses WHERE title = 'office'));
 INSERT INTO keywords (words, keywordid) VALUES ('address', (SELECT id FROM responses WHERE title = 'office'));
 
-INSERT INTO responses (answer, title) VALUES ('A boolean is an expression that always evaluates to either true or false. <a href="http://book.techelevator.com/java/10-logical-branching/boolean-expressions/01-expressions.html">Click here for the chapter on booleans from the textbook.</a>', 'boolean');
+INSERT INTO responses (answer, title) VALUES ('A boolean is an expression that always evaluates to either true or false. <a href="http://book.techelevator.com/java/10-logical-branching/boolean-expressions/01-expressions.html" target="_blank">Click here for the chapter on booleans from the textbook.</a>', 'boolean');
 INSERT INTO keywords (words, keywordid) VALUES ('boolean', (SELECT id FROM responses WHERE title = 'boolean'));
 
 INSERT INTO responses (answer, title) VALUES ('<a target="_blank" href="http://book.techelevator.com/java/20-arrays-and-loops/loops/01-loops.html">Behold, the power of the almighty for loop.</a> Mastery is key for any Tech Elevator student.', 'forloop');
@@ -236,3 +238,9 @@ INSERT INTO keywords (words, keywordid) VALUES ('constructor', (SELECT id FROM r
 
 INSERT INTO responses (answer, title) VALUES ('Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects. <a target="_blank" href="https://www.w3schools.com/java/java_wrapper_classes.asp"> Read more about it here.</a>', 'wrapper');
 INSERT INTO keywords (words, keywordid) VALUES ('wrapper', (SELECT id FROM responses WHERE title = 'wrapper'));
+
+INSERT INTO responses (answer, title) VALUES ('Did I say something funny? I will never understand you humans...', 'humor');
+INSERT INTO keywords (words, keywordid) VALUES ('lol', (SELECT id FROM responses WHERE title = 'humor'));
+INSERT INTO keywords (words, keywordid) VALUES ('haha', (SELECT id FROM responses WHERE title = 'humor'));
+INSERT INTO keywords (words, keywordid) VALUES ('rofl', (SELECT id FROM responses WHERE title = 'humor'));
+INSERT INTO keywords (words, keywordid) VALUES ('lmao', (SELECT id FROM responses WHERE title = 'humor'));
