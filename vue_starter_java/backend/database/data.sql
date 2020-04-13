@@ -16,6 +16,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('resume', (SELECT id FROM respon
 
 INSERT INTO responses (answer, title) VALUES ('Dress to impress MEN: Suit attire. WOMEN: Slacks/skirt and nice top or dress and blazer.', 'attire');
 INSERT INTO keywords (words, keywordid) VALUES ('attire', (SELECT id FROM responses WHERE title = 'attire'));
+INSERT INTO keywords (words, keywordid) VALUES ('howtodress', (SELECT id FROM responses WHERE title = 'attire'));
 
 INSERT INTO responses (answer, title) VALUES ('I found these <a target="_blank" href="https://drive.google.com/drive/folders/0B0L4DaCt03tFTHNkOThzMi1IckU">7 tipes for a cover letter</a>', 'coverletter');
 INSERT INTO keywords (words, keywordid) VALUES ('coverletter', (SELECT id FROM responses WHERE title = 'coverletter'));
@@ -41,7 +42,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('jmodel', (SELECT id FROM respon
 INSERT INTO responses (answer, title) VALUES ('Here is <a target="_blank" href="http://book.techelevator.com/java/70-asp-net-core/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the .NET MVC chapter</a>', 'netmvc');
 INSERT INTO keywords (words, keywordid) VALUES ('nmodel', (SELECT id FROM responses WHERE title = 'netmvc'));
 
-INSERT INTO responses (answer, title) VALUES ('I suggest starting at <a target="_blank" href="http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html">the begining of the chapters on SQL</a>' , 'sql');
+INSERT INTO responses (answer, title) VALUES ('I suggest starting at <a target="_blank" href="http://book.techelevator.com/java/65-introduction-to-SQL-databases/10-SQL-data-types.html">the beginning of the chapters on SQL</a>' , 'sql');
 INSERT INTO keywords (words, keywordid) VALUES ('sql', (SELECT id FROM responses WHERE title = 'sql'));
 
 INSERT INTO responses (answer, title) VALUES ('Do not fear, for you are among friends. You are in a chatbot message window. Calm yourself, and ask me questions about coding.', 'lost');
@@ -99,6 +100,7 @@ INSERT INTO responses (answer, title) VALUES ('You are most welcome! &#128522;',
 INSERT INTO keywords (words, keywordid) VALUES ('thanks', (SELECT id FROM responses WHERE title = 'thanks'));
 INSERT INTO keywords (words, keywordid) VALUES ('thankyou', (SELECT id FROM responses WHERE title = 'thanks'));
 INSERT INTO keywords (words, keywordid) VALUES ('thx', (SELECT id FROM responses WHERE title = 'thanks'));
+INSERT INTO keywords (words, keywordid) VALUES ('thnxs', (SELECT id FROM responses WHERE title = 'thanks'));
 
 INSERT INTO responses (answer, title) VALUES ('Which area in the homework can I help you with? Arrays, loops, MVCs? ', 'homework');
 INSERT INTO keywords (words, keywordid) VALUES ('homework', (SELECT id FROM responses WHERE title = 'homework'));
@@ -113,7 +115,7 @@ INSERT INTO responses (answer, title) VALUES ('The three fundamentals of Object 
 INSERT INTO keywords (words, keywordid) VALUES ('fundamentals', (SELECT id FROM responses WHERE title = 'OOP'));
 INSERT INTO keywords (words, keywordid) VALUES ('oop', (SELECT id FROM responses WHERE title = 'OOP'));
 
-INSERT INTO responses (answer, title) VALUES ('API stands for Application Programming Interface. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/45-web-services/04-apis.html">Here is some more information.</a', 'API');
+INSERT INTO responses (answer, title) VALUES ('API stands for Application Programming Interface. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/45-web-services/04-apis.html">Here is some more information.</a>', 'API');
 INSERT INTO keywords (words, keywordid) VALUES ('api', (SELECT id FROM responses WHERE title = 'API'));
 
 INSERT INTO responses (answer, title) VALUES ('In object-oriented programming, polymorphism is the idea that something can be assigned a different meaning or usage based on the context it is referred to as. This specifically allows variables and objects to take on more than one form.', 'polymorphism');
@@ -186,9 +188,55 @@ INSERT INTO responses (answer, title) VALUES ('<iframe width="560" height="315" 
 INSERT INTO keywords (words, keywordid) VALUES ('coronavirus', (SELECT id FROM responses WHERE title = 'coronavirus'));
 
 INSERT INTO responses (answer, title) VALUES ('<img src="https://drive.google.com/uc?id=1UBKkMtL2HYGt-gMAgRO_cDT4-YC32IFc">', 'crops');
+INSERT INTO keywords (words, keywordid) VALUES ('crops', (SELECT id FROM responses WHERE title = 'crops'));
 INSERT INTO keywords (words, keywordid) VALUES ('plancrop', (SELECT id FROM responses WHERE title = 'crops'));
 INSERT INTO keywords (words, keywordid) VALUES ('cropsplan', (SELECT id FROM responses WHERE title = 'crops'));
 INSERT INTO keywords (words, keywordid) VALUES ('planmycrops', (SELECT id FROM responses WHERE title = 'crops'));
 
 INSERT INTO responses (answer, title) VALUES ('To run basic Wolfram Alpha searches, type wolfram//( YourExpressionHere ) For example, try wolfram//pi or wolfram//ten times ten', 'math');
 INSERT INTO keywords (words, keywordid) VALUES ('math', (SELECT id FROM responses WHERE title = 'math'));
+INSERT INTO keywords (words, keywordid) VALUES ('calc', (SELECT id FROM responses WHERE title = 'math'));
+
+INSERT INTO responses (answer, title) VALUES ('Here is the beginning of JavaScript in the book <a target="_blank" href="http://book.techelevator.com/java/70-javascript/05-variables-datatypes/05-variables-and-datatypes.html">How about we start here?</a>', 'javascript');
+INSERT INTO keywords (words, keywordid) VALUES ('javascript', (SELECT id FROM responses WHERE title = 'javascript'));
+
+INSERT INTO responses (answer, title) VALUES ('Vue is one of the last topics <a target="_blank" href="http://book.techelevator.com/java/70-javascript/60-introduction-to-vue/05-Introduction-to-components.html">Here is the start of the end!</a>', 'vue');
+INSERT INTO keywords (words, keywordid) VALUES ('vue', (SELECT id FROM responses WHERE title = 'vue'));
+
+INSERT INTO responses (answer, title) VALUES ('Vue gives a lot of simple ways to work with the DOM. It also gives us a lot of simple ways to work with events as well. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/68-vue-event-handling/05-event-handling-in-vue.html">Jump to this chapter in the book!</a>', 'vueeventhandling');
+INSERT INTO keywords (words, keywordid) VALUES ('vueeventhandling', (SELECT id FROM responses WHERE title = 'vueeventhandling'));
+INSERT INTO keywords (words, keywordid) VALUES ('eventhandlingvue', (SELECT id FROM responses WHERE title = 'vueeventhandling'));
+
+INSERT INTO responses (answer, title) VALUES ('CSS can be tricky but read <a target="_blank" href="http://book.techelevator.com/java/67-css/01-intro.html">this chapter and work carefully!</a>', 'css');
+INSERT INTO keywords (words, keywordid) VALUES ('css', (SELECT id FROM responses WHERE title = 'css'));
+
+INSERT INTO responses (answer, title) VALUES ('URL stands for Uniform Resource Locator, or in other words, the web address of an online resource, like a web site or document. <a target="_blank" href="http://book.techelevator.com/java/80-intro-to-networks/05-url-parts.html"> Click here to go into more detail in the book.</a>', 'url');
+INSERT INTO keywords (words, keywordid) VALUES ('url', (SELECT id FROM responses WHERE title = 'url'));
+
+INSERT INTO responses (answer, title) VALUES ('There a few different kinds of errors. <a target="_blank" href="http://book.techelevator.com/java/60-exception-handling/01-intro.html"> Read more about them here.</a>', 'error');
+INSERT INTO keywords (words, keywordid) VALUES ('error', (SELECT id FROM responses WHERE title = 'error'));
+
+INSERT INTO responses (answer, title) VALUES ('Cathy from Dirty Bird HR', 'hr');
+INSERT INTO keywords (words, keywordid) VALUES ('hr', (SELECT id FROM responses WHERE title = 'hr'));
+
+INSERT INTO responses (answer, title) VALUES ('Everything in Java is associated with classes and objects, along with its attributes and methods.<a target="_blank" href="https://www.w3schools.com/java/java_classes.asp"> Read more here. </a>', 'javaclass');
+INSERT INTO keywords (words, keywordid) VALUES ('javaclass', (SELECT id FROM responses WHERE title = 'javaclass'));
+INSERT INTO keywords (words, keywordid) VALUES ('classjava', (SELECT id FROM responses WHERE title = 'javaclass'));
+
+INSERT INTO responses (answer, title) VALUES ('A method is a block of code which only runs when it is called. <a target="_blank" href="https://www.w3schools.com/java/java_methods.asp"> Read more about it here.</a>', 'methods');
+INSERT INTO keywords (words, keywordid) VALUES ('methods', (SELECT id FROM responses WHERE title = 'methods'));
+
+INSERT INTO responses (answer, title) VALUES ('One object is used as a key (index) to another object (value). <a target="_blank" href="https://www.w3schools.com/java/java_hashmap.asp"> Read more about it here.</a>', 'hashmap');
+INSERT INTO keywords (words, keywordid) VALUES ('hashmap', (SELECT id FROM responses WHERE title = 'hashmap'));
+
+INSERT INTO responses (answer, title) VALUES ('An interface is a completely "abstract class" that is used to group related methods with empty bodies <a target="_blank" href="https://www.w3schools.com/java/java_interface.asp"> Read more about it here.</a>', 'interface');
+INSERT INTO keywords (words, keywordid) VALUES ('interface', (SELECT id FROM responses WHERE title = 'interface'));
+
+INSERT INTO responses (answer, title) VALUES ('To delete a file in Java, use the delete() method <a target="_blank" href="https://www.w3schools.com/java/java_files_delete.asp"> Read more about it here.</a>', 'delete');
+INSERT INTO keywords (words, keywordid) VALUES ('delete', (SELECT id FROM responses WHERE title = 'delete'));
+
+INSERT INTO responses (answer, title) VALUES ('A constructor in Java is a special method that is used to initialize objects. <a target="_blank" href="https://www.w3schools.com/java/java_constructors.asp"> Read more about it here.</a>', 'constructor');
+INSERT INTO keywords (words, keywordid) VALUES ('constructor', (SELECT id FROM responses WHERE title = 'constructor'));
+
+INSERT INTO responses (answer, title) VALUES ('Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects. <a target="_blank" href="https://www.w3schools.com/java/java_wrapper_classes.asp"> Read more about it here.</a>', 'wrapper');
+INSERT INTO keywords (words, keywordid) VALUES ('wrapper', (SELECT id FROM responses WHERE title = 'wrapper'));
