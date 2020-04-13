@@ -75,6 +75,8 @@ export default {
     }),
     methods: {
         sendMessage(){
+
+          if(this.message){
             const message = this.message;
 
             if (!this.userName) {
@@ -123,7 +125,8 @@ export default {
 
             }
       
-      this.message = "";
+        this.message = "";
+      }
     },
 
     sendSMS() {
