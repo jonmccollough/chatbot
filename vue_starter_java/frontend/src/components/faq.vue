@@ -88,9 +88,7 @@
 
         quote  <br>
         office <br>
-        location <br>
         address <br>
-        techelevatorevents <br>
         email <br>
         phonenumber <br>
         help <br>
@@ -129,7 +127,7 @@
         studentexercise <br>
         assignment <br>
         fundamentals <br>
-        oop <br>
+        o-o-p <br>
         api <br>
         polymorphism <br>
         encapsulation <br>
@@ -139,8 +137,7 @@
         coding <br>
         javascript <br>
         vue <br>
-        vueeventhandling <br>
-        eventhandlingvue <br>
+        eventhandling <br>
         css <br>
         url <br>
         error <br>
@@ -175,7 +172,7 @@
         google <br>
         whereami <br>
         hate <br>
-        mental <br>
+        health <br>
         freakingout <br>
         whoareyou <br>
         whatareyou <br>
