@@ -28,7 +28,7 @@
  </p>
   <ul class="menu-list">
     <li><a><details>
-        <summary>What are you Chatbot?</summary>
+        <summary>What are you, Chatbot?</summary>
     I am Chatbot! An automated computer messaging program that autonomously replies to your questions.
     There is no living person behind the curtain answering your questions in real time. 
     <br><br>
@@ -40,13 +40,12 @@
         I can do things and stuff
     </details></a></li>
 
-    <li><a><details><summary>Who built this?</summary>
+    <li><a><details><summary>Who built made you, Chatbot?</summary>
         The daddies of this baby are Cat, Devin, Jarret, Jon, and Tanner.
     </details></a></li>
 
-    <li><a><details><summary>Can I make a suggestion?</summary>
-        Keep your comments in your pocket, Mark! <br>
-        But seriously we hope to develop the ability for users to leave suggestions soon.
+    <li><a><details><summary>Can I donate to you, Chatbot?</summary>
+        Absolutely, just send me your credit card info or BitWallet.
     </details></a></li>
   </ul>
 
@@ -54,7 +53,7 @@
     Curriculum
  </p>
   <ul class="menu-list">
-    <li><a><details><summary>Can Chatbot do my homework?</summary>
+    <li><a><details><summary>Can you do my homework, Chatbot?</summary>
         I won't do your homework for you but I will direct you to resources 
         that can help. Try asking me a subject from class!
     </details></a></li>
@@ -74,7 +73,7 @@
     </details></a></li>
  </ul>
 <ul class="menu-list">
-    <li><a><details><summary>How can Chatbot find me a job?</summary>
+    <li><a><details><summary>Chatbot, can you find me a job?</summary>
         I can help point you in the direction of recent job postings. 
         I will just need to ask a few questions first. Start by asking me 
         "find jobs"!
@@ -84,7 +83,7 @@
     All Keywords
  </p>
  <ul class="menu-list">
-    <li><a><details><summary>A list of words that Chatbot knows.</summary>
+    <li><a><details><summary>A list of words that Chatbot knows</summary>
 
         quote  <br>
         office <br>
@@ -213,8 +212,10 @@ export default {
 <style lang="scss" scoped>
 
 body {
-    background: rgb(0,176,240);
-    background: linear-gradient(0deg, rgba(0,176,240,1) 0%, rgba(255,255,255,1) 80%, rgba(139,196,64,0.6561517295597484) 100%);
+    background: -webkit-linear-gradient(70deg, #00b0f0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(40deg, white 60%, #8bc440 60%);
+    background: -o-linear-gradient(70deg, #00b0f0 30%, rgba(0,0,0,0) 30%), -o-linear-gradient(40deg, white 60%, #8bc440 60%);
+    background: -moz-linear-gradient(70deg, #00b0f0 30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(40deg, white 60%, #8bc440 60%);
+    background: linear-gradient(70deg, #00b0f0  30%, rgba(0,0,0,0) 30%), linear-gradient(40deg, white 60%, #8bc440 60%);
 }
 
 .li{
