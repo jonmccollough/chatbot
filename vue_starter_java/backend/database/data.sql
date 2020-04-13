@@ -26,8 +26,8 @@ INSERT INTO keywords (words, keywordid) VALUES ('coverletter', (SELECT id FROM r
 INSERT INTO responses (answer, title) VALUES ('I think this <a target="_blank" href="https://contattafiles.s3.us-west-1.amazonaws.com/tecommunity/vEYm7LHLM68hZ1X/Preparing%20for%20your%20Technical%20Interview.pdf">presentation on interviews will help you</a>', 'interview');
 INSERT INTO keywords (words, keywordid) VALUES ('interview', (SELECT id FROM responses WHERE title = 'interview'));
 
-INSERT INTO responses (answer, title) VALUES ('Here is <a target="_blank" href="https://docs.google.com/document/d/1FOI7cM88J01UfdgSghaNLYh2-DjIskUYoaYG_XbqDSo/edit">a list of example STAR questions to help you practice</a>', 'starquestions');
-INSERT INTO keywords (words, keywordid) VALUES ('starquestions', (SELECT id FROM responses WHERE title = 'starquestions'));
+INSERT INTO responses (answer, title) VALUES ('Here is <a target="_blank" href="https://docs.google.com/document/d/1FOI7cM88J01UfdgSghaNLYh2-DjIskUYoaYG_XbqDSo/edit">a list of example STAR questions to help you practice</a>', 'starquestion');
+INSERT INTO keywords (words, keywordid) VALUES ('starquestion', (SELECT id FROM responses WHERE title = 'starquestion'));
 
 INSERT INTO responses (answer, title) VALUES ('Alright, what are you trying to learn about? I can help with concepts such as MVC, arrays or even the fundamentals of OOP.', 'curriculum');
 INSERT INTO keywords (words, keywordid) VALUES ('curriculum', (SELECT id FROM responses WHERE title = 'curriculum'));
@@ -115,7 +115,6 @@ INSERT INTO keywords (words, keywordid) VALUES ('fundamentals', (SELECT id FROM 
 INSERT INTO keywords (words, keywordid) VALUES ('o-o-p', (SELECT id FROM responses WHERE title = 'OOP'));
 INSERT INTO keywords (words, keywordid) VALUES ('objectorientedprogramming', (SELECT id FROM responses WHERE title = 'OOP'));
 
-
 INSERT INTO responses (answer, title) VALUES ('API stands for Application Programming Interface. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/45-web-services/04-apis.html">Here is some more information.</a>', 'API');
 INSERT INTO keywords (words, keywordid) VALUES ('api', (SELECT id FROM responses WHERE title = 'API'));
 
@@ -197,7 +196,6 @@ INSERT INTO keywords (words, keywordid) VALUES ('coronavirus', (SELECT id FROM r
 INSERT INTO responses (answer, title) VALUES ('<img src="https://drive.google.com/uc?id=1UBKkMtL2HYGt-gMAgRO_cDT4-YC32IFc">', 'crops');
 INSERT INTO keywords (words, keywordid) VALUES ('crops', (SELECT id FROM responses WHERE title = 'crops'));
 INSERT INTO keywords (words, keywordid) VALUES ('plancrop', (SELECT id FROM responses WHERE title = 'crops'));
-INSERT INTO keywords (words, keywordid) VALUES ('cropsplan', (SELECT id FROM responses WHERE title = 'crops'));
 
 INSERT INTO responses (answer, title) VALUES ('To run basic Wolfram Alpha searches, type wolfram//( YourExpressionHere ) For example, try wolfram//pi or wolfram//ten times ten', 'math');
 INSERT INTO keywords (words, keywordid) VALUES ('math', (SELECT id FROM responses WHERE title = 'math'));
@@ -291,3 +289,10 @@ INSERT INTO keywords (words, keywordid) VALUES ('lol', (SELECT id FROM responses
 INSERT INTO keywords (words, keywordid) VALUES ('haha', (SELECT id FROM responses WHERE title = 'humor'));
 INSERT INTO keywords (words, keywordid) VALUES ('rofl', (SELECT id FROM responses WHERE title = 'humor'));
 INSERT INTO keywords (words, keywordid) VALUES ('lmao', (SELECT id FROM responses WHERE title = 'humor'));
+
+INSERT INTO responses (answer, title) VALUES ('Most links can be found on the <a target="_blank" href="https://calendar.google.com/calendar/embed?src=techelevator.com_p1r2qg0em1avvgpeqonq677msg%40group.calendar.google.com&ctz=America%2FNew_York">Pathway calendar here,</a> which is connected to the email you supplied when you enrolled and may not be accessable unless you are logged in. 
+You can also <a target="_blank" href="https://tecommunity.ryver.com/index.html#teams/1323734/chat">click here to the check the Pathway Ryver channel for any important information.</a>', 'link');
+INSERT INTO keywords (words, keywordid) VALUES ('link', (SELECT id FROM responses WHERE title = 'link'));
+INSERT INTO keywords (words, keywordid) VALUES ('calendar', (SELECT id FROM responses WHERE title = 'link'));
+
+
