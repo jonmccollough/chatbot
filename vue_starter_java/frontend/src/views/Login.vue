@@ -25,7 +25,7 @@
       >Thank you for registering, please sign in.</div>
      
       <div class="field column is-one-third is-centered">
-        <p class="control has-icons-right">
+        <p class="control">
           <label for="username" class="label">Username</label>
           <input
             type="text"
@@ -36,11 +36,8 @@
             required
             autofocus
           />
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
         </p>
-        <p class="control has-icons-right">
+        <p class="control">
           <label for="password" class="label">Password</label>
           <input
             type="password"
@@ -50,12 +47,10 @@
             v-model="user.password"
             required
           />
-          <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
-          </span>
+        
         </p>
 
-        <button type="submit" class="button is-primary">Sign in</button>
+        <button type="submit" class="button is-success">Sign in</button>
         <br />
          <!-- <router-link :to="{ name: 'register' }">Need an account? Click here to register.</router-link> -->
       </div>
@@ -113,4 +108,5 @@ export default {
 </script>
 
 <style>
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
 </style>
