@@ -15,6 +15,7 @@
            </div>
        </section> 
         <section class = "chat-bot"  ref="chatbot">
+         
          <div class = "chat-box-list-container"  >
             <ul class = "chat-bot-list" >
                 <li class = 'message server'>
