@@ -83,7 +83,11 @@ export default {
 
                 this.getUsername();
 
-            } else if (this.messages[this.messages.length - 1].text.match("What type of job are you looking for?")) {
+            } else if(this.message.toLowerCase() === "help"){
+
+              this.showHelp();
+
+            }else if (this.messages[this.messages.length - 1].text === "What type of job are you looking for?") {
                 
                 this.getJobType();
 
@@ -438,6 +442,20 @@ export default {
 
       this.autoScroll();
     },
+
+    showHelp(){
+
+      this.messages.push({
+        text: this.message,
+        writer: 'client'
+      });
+
+      this.messages.push({
+        text: "Try asking me about common topics at Tech Elevator. I know a little bit about the basics of coding, plus the Pathway program. For instance, try typing \"interviewing\" or \"MVC\". Check our FAQ for a full list of commands",
+        writer: 'server'
+      });
+
+    }
 }
 
 

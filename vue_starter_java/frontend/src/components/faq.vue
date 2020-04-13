@@ -37,10 +37,11 @@
 
     <li><a><details>
         <summary>What can you do, Chatbot?</summary>
-        I can do things and stuff
+        If you ask me a question related to Tech Elevator's curriculum or Pathway Program, I probably have a response for that. There might also be some additional features to discover! 
+
     </details></a></li>
 
-    <li><a><details><summary>Who built made you, Chatbot?</summary>
+    <li><a><details><summary>Who built you, Chatbot?</summary>
         The daddies of this baby are Cat, Devin, Jarret, Jon, and Tanner.
     </details></a></li>
 
@@ -87,9 +88,7 @@
 
         quote  <br>
         office <br>
-        location <br>
         address <br>
-        techelevatorevents <br>
         email <br>
         phonenumber <br>
         help <br>
@@ -128,7 +127,7 @@
         studentexercise <br>
         assignment <br>
         fundamentals <br>
-        oop <br>
+        o-o-p <br>
         api <br>
         polymorphism <br>
         encapsulation <br>
@@ -138,8 +137,7 @@
         coding <br>
         javascript <br>
         vue <br>
-        vueeventhandling <br>
-        eventhandlingvue <br>
+        eventhandling <br>
         css <br>
         url <br>
         error <br>
@@ -174,7 +172,7 @@
         google <br>
         whereami <br>
         hate <br>
-        mental <br>
+        health <br>
         freakingout <br>
         whoareyou <br>
         whatareyou <br>
