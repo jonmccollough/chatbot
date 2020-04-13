@@ -33,10 +33,13 @@ INSERT INTO responses (answer, title) VALUES ('Alright, what are you trying to l
 INSERT INTO keywords (words, keywordid) VALUES ('curriculum', (SELECT id FROM responses WHERE title = 'curriculum'));
 
 INSERT INTO responses (answer, title) VALUES ('<a target="_blank" href="http://book.techelevator.com/java/20-arrays-and-loops/arrays/01-arrays.html">The chapter in the book about arrays is helpful</a>','arrays');
-INSERT INTO keywords (words, keywordid) VALUES ('arrays', (SELECT id FROM responses WHERE title = 'arrays'));
+INSERT INTO keywords (words, keywordid) VALUES ('array', (SELECT id FROM responses WHERE title = 'arrays'));
 
 INSERT INTO responses (answer, title) VALUES ('Do you want help with Java MVC or NET MVC? Type either JModel for Java or NModel for .NET', 'mvc');
 INSERT INTO keywords (words, keywordid) VALUES ('mvc', (SELECT id FROM responses WHERE title = 'mvc'));
+INSERT INTO keywords (words, keywordid) VALUES ('model', (SELECT id FROM responses WHERE title = 'mvc'));
+INSERT INTO keywords (words, keywordid) VALUES ('view', (SELECT id FROM responses WHERE title = 'mvc'));
+INSERT INTO keywords (words, keywordid) VALUES ('controller', (SELECT id FROM responses WHERE title = 'mvc'));
 
 INSERT INTO responses (answer, title) VALUES ('Here is <a target="_blank" href="http://book.techelevator.com/java/75-java-mvc/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the Java MVC chapter</a>', 'javamvc');
 INSERT INTO keywords (words, keywordid) VALUES ('jmodel', (SELECT id FROM responses WHERE title = 'javamvc'));
@@ -119,11 +122,17 @@ INSERT INTO keywords (words, keywordid) VALUES ('api', (SELECT id FROM responses
 INSERT INTO responses (answer, title) VALUES ('In object-oriented programming, polymorphism is the idea that something can be assigned a different meaning or usage based on the context it is referred to as. This specifically allows variables and objects to take on more than one form.', 'polymorphism');
 INSERT INTO keywords (words, keywordid) VALUES ('polymorphism', (SELECT id FROM responses WHERE title = 'polymorphism'));
 
+INSERT INTO responses (answer, title) VALUES ('An expression is a statement that gets evaluated and produces a single result. <a href = "http://book.techelevator.com/java/05-introduction-to-programming/expressions/01-expressions.html" target="_blank">Here is some more info.', 'expression');
+INSERT INTO keywords (words, keywordid) VALUES ('expression', (SELECT id FROM responses WHERE title = 'expression'));
+
 INSERT INTO responses (answer, title) VALUES ('Encapsulation language construct that facilitates the bundling of data with the methods (or other functions) operating on that data.', 'encapsulation');
 INSERT INTO keywords (words, keywordid) VALUES ('encapsulation', (SELECT id FROM responses WHERE title = 'encapsulation'));
 
 INSERT INTO responses (answer, title) VALUES ('Inheritance is the act of having one class adopt the properties and methods of another class. This prevents code duplication and allows you to share code across classes while having the source code live in only one class file.', 'inheritance');
 INSERT INTO keywords (words, keywordid) VALUES ('inheritance', (SELECT id FROM responses WHERE title = 'inheritance'));
+
+INSERT INTO responses (answer, title) VALUES ('Create, Read, Update, Delete. Considered the basic four types of functionality. <a target="_blank" href="https://www.codecademy.com/articles/what-is-crud"> More info here.</a>', 'crud');
+INSERT INTO keywords (words, keywordid) VALUES ('crud', (SELECT id FROM responses WHERE title = 'crud'));
 
 INSERT INTO responses (answer, title) VALUES ('<iframe width="560" height="315" src="https://www.youtube.com/embed/_gJyJ8NvZgg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'inspire');
 INSERT INTO keywords (words, keywordid) VALUES ('inspire', (SELECT id FROM responses WHERE title = 'inspire'));
@@ -140,7 +149,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('googlehome', (SELECT id FROM re
 INSERT INTO responses (answer, title) VALUES ('<iframe src="https://open.spotify.com/embed/track/2qOm7ukLyHUXWyR4ZWLwxA" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>', 'good day');
 INSERT INTO keywords (words, keywordid) VALUES ('goodday', (SELECT id FROM responses WHERE title = 'good day'));
 
-INSERT INTO responses (answer, title) VALUES ('Common git commands: git pull, git status, git add, git commit, git push, git clone. <img src="https://drive.google.com/uc?id=1tiZKJMi09Avx--ofVUwVxIJzBhm3DcL9">', 'git');
+INSERT INTO responses (answer, title) VALUES ('Common git commands: git pull, git status, git add, git commit, git push, git clone. <a href ="http://book.techelevator.com/java/01-introduction-to-tools/version-control/1_intro.html" target = "_blank">Here is some extra info from the book</a><img src="https://drive.google.com/uc?id=1tiZKJMi09Avx--ofVUwVxIJzBhm3DcL9">', 'git');
 INSERT INTO keywords (words, keywordid) VALUES ('git', (SELECT id FROM responses WHERE title = 'git'));
 
 INSERT INTO responses (answer, title) VALUES ('Here is a list of common primitive data types: boolean, byte, char, int, float, double, long, decimal.', 'primitives');
@@ -209,8 +218,9 @@ INSERT INTO keywords (words, keywordid) VALUES ('css', (SELECT id FROM responses
 INSERT INTO responses (answer, title) VALUES ('URL stands for Uniform Resource Locator, or in other words, the web address of an online resource, like a web site or document. <a target="_blank" href="http://book.techelevator.com/java/80-intro-to-networks/05-url-parts.html"> Click here to go into more detail in the book.</a>', 'url');
 INSERT INTO keywords (words, keywordid) VALUES ('url', (SELECT id FROM responses WHERE title = 'url'));
 
-INSERT INTO responses (answer, title) VALUES ('There a few different kinds of errors. <a target="_blank" href="http://book.techelevator.com/java/60-exception-handling/01-intro.html"> Read more about them here.</a>', 'error');
+INSERT INTO responses (answer, title) VALUES ('There a few different kinds of errors. You can make your program respond to particular ones using a try catch statement. <a target="_blank" href="http://book.techelevator.com/java/60-exception-handling/01-intro.html"> Read more about them here.</a>', 'error');
 INSERT INTO keywords (words, keywordid) VALUES ('error', (SELECT id FROM responses WHERE title = 'error'));
+INSERT INTO keywords (words, keywordid) VALUES ('trycatch', (SELECT id FROM responses WHERE title = 'error'));
 
 INSERT INTO responses (answer, title) VALUES ('Cathy from Dirty Bird HR', 'hr');
 INSERT INTO keywords (words, keywordid) VALUES ('hr', (SELECT id FROM responses WHERE title = 'hr'));
@@ -236,6 +246,45 @@ INSERT INTO keywords (words, keywordid) VALUES ('constructor', (SELECT id FROM r
 
 INSERT INTO responses (answer, title) VALUES ('Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects. <a target="_blank" href="https://www.w3schools.com/java/java_wrapper_classes.asp"> Read more about it here.</a>', 'wrapper');
 INSERT INTO keywords (words, keywordid) VALUES ('wrapper', (SELECT id FROM responses WHERE title = 'wrapper'));
+
+INSERT INTO responses (answer, title) VALUES ('Conditional code allows you to determine what block of code to run depending on true or false evaluations. <a target="_blank" href="http://book.techelevator.com/java/10-logical-branching/conditional-code/01-conditional-code.html"> Here is some more info from the book.</a>', 'condition');
+INSERT INTO keywords (words, keywordid) VALUES ('condition', (SELECT id FROM responses WHERE title = 'condition'));
+
+INSERT INTO responses (answer, title) VALUES ('A method is a small, repeatable unit of code. <a target="_blank" href="http://book.techelevator.com/java/10-logical-branching/methods/01-methods.html"> Here is some more info from the book.</a>', 'method');
+INSERT INTO keywords (words, keywordid) VALUES ('method', (SELECT id FROM responses WHERE title = 'method'));
+
+INSERT INTO responses (answer, title) VALUES ('I/O (or Input Output) is the communication channel between a computer and the environment where it begins execution. <a target="_blank" href="http://book.techelevator.com/java/25-command-line-programs/05-using-standard-streams.html"> More info here.</a> It can also refer to reading and writing to a file, which you can find more out about <a target="_blank" href = "http://book.techelevator.com/.net/58-file-io/01-intro.html"> here </a>', 'i/o');
+INSERT INTO keywords (words, keywordid) VALUES ('i/o', (SELECT id FROM responses WHERE title = 'i/o'));
+
+INSERT INTO responses (answer, title) VALUES ('JSPs (Java Server Pages) are a way to dynamically create HTML pages in Java. <a target="_blank" href="http://book.techelevator.com/java/75-java-mvc/01-intro-to-mvc/05-jsp-views.html"> Learn more here.</a>', 'jsp');
+INSERT INTO keywords (words, keywordid) VALUES ('jsp', (SELECT id FROM responses WHERE title = 'jsp'));
+
+INSERT INTO responses (answer, title) VALUES ('SHUTTING DOWN... Just kidding, REST is short for Representational State Transfer. It allows well defined data transfer. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/50-rest/01-intro.html"> Learn more here.</a>', 'rest');
+INSERT INTO keywords (words, keywordid) VALUES ('rest', (SELECT id FROM responses WHERE title = 'rest'));
+
+INSERT INTO responses (answer, title) VALUES ('Forms are used to collect input from a user that can be stored and/or manuipulated by the model. <a target="_blank" href="http://book.techelevator.com/java/75-java-mvc/04-controllers/02-controllers-get.html"> Learn more here.</a>', 'form');
+INSERT INTO keywords (words, keywordid) VALUES ('form', (SELECT id FROM responses WHERE title = 'form'));
+
+INSERT INTO responses (answer, title) VALUES ('The nightmare of your final capstone. Cross Origin Request errors are caused by having one origin make a call to another. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/55-create-rest-api/cors.html"> Learn more here.</a>', 'cors');
+INSERT INTO keywords (words, keywordid) VALUES ('cors', (SELECT id FROM responses WHERE title = 'cors'));
+
+INSERT INTO responses (answer, title) VALUES ('A well below average American beer. (I think you meant to type CORS!)', 'coors');
+INSERT INTO keywords (words, keywordid) VALUES ('coors', (SELECT id FROM responses WHERE title = 'coors'));
+
+INSERT INTO responses (answer, title) VALUES ('Unit testing, using JQuery for Java and MSTest for .NET, assures your code is doing what is expected and protects you if you make changes in the future. <a target="_blank" href="http://book.techelevator.com/java/56-unit-testing/01-intro.html"> Java </a> <a target="_blank" href="http://book.techelevator.com/.net/56-unit-testing/25-building-some-real-unit-tests.html">.NET</a>', 'unittest');
+INSERT INTO keywords (words, keywordid) VALUES ('unittest', (SELECT id FROM responses WHERE title = 'unittest'));
+INSERT INTO keywords (words, keywordid) VALUES ('junit', (SELECT id FROM responses WHERE title = 'unittest'));
+INSERT INTO keywords (words, keywordid) VALUES ('mstest', (SELECT id FROM responses WHERE title = 'unittest'));
+
+INSERT INTO responses (answer, title) VALUES ('Collections, including lists, stacks, and queues are a dynamic way to collect multiple instances of any one data type. <a target="_blank" href="http://book.techelevator.com/java/35-linear-data-structures/10-collections.html"> More info here.</a>', 'collection');
+INSERT INTO keywords (words, keywordid) VALUES ('collection', (SELECT id FROM responses WHERE title = 'collection'));
+INSERT INTO keywords (words, keywordid) VALUES ('list', (SELECT id FROM responses WHERE title = 'collection'));
+INSERT INTO keywords (words, keywordid) VALUES ('stack', (SELECT id FROM responses WHERE title = 'collection'));
+INSERT INTO keywords (words, keywordid) VALUES ('queue', (SELECT id FROM responses WHERE title = 'collection'));
+
+INSERT INTO responses (answer, title) VALUES ('Type conversion allows you to treat one data type as another, as long as it is compatable. <a target="_blank" href="http://book.techelevator.com/java/05-introduction-to-programming/type-conversion/01-type-conversion.html"> Read more about it here.</a>', 'typeconversion');
+INSERT INTO keywords (words, keywordid) VALUES ('typeconversion', (SELECT id FROM responses WHERE title = 'typeconversion'));
+INSERT INTO keywords (words, keywordid) VALUES ('conversion', (SELECT id FROM responses WHERE title = 'typeconversion'));
 
 INSERT INTO responses (answer, title) VALUES ('Did I say something funny? I will never understand you humans...', 'humor');
 INSERT INTO keywords (words, keywordid) VALUES ('lol', (SELECT id FROM responses WHERE title = 'humor'));
