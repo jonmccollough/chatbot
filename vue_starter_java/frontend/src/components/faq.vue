@@ -103,6 +103,7 @@
         jobsearch <br>
         resume <br>
         attire <br>
+        howtodress <br>
         coverletter <br>
         interview <br>
         starquestions <br>
@@ -112,6 +113,7 @@
         pitch example <br>
 
         math <br>
+        calc <br>
         wolfram <br>
         curriculum <br>
         arrays <br>
@@ -135,10 +137,26 @@
         git <br>
         primitive <br>
         coding <br>
+        javascript <br>
+        vue <br>
+        vueeventhandling <br>
+        eventhandlingvue <br>
+        css <br>
+        url <br>
+        error <br>
+        javaclass <br>
+        classjava <br>
+        methods <br>
+        hashmap <br>
+        interface <br>
+        delete<br>
+        constructor <br>
+        wrapper <br>
         
         besttechelevatorcampus <br>
         thanks <br>
         thankyou <br>
+        thnxs <br>
         thx <br>
         goodday <br>
         inspire <br>
@@ -163,6 +181,7 @@
         whatareyou <br>
         covid <br>
         coronavirus <br>
+        crops <br>
         plancrop <br>
         cropsplan <br>
         planmycrops <br>
