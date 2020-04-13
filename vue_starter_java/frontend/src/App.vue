@@ -13,13 +13,14 @@
 
 import FooterVue from '@/components/FooterVue';
 import HeaderVue from '@/components/HeaderVue';
+import auth from "@/auth.js"
 
 export default {
   name: 'app',  
   
   data() {
     return {
-      loggedIn: false
+      loggedIn: auth.getToken() ? true : false
     }
   },
 
