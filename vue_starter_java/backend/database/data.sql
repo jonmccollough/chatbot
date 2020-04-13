@@ -16,7 +16,9 @@ INSERT INTO keywords (words, keywordid) VALUES ('resume', (SELECT id FROM respon
 
 INSERT INTO responses (answer, title) VALUES ('Dress to impress MEN: Suit attire. WOMEN: Slacks/skirt and nice top or dress and blazer.', 'attire');
 INSERT INTO keywords (words, keywordid) VALUES ('attire', (SELECT id FROM responses WHERE title = 'attire'));
-INSERT INTO keywords (words, keywordid) VALUES ('howtodress', (SELECT id FROM responses WHERE title = 'attire'));
+INSERT INTO keywords (words, keywordid) VALUES ('todress', (SELECT id FROM responses WHERE title = 'attire'));
+INSERT INTO keywords (words, keywordid) VALUES ('shouldidress', (SELECT id FROM responses WHERE title = 'attire'));
+INSERT INTO keywords (words, keywordid) VALUES ('towear', (SELECT id FROM responses WHERE title = 'attire'));
 
 INSERT INTO responses (answer, title) VALUES ('I found these <a target="_blank" href="https://drive.google.com/drive/folders/0B0L4DaCt03tFTHNkOThzMi1IckU">7 tips for a cover letter</a>', 'coverletter');
 INSERT INTO keywords (words, keywordid) VALUES ('coverletter', (SELECT id FROM responses WHERE title = 'coverletter'));
@@ -79,7 +81,7 @@ INSERT INTO responses (answer, title) VALUES ('<iframe src="https://www.google.c
 INSERT INTO keywords (words, keywordid) VALUES ('office', (SELECT id FROM responses WHERE title = 'office'));
 INSERT INTO keywords (words, keywordid) VALUES ('address', (SELECT id FROM responses WHERE title = 'office'));
 
-INSERT INTO responses (answer, title) VALUES ('A boolean is an expression that always evaluates to either true or false. <a href="http://book.techelevator.com/java/10-logical-branching/boolean-expressions/01-expressions.html">Click here for the chapter on booleans from the textbook.</a>', 'boolean');
+INSERT INTO responses (answer, title) VALUES ('A boolean is an expression that always evaluates to either true or false. <a href="http://book.techelevator.com/java/10-logical-branching/boolean-expressions/01-expressions.html" target="_blank">Click here for the chapter on booleans from the textbook.</a>', 'boolean');
 INSERT INTO keywords (words, keywordid) VALUES ('boolean', (SELECT id FROM responses WHERE title = 'boolean'));
 
 INSERT INTO responses (answer, title) VALUES ('<a target="_blank" href="http://book.techelevator.com/java/20-arrays-and-loops/loops/01-loops.html">Behold, the power of the almighty for loop.</a> Mastery is key for any Tech Elevator student.', 'forloop');
@@ -108,6 +110,8 @@ INSERT INTO keywords (words, keywordid) VALUES ('assignment', (SELECT id FROM re
 INSERT INTO responses (answer, title) VALUES ('The three fundamentals of Object Orientated Programming are: polymorphism, encapsulation and inheritance.', 'OOP');
 INSERT INTO keywords (words, keywordid) VALUES ('fundamentals', (SELECT id FROM responses WHERE title = 'OOP'));
 INSERT INTO keywords (words, keywordid) VALUES ('o-o-p', (SELECT id FROM responses WHERE title = 'OOP'));
+INSERT INTO keywords (words, keywordid) VALUES ('objectorientedprogramming', (SELECT id FROM responses WHERE title = 'OOP'));
+
 
 INSERT INTO responses (answer, title) VALUES ('API stands for Application Programming Interface. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/45-web-services/04-apis.html">Here is some more information.</a>', 'API');
 INSERT INTO keywords (words, keywordid) VALUES ('api', (SELECT id FROM responses WHERE title = 'API'));
@@ -131,7 +135,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('skynet', (SELECT id FROM respon
 
 INSERT INTO responses (answer, title) VALUES ('I think they are great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
 INSERT INTO keywords (words, keywordid) VALUES ('alexa', (SELECT id FROM responses WHERE title = 'smartdevice'));
-INSERT INTO keywords (words, keywordid) VALUES ('google', (SELECT id FROM responses WHERE title = 'smartdevice'));
+INSERT INTO keywords (words, keywordid) VALUES ('googlehome', (SELECT id FROM responses WHERE title = 'smartdevice'));
 
 INSERT INTO responses (answer, title) VALUES ('<iframe src="https://open.spotify.com/embed/track/2qOm7ukLyHUXWyR4ZWLwxA" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>', 'good day');
 INSERT INTO keywords (words, keywordid) VALUES ('goodday', (SELECT id FROM responses WHERE title = 'good day'));
@@ -164,6 +168,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('freakingout', (SELECT id FROM r
 
 INSERT INTO responses (answer, title) VALUES ('Here is a map of popular tourist locations in Pittsburgh: <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d48577.604487171695!2d-80.00240115591183!3d40.4509174073966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1stourist%20sites%20near%20Pittsburgh%2C%20PA!5e0!3m2!1sen!2sus!4v1586539721618!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>', 'pittsburghtour');
 INSERT INTO keywords (words, keywordid) VALUES ('pittsburghtour', (SELECT id FROM responses WHERE title = 'pittsburghtour'));
+INSERT INTO keywords (words, keywordid) VALUES ('tourofpittsburgh', (SELECT id FROM responses WHERE title = 'pittsburghtour'));
 
 INSERT INTO responses (answer, title) VALUES ('My name is Justin Driscoll.', 'who you');
 INSERT INTO keywords (words, keywordid) VALUES ('whoareyou', (SELECT id FROM responses WHERE title = 'who you'));
@@ -189,7 +194,7 @@ INSERT INTO responses (answer, title) VALUES ('To run basic Wolfram Alpha search
 INSERT INTO keywords (words, keywordid) VALUES ('math', (SELECT id FROM responses WHERE title = 'math'));
 INSERT INTO keywords (words, keywordid) VALUES ('calc', (SELECT id FROM responses WHERE title = 'math'));
 
-INSERT INTO responses (answer, title) VALUES ('Here is the beginning of JavaScript in the book <a target="_blank" href="http://book.techelevator.com/java/70-javascript/05-variables-datatypes/05-variables-and-datatypes.html">How about we start here?</a>', 'javascript');
+INSERT INTO responses (answer, title) VALUES ('Here is the beginning of JavaScript in the book. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/05-variables-datatypes/05-variables-and-datatypes.html">How about we start here?</a>', 'javascript');
 INSERT INTO keywords (words, keywordid) VALUES ('javascript', (SELECT id FROM responses WHERE title = 'javascript'));
 
 INSERT INTO responses (answer, title) VALUES ('Vue is a nifty front end framework. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/60-introduction-to-vue/05-Introduction-to-components.html">Here is a chapter from the textbook about it.</a>', 'vue');
@@ -231,3 +236,9 @@ INSERT INTO keywords (words, keywordid) VALUES ('constructor', (SELECT id FROM r
 
 INSERT INTO responses (answer, title) VALUES ('Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects. <a target="_blank" href="https://www.w3schools.com/java/java_wrapper_classes.asp"> Read more about it here.</a>', 'wrapper');
 INSERT INTO keywords (words, keywordid) VALUES ('wrapper', (SELECT id FROM responses WHERE title = 'wrapper'));
+
+INSERT INTO responses (answer, title) VALUES ('Did I say something funny? I will never understand you humans...', 'humor');
+INSERT INTO keywords (words, keywordid) VALUES ('lol', (SELECT id FROM responses WHERE title = 'humor'));
+INSERT INTO keywords (words, keywordid) VALUES ('haha', (SELECT id FROM responses WHERE title = 'humor'));
+INSERT INTO keywords (words, keywordid) VALUES ('rofl', (SELECT id FROM responses WHERE title = 'humor'));
+INSERT INTO keywords (words, keywordid) VALUES ('lmao', (SELECT id FROM responses WHERE title = 'humor'));
