@@ -143,25 +143,25 @@ export default {
     sendSMS(phone) {
       this.closeModal();
       phone = '+1' + phone;
-      console.log(phone);
-      // const accountSid = 'ACb17eece6228a5633f62b48f6052eddc5';
-      // const authToken = 'f63a8c1470779bd80dd0be8ef7310b04';
-      // const client = require('twilio')(accountSid, authToken);
+      
+      const accountSid = 'ACb17eece6228a5633f62b48f6052eddc5';
+      const authToken = 'f63a8c1470779bd80dd0be8ef7310b04';
+      const client = require('twilio')(accountSid, authToken);
 
-      // if (phone != null) {
-      //   if(confirm('Send SMS to ' + phone + '?')) {
-      //     client.messages
-      //       .create({
-      //         body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-      //         from: '+14124078187',
-      //         to: '+14848329628'
-      //       })
-      //       .then(message => console.log(message.sid));
-      //   }
+      if (phone.length == 12) {
+        if(confirm('Send SMS to ' + phone + '?')) {
+          client.messages
+            .create({
+              body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+              from: '+14124078187',
+              to: phone
+            })
+            .then(message => console.log(message.sid));
+        }
         
-      // } else {
-      //   alert('SMS canceled!');
-      // }
+      } else {
+        alert('SMS canceled!');
+      }
     },
 
     autoScroll() {
