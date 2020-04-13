@@ -18,7 +18,7 @@
         <div class="column">
           <div class="is-centered">
             <p>
-              <a class = "tLink" href="http://www.techeelevator.com/events">calendar</a>
+              <a class = "tLink" href="http://www.techelevator.com/events">calendar</a>
             </p>
             <p>
               <a class = "tLink" href="faq">faqs</a>
