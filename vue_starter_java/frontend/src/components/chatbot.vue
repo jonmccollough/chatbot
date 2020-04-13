@@ -46,11 +46,13 @@
               <div class="field">
                 <label class="label">Send SMS to:</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Text input">
+                  <input class="input" id="phone" type="text" placeholder="Text input">
                 </div>
                 <p class="help">Please enter a 10 digit phone number</p>
-                <button class="modal-submit">Submit</button>
-                <button class="modal-cancel" id="cancel">Cancel</button>
+                <div class="control is-pulled-right">
+                  <button class="button is-success is-small" disabled>Submit</button>
+                  <button class="button is-danger is-small" id="cancel">Cancel</button>
+                </div>
               </div>
             </div>
             <button class="modal-close" id="close" aria-label="close"></button>
