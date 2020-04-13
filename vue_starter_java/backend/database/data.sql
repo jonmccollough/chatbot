@@ -194,7 +194,7 @@ INSERT INTO responses (answer, title) VALUES ('To run basic Wolfram Alpha search
 INSERT INTO keywords (words, keywordid) VALUES ('math', (SELECT id FROM responses WHERE title = 'math'));
 INSERT INTO keywords (words, keywordid) VALUES ('calc', (SELECT id FROM responses WHERE title = 'math'));
 
-INSERT INTO responses (answer, title) VALUES ('Here is the beginning of JavaScript in the book <a target="_blank" href="http://book.techelevator.com/java/70-javascript/05-variables-datatypes/05-variables-and-datatypes.html">How about we start here?</a>', 'javascript');
+INSERT INTO responses (answer, title) VALUES ('Here is the beginning of JavaScript in the book. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/05-variables-datatypes/05-variables-and-datatypes.html">How about we start here?</a>', 'javascript');
 INSERT INTO keywords (words, keywordid) VALUES ('javascript', (SELECT id FROM responses WHERE title = 'javascript'));
 
 INSERT INTO responses (answer, title) VALUES ('Vue is a nifty front end framework. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/60-introduction-to-vue/05-Introduction-to-components.html">Here is a chapter from the textbook about it.</a>', 'vue');
