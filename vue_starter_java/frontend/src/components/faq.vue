@@ -109,6 +109,8 @@
         tieatie <br>
         elevatorpitch <br>
         pitch example <br>
+        link <br>
+        calendar <br>
 
         math <br>
         calc <br>
@@ -176,11 +178,8 @@
         freakingout <br>
         whoareyou <br>
         whatareyou <br>
-        covid <br>
-        coronavirus <br>
         crops <br>
         plancrop <br>
-        cropsplan <br>
         planmycrops <br>
         pittsburghtour <br>
         alcohol <br>
