@@ -110,6 +110,8 @@ INSERT INTO keywords (words, keywordid) VALUES ('assignment', (SELECT id FROM re
 INSERT INTO responses (answer, title) VALUES ('The three fundamentals of Object Orientated Programming are: polymorphism, encapsulation and inheritance.', 'OOP');
 INSERT INTO keywords (words, keywordid) VALUES ('fundamentals', (SELECT id FROM responses WHERE title = 'OOP'));
 INSERT INTO keywords (words, keywordid) VALUES ('o-o-p', (SELECT id FROM responses WHERE title = 'OOP'));
+INSERT INTO keywords (words, keywordid) VALUES ('objectorientedprogramming', (SELECT id FROM responses WHERE title = 'OOP'));
+
 
 INSERT INTO responses (answer, title) VALUES ('API stands for Application Programming Interface. <a target="_blank" href="http://book.techelevator.com/java/70-javascript/45-web-services/04-apis.html">Here is some more information.</a>', 'API');
 INSERT INTO keywords (words, keywordid) VALUES ('api', (SELECT id FROM responses WHERE title = 'API'));
@@ -133,7 +135,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('skynet', (SELECT id FROM respon
 
 INSERT INTO responses (answer, title) VALUES ('I think they are great! I wish I could speak! But at least I will not eavesdrop on your conversations...', 'smartdevice');
 INSERT INTO keywords (words, keywordid) VALUES ('alexa', (SELECT id FROM responses WHERE title = 'smartdevice'));
-INSERT INTO keywords (words, keywordid) VALUES ('google', (SELECT id FROM responses WHERE title = 'smartdevice'));
+INSERT INTO keywords (words, keywordid) VALUES ('googlehome', (SELECT id FROM responses WHERE title = 'smartdevice'));
 
 INSERT INTO responses (answer, title) VALUES ('<iframe src="https://open.spotify.com/embed/track/2qOm7ukLyHUXWyR4ZWLwxA" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>', 'good day');
 INSERT INTO keywords (words, keywordid) VALUES ('goodday', (SELECT id FROM responses WHERE title = 'good day'));
@@ -166,6 +168,7 @@ INSERT INTO keywords (words, keywordid) VALUES ('freakingout', (SELECT id FROM r
 
 INSERT INTO responses (answer, title) VALUES ('Here is a map of popular tourist locations in Pittsburgh: <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d48577.604487171695!2d-80.00240115591183!3d40.4509174073966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1stourist%20sites%20near%20Pittsburgh%2C%20PA!5e0!3m2!1sen!2sus!4v1586539721618!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>', 'pittsburghtour');
 INSERT INTO keywords (words, keywordid) VALUES ('pittsburghtour', (SELECT id FROM responses WHERE title = 'pittsburghtour'));
+INSERT INTO keywords (words, keywordid) VALUES ('tourofpittsburgh', (SELECT id FROM responses WHERE title = 'pittsburghtour'));
 
 INSERT INTO responses (answer, title) VALUES ('My name is Justin Driscoll.', 'who you');
 INSERT INTO keywords (words, keywordid) VALUES ('whoareyou', (SELECT id FROM responses WHERE title = 'who you'));
