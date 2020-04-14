@@ -38,7 +38,6 @@ INSERT INTO keywords (words, keywordid) VALUES ('array', (SELECT id FROM respons
 INSERT INTO responses (answer, title) VALUES ('Do you want help with Java MVC or NET MVC? Type either JModel for Java or NModel for .NET', 'mvc');
 INSERT INTO keywords (words, keywordid) VALUES ('mvc', (SELECT id FROM responses WHERE title = 'mvc'));
 INSERT INTO keywords (words, keywordid) VALUES ('model', (SELECT id FROM responses WHERE title = 'mvc'));
-INSERT INTO keywords (words, keywordid) VALUES ('view', (SELECT id FROM responses WHERE title = 'mvc'));
 INSERT INTO keywords (words, keywordid) VALUES ('controller', (SELECT id FROM responses WHERE title = 'mvc'));
 
 INSERT INTO responses (answer, title) VALUES ('Here is <a target="_blank" href="http://book.techelevator.com/java/75-java-mvc/01-intro-to-mvc/01-introduction-to-web-applications.html">a link to the Java MVC chapter</a>', 'javamvc');
