@@ -1,7 +1,7 @@
 <template>
 
 <body>
-    <div class="faq" ref = "faq"></div>
+   <div class ="container is-inline-mobile">
     <section class ="container">
        <section class="hero is-small is-family-sans-serif is-info">
            <div class="hero-body">
@@ -17,10 +17,10 @@
         </section> 
     </section>
 <section>
-<div class="is-centered">
+<div>
 
 
-<section class ="container">
+<section>
 <aside class="menu">
     
  <p class="menu-label">
@@ -194,6 +194,8 @@
 
 </div>
 </section>
+   </div>
+    
 </body>
 </template>
 
@@ -219,8 +221,10 @@ body {
     margin: 5em;
 }
 .container{
+    display: flex;
  width: 65vw;
-}
+ flex-direction: column;
+} 
 
 details {
     border: 1px solid #aaa;
