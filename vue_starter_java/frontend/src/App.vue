@@ -10,7 +10,7 @@
 </template>
 
 <script>
-//test
+
 import FooterVue from '@/components/FooterVue';
 import HeaderVue from '@/components/HeaderVue';
 import auth from "@/auth.js"
