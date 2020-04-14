@@ -39,8 +39,10 @@
             class="input"
               v-model="message"
               @keyup.enter="sendMessage" />
-            <button @click="sendMessage" @dblclick="phoneInput" class="button is-success">Send</button>
+            <button @click="sendMessage" class="button is-success">Send</button>
+            <button @click="phoneInput" class="button is-link">SMS</button>
         </div>
+   
 
         <div class="modal" id="modal">
           <div class="modal-background" id="bgClose" @click="closeModal"></div>
@@ -58,6 +60,7 @@
               </div>
             </div>
             <button class="modal-close" id="close" @click="closeModal" aria-label="close"></button>
+
           </div>
 
     </section>
