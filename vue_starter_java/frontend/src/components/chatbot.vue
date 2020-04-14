@@ -469,6 +469,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@media screen and (min-width: 900px) {
+    .chat-bot {
+      width: 50vw;
+    }
+}
+
 body {
     background: -webkit-linear-gradient(70deg, #00b0f0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(40deg, white 60%, #8bc440 60%);
     background: -o-linear-gradient(70deg, #00b0f0 30%, rgba(0,0,0,0) 30%), -o-linear-gradient(40deg, white 60%, #8bc440 60%);
